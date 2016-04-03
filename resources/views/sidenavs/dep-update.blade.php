@@ -19,10 +19,18 @@
 		        <label>Phone</label>
 		        <input type="tel" ng-model="updateDep.dep_phone">
 		    </md-input-container>
+		    <div ng-controller="selectCtrl">
+				<md-input-container class="md-block">
+					<label>Manager</label>
+					<md-select ng-model="updateDep.mng_id" name="manager">
+						<md-option ng-value="item.emp_id" ng-repeat="item in emps">@{{item.emp_name}}</md-option>
+					</md-select>
+				</md-input-container>
+			</div>
 		    <div layout="row">
 				<span flex></span>
 				<md-button type="submit" class="md-raised md-primary">Save</md-button>
-				<md-button class="md-raised" ng-click="toggleDepUpdateSidenav(0)">Cancel</md-button>
+				<md-button class="md-raised" ng-click="closeDepUpdateSidenav()">Cancel</md-button>
 			</div>
 		</form>
 	</md-content>

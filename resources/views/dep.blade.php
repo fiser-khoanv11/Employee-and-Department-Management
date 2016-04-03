@@ -17,14 +17,17 @@
 				<img ng-src="images/avatar.jpg" class="md-avatar">
 				<p>@{{item.dep_name}}</p>
 				<p>@{{item.dep_phone}}</p>
+				<p>@{{item.mng_id}}</p>
+				<md-button class="md-raised" ng-click="openDepSelectSidenav(item.dep_id)" style="min-width:0px"><i class="material-icons">info_outline</i></md-button>
 				<md-button class="md-raised" href="emp/@{{item.dep_id}}" style="min-width:0px"><i class="material-icons" style="margin-top:6px">people</i></md-button>
-				<md-button class="md-raised" ng-click="toggleDepUpdateSidenav(item.dep_id)" style="min-width:0px"><i class="material-icons">edit</i></md-button>
+				<md-button class="md-raised" ng-click="openDepUpdateSidenav(item.dep_id)" style="min-width:0px"><i class="material-icons">edit</i></md-button>
 				<md-button class="md-raised" ng-click="showDepDeleteDialog(item.dep_id)" style="min-width:0px"><i class="material-icons">delete</i></md-button>
 			</md-list-item>
 		</div>
 	</md-list>
 @endsection
 
+@include('sidenavs.dep-select')
 @include('sidenavs.dep-insert')
 @include('sidenavs.dep-update')
 

@@ -39,6 +39,10 @@
 					</md-select>
 				</md-input-container>
 			</div>
+			<div class="md-block">
+				<md-datepicker name="dob" ng-model="newEmp.dob" md-placeholder="Date of Birth"></md-datepicker>
+				<p>@{{newEmp.dob}}</p>
+			</div>
 			<div layout="row">
 				<span flex></span>
 				<md-button type="submit" class="md-raised md-primary">Submit</md-button>

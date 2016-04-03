@@ -55,6 +55,8 @@ Route::get('emp-delete/{id}', 'EmpCtrl@delete');
 
 Route::get('emp-select-single/{id}', 'EmpCtrl@selectSingle');
 
+Route::get('emp-select-names', 'EmpCtrl@selectNames');
+
 // Department Routes
 
 Route::get('dep', 'DepCtrl@index');

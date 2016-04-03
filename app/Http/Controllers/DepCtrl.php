@@ -28,6 +28,7 @@ class DepCtrl extends Controller
 		$dep = new Department;
 		$dep->dep_name = $_POST['name'];
 		$dep->dep_phone = $_POST['phone'];
+		$dep->mng_id = $_POST['manager'];
 
 		$dep->save();
 	}
@@ -38,6 +39,7 @@ class DepCtrl extends Controller
 		$dep = Department::find($_POST['dep_id']);
 		$dep->dep_name = $_POST['dep_name'];
 		$dep->dep_phone = $_POST['dep_phone'];
+		$dep->mng_id = $_POST['mng_id'];
 
 		$dep->save();
 	}

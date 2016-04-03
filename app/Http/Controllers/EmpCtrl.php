@@ -27,6 +27,7 @@ class EmpCtrl extends Controller
 		
 		$emp = new Employee;
 
+		$emp->emp_dob = $_POST['dob'];
 		$emp->emp_name = $_POST['name'];
 		$emp->emp_job = $_POST['job'];
 		$emp->emp_phone = $_POST['phone'];
@@ -41,6 +42,7 @@ class EmpCtrl extends Controller
 
 		$emp = Employee::find($_POST['emp_id']);
 
+		$emp->emp_dob = $_POST['emp_dob'];
 		$emp->emp_name = $_POST['emp_name'];
 		$emp->emp_job = $_POST['emp_job'];
 		$emp->emp_phone = $_POST['emp_phone'];
@@ -74,5 +76,13 @@ class EmpCtrl extends Controller
 
 	public function redirect() {
 		return redirect('emp');
+	}
+
+	public function selectNames() {
+		$data = Employee::select('emp_id','emp_name')->orderBy('emp_name')->get();
+
+		$result = '{"records":' . $data . '}';
+
+		echo $result;
 	}
 }

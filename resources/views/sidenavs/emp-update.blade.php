@@ -40,13 +40,16 @@
 		  			<md-select ng-model="updateEmp.dep_id">
 		    			<md-option ng-value="item.dep_id" ng-repeat="item in deps">@{{item.dep_name}}</md-option>
 		  			</md-select>
-		  			<!-- <select ng-model="updateEmp.dep" ng-options="item.name for item in deps track by item.id"> -->
 				</md-input-container>
+			</div>
+			<div class="md-block">
+				<!-- <p>@{{updateEmp.emp_dob}}</p> -->
+				<md-datepicker name="dob" ng-model="updateEmp.emp_dob" md-placeholder="Date of Birth"></md-datepicker>
 			</div>
 		    <div layout="row">
 				<span flex></span>
 				<md-button type="submit" class="md-raised md-primary">Save</md-button>
-				<md-button class="md-raised" ng-click="toggleEmpUpdateSidenav(0)">Cancel</md-button>
+				<md-button class="md-raised" ng-click="closeEmpUpdateSidenav()">Cancel</md-button>
 			</div>
 		</form>
 	</md-content>

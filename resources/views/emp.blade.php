@@ -8,11 +8,11 @@
 		</md-input-container>
 		<md-input-container flex="20">
 			<label>Department</label>
-  			<md-select ng-model="search.dep" ng-change="loadEmps()">
-  				<md-option ng-value="0">All Departments</md-option>
-  				<md-divider></md-divider>
-    			<md-option ng-value="item.dep_id" ng-repeat="item in deps">@{{item.dep_name}}</md-option>
-  			</md-select>
+			<md-select ng-model="search.dep" ng-change="loadEmps()">
+				<md-option ng-value="0">All Departments</md-option>
+				<md-divider></md-divider>
+				<md-option ng-value="item.dep_id" ng-repeat="item in deps">@{{item.dep_name}}</md-option>
+			</md-select>
 		</md-input-container>
 		<md-button class="md-raised" ng-click="clearSearch()" style="height:10px;top:6px">Clear</md-button>
 	</div>
@@ -36,13 +36,11 @@
 				<p>@{{item.emp_name}}</p>
 				<p>@{{item.emp_job}}</p>
 				<p>@{{item.emp_phone}}</p>
-				<p>@{{item.emp_email}}</p>
+				<!-- <p>@{{item.emp_email}}</p> -->
 				<p>@{{item.dep_id}}</p>
-				<md-button class="md-raised" ng-click="toggleEmpSelectSidenav(item.emp_id)" style="min-width:0px"><i class="material-icons">info_outline</i></md-button>
-				<md-button class="md-raised" ng-click="toggleEmpUpdateSidenav(item.emp_id)" style="min-width:0px"><i class="material-icons">edit</i></md-button>
-				<!-- <i class="material-icons" ng-click="toggleEmpUpdateSidenav(item.emp_id)">edit</i> -->
-				<md-button class="md-raised" ng-click="showEmpDeleteDialog(item.emp_id, 0)" style="min-width:0px"><i class="material-icons">delete</i></md-button>
-				<!-- <i class="material-icons" ng-click="showEmpDeleteDialog(item.emp_id)">delete</i> -->
+				<md-button class="md-raised" ng-click="openEmpSelectSidenav(item.emp_id)" style="min-width:0px"><i class="material-icons">info_outline</i></md-button>
+				<md-button class="md-raised" ng-click="openEmpUpdateSidenav(item.emp_id)" style="min-width:0px"><i class="material-icons">edit</i></md-button>
+				<md-button class="md-raised" ng-click="showEmpDeleteDialog(item.emp_id)" style="min-width:0px"><i class="material-icons">delete</i></md-button>
 			</md-list-item>
 		</div>
 	</md-list>

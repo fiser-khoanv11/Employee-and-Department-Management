@@ -16,6 +16,14 @@
 				<label>Phone</label>
 				<input type="tel" name="phone" ng-model="newDep.phone">
 			</md-input-container>
+			<div ng-controller="selectCtrl">
+				<md-input-container class="md-block">
+					<label>Manager</label>
+					<md-select ng-model="newDep.manager" name="manager">
+						<md-option ng-value="item.emp_id" ng-repeat="item in emps">@{{item.emp_name}}</md-option>
+					</md-select>
+				</md-input-container>
+			</div>
 			<div layout="row">
 				<span flex></span>
 				<md-button type="submit" class="md-raised md-primary">Submit</md-button>
