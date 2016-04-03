@@ -1,4 +1,4 @@
-<md-sidenav md-component-id="dep-insert-sidenav" class="md-sidenav-right">
+<md-sidenav md-component-id="dep-insert-sidenav" class="md-sidenav-right" style="width:350px">
 	<md-toolbar>
 		<p class="md-toolbar-tools">Add New Department</p>
 	</md-toolbar>

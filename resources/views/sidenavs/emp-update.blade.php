@@ -1,4 +1,4 @@
-<md-sidenav md-component-id="emp-update-sidenav" class="md-sidenav-right">
+<md-sidenav md-component-id="emp-update-sidenav" class="md-sidenav-right" style="width:350px">
 	<md-toolbar>
 		<p class="md-toolbar-tools">Modify Employee</p>
 	</md-toolbar>
@@ -38,7 +38,7 @@
 			    <md-input-container class="md-block">
 			     	<label>Department</label>
 		  			<md-select ng-model="updateEmp.dep_id">
-		    			<md-option ng-value="item.id" ng-repeat="item in deps">@{{item.name}}</md-option>
+		    			<md-option ng-value="item.dep_id" ng-repeat="item in deps">@{{item.dep_name}}</md-option>
 		  			</md-select>
 		  			<!-- <select ng-model="updateEmp.dep" ng-options="item.name for item in deps track by item.id"> -->
 				</md-input-container>

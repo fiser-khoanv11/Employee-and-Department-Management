@@ -1,4 +1,4 @@
-<md-sidenav md-component-id="dep-update-sidenav" class="md-sidenav-right">
+<md-sidenav md-component-id="dep-update-sidenav" class="md-sidenav-right" style="width:350px">
 	<md-toolbar>
 		<p class="md-toolbar-tools">Modify Department</p>
 	</md-toolbar>
@@ -9,7 +9,7 @@
 			</md-input-container> -->
 		   	<md-input-container class="md-block">
 		        <label>Name</label>
-		        <input type="text" name="name" ng-model="updateDep.name" required md-maxlength="45" md-sidenav-focus>
+		        <input type="text" name="name" ng-model="updateDep.dep_name" required md-maxlength="45" md-sidenav-focus>
 		        <div ng-messages="updateForm.name.$error">
 					<div ng-message="required">Name is required.</div>
 					<div ng-message="md-maxlength">Name has to be less than 45 characters long.</div>
@@ -17,7 +17,7 @@
 		    </md-input-container>
 		    <md-input-container class="md-block">
 		        <label>Phone</label>
-		        <input type="tel" ng-model="updateDep.phone">
+		        <input type="tel" ng-model="updateDep.dep_phone">
 		    </md-input-container>
 		    <div layout="row">
 				<span flex></span>

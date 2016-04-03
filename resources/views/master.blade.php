@@ -12,24 +12,26 @@
 	<div layout="column" layout-fill>
 		<md-toolbar>
 			<div class="md-toolbar-tools">
-				<span>Insert Title Here</span>
+				<span>Employee Directory</span>
 				<span flex></span>
 				<md-button class="md-raised" href="{{url('/emp')}}">Employees</md-button>
 				<md-button class="md-raised" href="{{url('/dep')}}">Departments</md-button>
-				<md-button class="md-raised" ng-click="">Log in</md-button>
+				<md-button class="md-raised" ng-click="toggleLoginSidenav()">Log in</md-button>
 			</div>
 		</md-toolbar>
-		<md-content style="padding:30px 80px">
+		<md-content style="padding:30px 80px" id="content">
 			@yield('content')
 		</md-content>
 	</div>
+
+	@include('sidenavs.acc-login')
 		
 	<!-- Angular Material requires Angular.js Libraries -->
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
-
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
 	<!-- Angular Material Library -->
 	<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
 	

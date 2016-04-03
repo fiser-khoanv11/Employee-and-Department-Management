@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use DB;
+use App\Department;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Http\Requests;
 
 class DepCtrl extends Controller
 {
@@ -17,91 +19,46 @@ class DepCtrl extends Controller
 	}
 
 	public function delete($id) {
-		DB::delete('DELETE FROM department WHERE dep_id=' . $id);
+		Department::destroy($id);
 	}
 
 	public function insert() {
 		$_POST = json_decode(file_get_contents('php://input'), true);
 
-		$name = $_POST['name'];
-		$phone = $_POST['phone'];
+		$dep = new Department;
+		$dep->dep_name = $_POST['name'];
+		$dep->dep_phone = $_POST['phone'];
 
-		$query = 'INSERT INTO department (dep_name, dep_phone) VALUES (';
-		$query .= '"' . $name . '",';
-		$query .= '"' . $phone . '")';
-		DB::insert($query);
-	   
-		echo $query;
+		$dep->save();
 	}
 
 	public function update() {
 		$_POST = json_decode(file_get_contents('php://input'), true);
 
-		$id = $_POST['id'];
-		$name = $_POST['name'];
-		$phone = $_POST['phone'];
+		$dep = Department::find($_POST['dep_id']);
+		$dep->dep_name = $_POST['dep_name'];
+		$dep->dep_phone = $_POST['dep_phone'];
 
-		$query = 'UPDATE department SET ';
-		$query .= 'dep_name="' . $name . '",';
-		$query .= 'dep_phone="' . $phone . '" ';
-		$query .= "WHERE dep_id=" . $id;
-		DB::update($query);
-
-		echo $query;
+		$dep->save();
 	}
 
 	public function select() {
-		$query = 'SELECT * FROM department ORDER BY dep_id DESC';
-
-		$data = DB::select($query);
-
-		$result = '';
-		for ($x = 0; $x < sizeof($data); $x++) {
-			if ($x != 0) {
-				$result .= ',';
-			}
-			$result .= '{';
-			$result .= '"id":' . $data[$x]->dep_id . ',';
-			$result .= '"name":"' . $data[$x]->dep_name . '",';
-			$result .= '"phone":"' . $data[$x]->dep_phone . '"';
-			$result .= '}';
-		}
-
-		$result = '{"records":[' . $result . ']}';
-
+		$data = Department::orderBy('dep_id', 'desc')->get();
+		$result = '{"records":' . $data . '}';
 		echo $result;
 	}
 
 	public function selectSingle($id=null) {
-		$data = DB::select('SELECT * FROM department WHERE dep_id=' . $id);
-
-		$result = '{';
-		$result .= '"id":' . $data[0]->dep_id . ',';
-		$result .= '"name":"' . $data[0]->dep_name . '",';
-		$result .= '"phone":"' . $data[0]->dep_phone . '"';
-		$result .= '}';
-
-		$result = '{"record":[' . $result . ']}';
-
+		$data = Department::find($id);
+		$result = '{"record":[' . $data . ']}';
 		echo $result;
 	}
 
 	public function selectNames() {
-        $data = DB::select('SELECT dep_id, dep_name FROM department');
+		$data = Department::select('dep_id','dep_name')->orderBy('dep_name')->get();
 
-        $result = '';
-        for ($x = 0; $x < sizeof($data); $x++) {
-            if ($x != 0) {
-                $result .= ',';
-            }
-            $result .= '{';
-            $result .= '"id":' . $data[$x]->dep_id . ',';
-            $result .= '"name":"' . $data[$x]->dep_name . '"';
-            $result .= '}';
-        }
+		$result = '{"records":' . $data . '}';
 
-        $result = '{"records":[' . $result . ']}';
-
-        echo $result;
-    }
+		echo $result;
+	}
 }

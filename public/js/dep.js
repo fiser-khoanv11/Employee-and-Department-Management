@@ -1,12 +1,13 @@
-var app = angular.module('EmpApp', ['ngMaterial', 'ngMessages', 'ngAnimate']);
+var app = angular.module('EmpApp', ['ngMaterial', 'ngMessages']);
 
 app.controller('EmpCtrl', function ($scope, $mdSidenav, $mdDialog, $http) {
 	$scope.newDep = {name:null, phone:null};
 	// $scope.updateEmp = {id:null,name:null, job:null, phone:null, email:null, dep:1};
 	// $scope.search = {dep:0, nam:''};
+	var loc = 'http://' + location.host + '/';
 
 	$scope.loadDeps = function () {
-		$http.get('dep-select').then(function (response) {
+		$http.get(loc + 'dep-select').then(function (response) {
 			$scope.deps = response.data.records;
 		});
 	}
@@ -17,7 +18,7 @@ app.controller('EmpCtrl', function ($scope, $mdSidenav, $mdDialog, $http) {
 		console.log($scope.newDep);
 		$http({
 			method: 'POST',
-			url: 'dep-insert',
+			url: loc + 'dep-insert',
 			data: $scope.newDep,
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).success(function (response) {
@@ -32,7 +33,7 @@ app.controller('EmpCtrl', function ($scope, $mdSidenav, $mdDialog, $http) {
 		console.log($scope.updateDep);
 		$http({
 			method: 'POST',
-			url: 'dep-update',
+			url: loc + 'dep-update',
 			data: $scope.updateDep,
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).success(function (response) {
@@ -48,7 +49,7 @@ app.controller('EmpCtrl', function ($scope, $mdSidenav, $mdDialog, $http) {
 
 	$scope.toggleDepUpdateSidenav = function (id) {
 		if (id != 0) {
-			$http.get("dep-select-single/" + id).then(function (response) {
+			$http.get(loc + "dep-select-single/" + id).then(function (response) {
 				$scope.updateDep = response.data.record[0];
 				console.log($scope.updateDep);
 				$mdSidenav('dep-update-sidenav').toggle();
@@ -67,7 +68,7 @@ app.controller('EmpCtrl', function ($scope, $mdSidenav, $mdDialog, $http) {
 			.cancel('Cancel');
 
 		$mdDialog.show(confirm).then(function () {
-			$http.get("dep-delete/" + id).then(function () {
+			$http.get(loc + "dep-delete/" + id).then(function () {
 				$scope.loadDeps();
 			});
 		});

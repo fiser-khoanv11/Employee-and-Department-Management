@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use DB;
 use App\Employee;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Http\Requests;
 
 class EmpCtrl extends Controller
 {
@@ -13,8 +14,8 @@ class EmpCtrl extends Controller
 	 *
 	 * @return Response
 	 */
-	public function index() {
-		return view('emp');
+	public function index($dep=0) {
+		return view('emp', ['dep' => $dep]);
 	}
 
 	public function delete($id) {
@@ -60,7 +61,7 @@ class EmpCtrl extends Controller
 			$data = $data->where('emp_name', 'like', '%'.$name.'%');
 		}
 
-		$result = '{"records":' . $data->get()->toJson() . '}';
+		$result = '{"records":' . $data->get() . '}';
 
 		echo $result;
 	}
@@ -69,5 +70,9 @@ class EmpCtrl extends Controller
 		$data = Employee::find($id);
 		$result = '{"record":[' . $data . ']}';
 		echo $result;
+	}
+
+	public function redirect() {
+		return redirect('emp');
 	}
 }

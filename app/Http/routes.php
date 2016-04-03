@@ -15,21 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-use App\Employee;
-Route::get('emp-test/{name}/{job}', function ($name, $job) {
-	$emp = new Employee;
-
-	$emp->emp_name = $name;
-	$emp->emp_job = $job;
-	// $emp->emp_phone = $_POST['phone'];
-	// $emp->emp_email = $_POST['email'];
-	// $emp->dep_id = $_POST['dep'];
-	
-	$emp->save();
-});
-
-// Route::get('emp-select2/{dep}/{name?}', 'EmpCtrl@select2');
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -46,11 +31,19 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('sess', 'EmpCtrl@sess');
 });
 
-Route::get('/', 'EmpCtrl@index');
+
+
+
+
+
+
+
+
+Route::get('/', 'EmpCtrl@redirect');
 
 // Employee Routes
 
-Route::get('emp', 'EmpCtrl@index');
+Route::get('emp/{dep?}', 'EmpCtrl@index');
 
 Route::get('emp-select/{dep}/{name?}', 'EmpCtrl@select');
 
