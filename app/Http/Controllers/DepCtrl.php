@@ -46,12 +46,16 @@ class DepCtrl extends Controller
 
 	public function select() {
 		$data = Department::orderBy('dep_id', 'desc')->get();
+		foreach ($data as $item) {
+			$item->mng_name = $item->manager->emp_name;
+		}
 		$result = '{"records":' . $data . '}';
 		echo $result;
 	}
 
 	public function selectSingle($id=null) {
 		$data = Department::find($id);
+		$data->mng_name = $data->manager->emp_name;
 		$result = '{"record":[' . $data . ']}';
 		echo $result;
 	}

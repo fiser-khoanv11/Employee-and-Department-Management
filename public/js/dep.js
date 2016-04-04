@@ -99,6 +99,10 @@ app.controller('EmpCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 			});
 		});
 	}
+
+	$scope.toggleLoginSidenav = function () {
+		$mdSidenav('login-sidenav').toggle();
+	}
 });
 
 app.controller('selectCtrl', function ($scope, $http) {

@@ -22,7 +22,7 @@
 		  	<md-list-item class="md-2-line">
 				<i class="material-icons md-avatar-icon">face</i>
 				<div class="md-list-item-text">
-					<h3>@{{selectDep.mng_id}}</h3>
+					<h3>@{{selectDep.mng_name}}</h3>
 					<p>Manager</p>
 				</div>
 		  	</md-list-item>

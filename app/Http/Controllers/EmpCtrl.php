@@ -63,13 +63,29 @@ class EmpCtrl extends Controller
 			$data = $data->where('emp_name', 'like', '%'.$name.'%');
 		}
 
-		$result = '{"records":' . $data->get() . '}';
+		$data = $data->get();
+		foreach ($data as $item) {
+			if ($item->department == '') {
+				$item->dep_name = '';
+			} else {
+				$item->dep_name = $item->department->dep_name;
+			}
+			
+		}
 
+		$result = '{"records":' . $data . '}';
 		echo $result;
 	}
 
 	public function selectSingle($id=null) {
 		$data = Employee::find($id);
+
+		if ($data->department == '') {
+			$data->dep_name = '';
+		} else {
+			$data->dep_name = $data->department->dep_name;
+		}
+
 		$result = '{"record":[' . $data . ']}';
 		echo $result;
 	}

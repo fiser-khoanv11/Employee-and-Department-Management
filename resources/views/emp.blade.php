@@ -21,23 +21,33 @@
 
 	<md-list>
 		<div layout="row">
-			<md-subheader class="md-no-sticky">Employees</md-subheader>
+			<!-- <md-subheader class="md-no-sticky">Employees</md-subheader> -->
 			<span flex></span>
 			<md-button class="md-raised md-primary md-fab" ng-click="toggleEmpInsertSidenav()" style="margin-right:16px">
 				<md-tooltip md-direction="left">Add new employee</md-tooltip>
 				<i class="material-icons">add</i>
 			</md-button>
 		</div>
+		<div>
+			<md-list-item style="padding:0px 16px; left:-16px">
+				<img ng-src="" class="md-avatar" style="visibility:hidden">
+				<p><md-subheader>Name</md-subheader></p>
+				<p><md-subheader>Job Title</md-subheader></p>
+				<p><md-subheader>Email</md-subheader></p>
+				<p><md-subheader>Department</md-subheader></p>
+				<md-button class="md-raised" style="min-width:0px; visibility:hidden"><i class="material-icons">info_outline</i></md-button>
+				<md-button class="md-raised" style="min-width:0px; visibility:hidden"><i class="material-icons">edit</i></md-button>
+				<md-button class="md-raised" style="min-width:0px; visibility:hidden"><i class="material-icons">delete</i></md-button>
+			</md-list-item>
+		</div>
 		<div ng-repeat="item in emps">
 			<md-divider></md-divider>
 			<md-list-item ng-click="something()">
-				<!-- <md-checkbox class="secondary"></md-checkbox> -->
 				<img ng-src="{{url('images/avatar.jpg')}}" class="md-avatar">
 				<p>@{{item.emp_name}}</p>
 				<p>@{{item.emp_job}}</p>
-				<p>@{{item.emp_phone}}</p>
-				<!-- <p>@{{item.emp_email}}</p> -->
-				<p>@{{item.dep_id}}</p>
+				<p>@{{item.emp_email}}</p>
+				<p>@{{item.dep_name}}</p>
 				<md-button class="md-raised" ng-click="openEmpSelectSidenav(item.emp_id)" style="min-width:0px"><i class="material-icons">info_outline</i></md-button>
 				<md-button class="md-raised" ng-click="openEmpUpdateSidenav(item.emp_id)" style="min-width:0px"><i class="material-icons">edit</i></md-button>
 				<md-button class="md-raised" ng-click="showEmpDeleteDialog(item.emp_id)" style="min-width:0px"><i class="material-icons">delete</i></md-button>

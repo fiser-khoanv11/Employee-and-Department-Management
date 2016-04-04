@@ -43,7 +43,7 @@
 		  	<md-list-item class="md-2-line">
 				<i class="material-icons md-avatar-icon">home</i>
 				<div class="md-list-item-text">
-					<h3>@{{selectEmp.dep_id}}</h3>
+					<h3>@{{selectEmp.dep_name}}</h3>
 					<p>Department</p>
 				</div>
 		  	</md-list-item>

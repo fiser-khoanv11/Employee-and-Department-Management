@@ -33,8 +33,15 @@ Route::group(['middleware' => ['web']], function () {
 
 
 
+use App\Employee;
 
+Route::get('test', function () {
+	$emps = Employee::all();
 
+	foreach($emps as $emp) {
+		echo $emp->department->dep_name . '<br/>';
+	}
+});
 
 
 
