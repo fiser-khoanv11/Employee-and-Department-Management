@@ -46,6 +46,7 @@ class DepCtrl extends Controller
 
 	public function select() {
 		$data = Department::orderBy('dep_id', 'desc')->get();
+
 		foreach ($data as $item) {
 			if ($item->manager == '') {
 				$item->mng_name = '';
@@ -53,6 +54,7 @@ class DepCtrl extends Controller
 				$item->mng_name = $item->manager->emp_name;	
 			}
 		}
+		
 		$result = '{"records":' . $data . '}';
 		echo $result;
 	}

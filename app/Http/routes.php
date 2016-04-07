@@ -27,55 +27,38 @@ Route::get('/', function () {
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
-    Route::get('sess', 'EmpCtrl@sess');
+
+	Route::get('/', 'EmpCtrl@redirect');
+
+	// Employee Routes
+
+	Route::get('emp/{dep?}', 'EmpCtrl@index');
+
+	Route::get('emp-select/{dep}/{name?}', 'EmpCtrl@select');
+
+	Route::post('emp-insert', 'EmpCtrl@insert');
+
+	Route::post('emp-update', 'EmpCtrl@update');
+
+	Route::get('emp-delete/{id}', 'EmpCtrl@delete');
+
+	Route::get('emp-select-single/{id}', 'EmpCtrl@selectSingle');
+
+	Route::get('emp-select-names', 'EmpCtrl@selectNames');
+
+	// Department Routes
+
+	Route::get('dep', 'DepCtrl@index');
+
+	Route::get('dep-select', 'DepCtrl@select');
+
+	Route::post('dep-insert', 'DepCtrl@insert');
+
+	Route::post('dep-update', 'DepCtrl@update');
+
+	Route::get('dep-delete/{id}', 'DepCtrl@delete');
+
+	Route::get('dep-select-single/{id}', 'DepCtrl@selectSingle');
+
+	Route::get('dep-select-names', 'DepCtrl@selectNames');
 });
-
-
-
-use App\Employee;
-
-Route::get('test', function () {
-	$emps = Employee::all();
-
-	foreach($emps as $emp) {
-		echo $emp->department->dep_name . '<br/>';
-	}
-});
-
-
-
-
-Route::get('/', 'EmpCtrl@redirect');
-
-// Employee Routes
-
-Route::get('emp/{dep?}', 'EmpCtrl@index');
-
-Route::get('emp-select/{dep}/{name?}', 'EmpCtrl@select');
-
-Route::post('emp-insert', 'EmpCtrl@insert');
-
-Route::post('emp-update', 'EmpCtrl@update');
-
-Route::get('emp-delete/{id}', 'EmpCtrl@delete');
-
-Route::get('emp-select-single/{id}', 'EmpCtrl@selectSingle');
-
-Route::get('emp-select-names', 'EmpCtrl@selectNames');
-
-// Department Routes
-
-Route::get('dep', 'DepCtrl@index');
-
-Route::get('dep-select', 'DepCtrl@select');
-
-Route::post('dep-insert', 'DepCtrl@insert');
-
-Route::post('dep-update', 'DepCtrl@update');
-
-Route::get('dep-delete/{id}', 'DepCtrl@delete');
-
-Route::get('dep-select-single/{id}', 'DepCtrl@selectSingle');
-
-Route::get('dep-select-names', 'DepCtrl@selectNames');

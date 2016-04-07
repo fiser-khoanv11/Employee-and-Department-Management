@@ -1,5 +1,9 @@
 @extends('master')
 
+@section('css')
+	@include('libs.css')
+@endsection
+
 @section('content')
 	<md-list>
 		<div layout="row">

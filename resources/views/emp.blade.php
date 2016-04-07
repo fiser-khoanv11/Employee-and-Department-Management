@@ -1,5 +1,9 @@
 @extends('master')
 
+@section('css')
+	@include('libs.css')
+@endsection
+
 @section('content')
 	<div ng-controller="selectCtrl" layout="row">
 		<md-input-container flex="25">
