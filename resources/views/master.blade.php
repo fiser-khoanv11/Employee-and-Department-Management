@@ -15,7 +15,11 @@
 				<span flex></span>
 				<md-button class="@{{tab.emp}}" href="{{url('/emp')}}">Employees</md-button>
 				<md-button class="@{{tab.dep}}" href="{{url('/dep')}}">Departments</md-button>
+			@if ($status == 'n')
 				<md-button class="@{{tab.log}}" ng-click="toggleLoginSidenav()">Log in</md-button>
+			@elseif ($status == 'y')
+				<md-button class="@{{tab.log}}" href="{{url('acc-logout')}}">Log out</md-button>
+			@endif
 			</div>
 		</md-toolbar>
 		<md-content style="padding:30px 50px; margin:0px 50px; border-radius:0px 0px 15px 15px">
