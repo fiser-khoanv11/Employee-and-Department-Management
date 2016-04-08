@@ -14,8 +14,9 @@ class DepCtrl extends Controller
 	 *
 	 * @return Response
 	 */
-	public function index() {
-		return view('dep');
+	public function index(Request $request) {
+		$status = $request->session()->get('status', 'n');
+		return view('dep', ['status' => $status]);
 	}
 
 	public function delete($id) {
@@ -28,6 +29,7 @@ class DepCtrl extends Controller
 		$dep = new Department;
 		$dep->dep_name = $_POST['name'];
 		$dep->dep_phone = $_POST['phone'];
+		$dep->dep_address = $_POST['address'];
 		$dep->mng_id = $_POST['manager'];
 
 		$dep->save();
@@ -39,6 +41,7 @@ class DepCtrl extends Controller
 		$dep = Department::find($_POST['dep_id']);
 		$dep->dep_name = $_POST['dep_name'];
 		$dep->dep_phone = $_POST['dep_phone'];
+		$dep->dep_address = $_POST['dep_address'];
 		$dep->mng_id = $_POST['mng_id'];
 
 		$dep->save();

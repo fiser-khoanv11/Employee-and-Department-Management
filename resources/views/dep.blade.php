@@ -1,9 +1,5 @@
 @extends('master')
 
-@section('css')
-	@include('libs.css')
-@endsection
-
 @section('content')
 	<md-list>
 		<div layout="row">
@@ -18,12 +14,14 @@
 			<md-list-item style="padding:0px 16px; left:-16px">
 				<img ng-src="" class="md-avatar" style="visibility:hidden">
 				<p><md-subheader>Name</md-subheader></p>
-				<p><md-subheader>Phone</md-subheader></p>
+				<p><md-subheader>Address</md-subheader></p>
 				<p><md-subheader>Manager</md-subheader></p>
 				<md-button class="md-raised" style="min-width:0px; visibility:hidden"><i class="material-icons">info_outline</i></md-button>
 				<md-button class="md-raised" style="min-width:0px; visibility:hidden"><i class="material-icons">info_outline</i></md-button>
+			@if ($status == 'y')
 				<md-button class="md-raised" style="min-width:0px; visibility:hidden"><i class="material-icons">edit</i></md-button>
 				<md-button class="md-raised" style="min-width:0px; visibility:hidden"><i class="material-icons">delete</i></md-button>
+			@endif
 			</md-list-item>
 		</div>
 		<div ng-repeat="item in deps">
@@ -32,20 +30,24 @@
 				<!-- <md-checkbox class="secondary"></md-checkbox> -->
 				<img ng-src="images/avatar.jpg" class="md-avatar">
 				<p>@{{item.dep_name}}</p>
-				<p>@{{item.dep_phone}}</p>
+				<p>@{{item.dep_address}}</p>
 				<p>@{{item.mng_name}}</p>
 				<md-button class="md-raised" ng-click="openDepSelectSidenav(item.dep_id)" style="min-width:0px"><i class="material-icons">info_outline</i></md-button>
 				<md-button class="md-raised" href="emp/@{{item.dep_id}}" style="min-width:0px"><i class="material-icons" style="margin-top:6px">people</i></md-button>
+			@if ($status == 'y')	
 				<md-button class="md-raised" ng-click="openDepUpdateSidenav(item.dep_id)" style="min-width:0px"><i class="material-icons">edit</i></md-button>
 				<md-button class="md-raised" ng-click="showDepDeleteDialog(item.dep_id)" style="min-width:0px"><i class="material-icons">delete</i></md-button>
+			@endif	
 			</md-list-item>
 		</div>
 	</md-list>
 @endsection
 
 @include('sidenavs.dep-select')
-@include('sidenavs.dep-insert')
-@include('sidenavs.dep-update')
+@if ($status == 'y')
+	@include('sidenavs.dep-insert')
+	@include('sidenavs.dep-update')
+@endif
 
 @section('js')
 	<script type="text/javascript" src="{{url('js/dep.js')}}"></script>

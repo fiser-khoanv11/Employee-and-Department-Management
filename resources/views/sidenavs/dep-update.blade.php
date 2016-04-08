@@ -19,6 +19,13 @@
 		        <label>Phone</label>
 		        <input type="tel" ng-model="updateDep.dep_phone">
 		    </md-input-container>
+		    <md-input-container class="md-block">
+				<label>Address</label>
+				<input type="text" name="address" ng-model="updateDep.dep_address" md-maxlength="90">
+				<div ng-messages="updateForm.name.$error">
+					<div ng-message="md-maxlength">Address has to be less than 90 characters long.</div>
+				</div>
+			</md-input-container>
 		    <div ng-controller="selectCtrl">
 				<md-input-container class="md-block">
 					<label>Manager</label>

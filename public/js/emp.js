@@ -1,21 +1,4 @@
-var app = angular.module('EmpApp', ['ngMaterial', 'ngMessages']);
-
-app.config(function ($mdThemingProvider, $mdDateLocaleProvider) {
-	$mdThemingProvider.theme('default')
-		.primaryPalette('teal');
-		// .dark();
-
-	// $mdDateLocaleProvider.parseDate = function(dateString) {
-	//     var m = moment(dateString, 'L', true);
-	//     return m.isValid() ? m.toDate() : new Date(NaN);
- //  	};
-
-	// $mdDateLocaleProvider.formatDate = function (date) {
-	// 	return moment(date).format('L');
-	// };
-});
-
-app.controller('EmpCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToast) {
+app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToast) {
 	$scope.tab = {emp:'md-raised', dep:'', log:''};
 	$scope.newEmp = {name:null, job:null, dob:null, phone:null, email:null, dep:null};
 	$scope.search = {dep:document.getElementById('para').innerHTML, nam:''};
@@ -113,10 +96,6 @@ app.controller('EmpCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 				$mdToast.show(toast);
 			});
 		});
-	}
-
-	$scope.toggleLoginSidenav = function () {
-		$mdSidenav('login-sidenav').toggle();
 	}
 
 	$scope.clearSearch = function () {

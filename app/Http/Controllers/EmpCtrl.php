@@ -16,7 +16,8 @@ class EmpCtrl extends Controller
 	 */
 	public function index(Request $request, $dep=0) {
 		$status = $request->session()->get('status', 'n');
-		return view('emp', ['dep' => $dep, 'status' => $status]);
+		$username = $request->session()->get('username');
+		return view('emp', ['dep' => $dep, 'status' => $status, 'username' => $username]);
 	}
 
 	public function delete($id) {
@@ -81,6 +82,7 @@ class EmpCtrl extends Controller
 	public function selectSingle($id=null) {
 		$data = Employee::find($id);
 
+		// $data->department
 		if ($data->department == '') {
 			$data->dep_name = '';
 		} else {

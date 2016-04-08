@@ -2,7 +2,7 @@
 	<md-toolbar>
 		<p class="md-toolbar-tools">@{{selectEmp.emp_name}}</p>
 	</md-toolbar>
-	<img ng-src="images/cam.jpg" style="width:100%">
+	<img ng-src="{{url('images/cam.jpg')}}" style="width:100%">
 	<md-content layout-padding>
 		<md-list>
 			<md-list-item class="md-2-line">
@@ -53,8 +53,8 @@
 				<span flex></span>
 			@if ($status == 'y')
 				<md-button class="md-raised md-primary" ng-click="openEmpUpdateSidenav(selectEmp.emp_id)">Modify</md-button>
-			@endif
 				<md-button class="md-raised md-primary" ng-click="showEmpDeleteDialog(selectEmp.emp_id)">Delete</md-button>
+			@endif
 				<md-button class="md-raised" ng-click="closeEmpSelectSidenav()">Close</md-button>
 			</div>
 		</form>

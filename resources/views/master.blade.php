@@ -1,15 +1,15 @@
 <html lang="en" >
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	@yield('css')
 	<title>Employee Directory</title>
+	@include('libs.css')
 </head>
-<body ng-app="EmpApp" ng-controller="EmpCtrl" ng-cloak style="background-color:grey">
+<body ng-app="App" ng-controller="AppCtrl" ng-cloak style="background-color:grey">
 	<!--
 		Your HTML content here
 	-->
 	<div layout="column">
-		<md-toolbar>
+		<md-toolbar ng-controller="ToolbarCtrl">
 			<div class="md-toolbar-tools">
 				<span>Employee Directory</span>
 				<span flex></span>
@@ -18,7 +18,8 @@
 			@if ($status == 'n')
 				<md-button class="@{{tab.log}}" ng-click="toggleLoginSidenav()">Log in</md-button>
 			@elseif ($status == 'y')
-				<md-button class="@{{tab.log}}" href="{{url('acc-logout')}}">Log out</md-button>
+				<md-button href="{{url('acc-logout')}}">Log out</md-button>
+				<md-button ng-click="toggleAccInsertSidenav()">Add Admin</md-button>
 			@endif
 			</div>
 		</md-toolbar>
@@ -27,11 +28,16 @@
 		</md-content>
 	</div>
 
-	@include('sidenavs.acc-login')
-		
+	@if ($status == 'n')
+		@include('sidenavs.acc-login')
+	@elseif ($status == 'y')
+		@include('sidenavs.acc-insert')
+	@endif
+
 	@include('libs.js')
 	
 	<!-- Your application bootstrap  -->
+	<script type="text/javascript" src="{{url('js/common.js')}}"></script>
 	@yield('js')
 	
 </body>

@@ -1,9 +1,5 @@
 @extends('master')
 
-@section('css')
-	@include('libs.css')
-@endsection
-
 @section('content')
 	<div ng-controller="selectCtrl" layout="row">
 		<md-input-container flex="25">
@@ -37,7 +33,7 @@
 				<img ng-src="" class="md-avatar" style="visibility:hidden">
 				<p><md-subheader>Name</md-subheader></p>
 				<p><md-subheader>Job Title</md-subheader></p>
-				<p><md-subheader>Email</md-subheader></p>
+				<!-- <p><md-subheader>Email</md-subheader></p> -->
 				<p><md-subheader>Department</md-subheader></p>
 				<md-button class="md-raised" style="min-width:0px; visibility:hidden"><i class="material-icons">info_outline</i></md-button>
 			@if ($status == 'y')	
@@ -52,7 +48,7 @@
 				<img ng-src="{{url('images/avatar.jpg')}}" class="md-avatar">
 				<p>@{{item.emp_name}}</p>
 				<p>@{{item.emp_job}}</p>
-				<p>@{{item.emp_email}}</p>
+				<!-- <p>@{{item.emp_email}}</p> -->
 				<p>@{{item.dep_name}}</p>
 				<md-button class="md-raised" ng-click="openEmpSelectSidenav(item.emp_id)" style="min-width:0px"><i class="material-icons">info_outline</i></md-button>
 			@if ($status == 'y')

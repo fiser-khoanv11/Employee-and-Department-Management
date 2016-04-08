@@ -1,14 +1,6 @@
-var app = angular.module('EmpApp', ['ngMaterial', 'ngMessages']);
-
-app.config(function ($mdThemingProvider, $mdDateLocaleProvider) {
-	$mdThemingProvider.theme('default')
-		.primaryPalette('teal');
-		// .dark();
-});
-
-app.controller('EmpCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToast) {
+app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToast) {
 	$scope.tab = {emp:'', dep:'md-raised', log:''};
-	$scope.newDep = {name:null, phone:null, manager:null};
+	$scope.newDep = {name:null, phone:null, address:null, manager:null};
 	// $scope.updateEmp = {id:null,name:null, job:null, phone:null, email:null, dep:1};
 	// $scope.search = {dep:0, nam:''};
 	var loc = 'http://' + location.host + '/';
@@ -31,7 +23,7 @@ app.controller('EmpCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 		}).success(function (response) {
 			$scope.loadDeps();
 			$scope.toggleDepInsertSidenav();
-			$scope.newDep = {name:null, phone:null, manager:null};
+			$scope.newDep = {name:null, phone:null, address:null, manager:null};
 			var toast = $mdToast.simple().textContent('Inserted!')
 			$mdToast.show(toast);
 		});
@@ -98,10 +90,6 @@ app.controller('EmpCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 				$mdToast.show(toast);
 			});
 		});
-	}
-
-	$scope.toggleLoginSidenav = function () {
-		$mdSidenav('login-sidenav').toggle();
 	}
 });
 

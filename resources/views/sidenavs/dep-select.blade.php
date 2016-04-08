@@ -12,11 +12,18 @@
 					<p>Name</p>
 				</div>
 		  	</md-list-item>
-		  	<md-list-item class="md-2-line">
+		  	<!-- <md-list-item class="md-2-line">
 				<i class="material-icons md-avatar-icon">phone</i>
 				<div class="md-list-item-text">
 					<h3>@{{selectDep.dep_phone}}</h3>
 					<p>Phone</p>
+				</div>
+		  	</md-list-item> -->
+		  	<md-list-item class="md-2-line">
+				<i class="material-icons md-avatar-icon">place</i>
+				<div class="md-list-item-text">
+					<h3>@{{selectDep.dep_address}}</h3>
+					<p>Address</p>
 				</div>
 		  	</md-list-item>
 		  	<md-list-item class="md-2-line">
@@ -30,8 +37,10 @@
 		
 			<div layout="row">
 				<span flex></span>
+			@if ($status == 'y')
 				<md-button class="md-raised md-primary" ng-click="openDepUpdateSidenav(selectDep.dep_id)">Modify</md-button>
 				<md-button class="md-raised md-primary" ng-click="showDepDeleteDialog(selectDep.dep_id)">Delete</md-button>
+			@endif
 				<md-button class="md-raised" ng-click="closeDepSelectSidenav()">Close</md-button>
 			</div>
 		</form>
