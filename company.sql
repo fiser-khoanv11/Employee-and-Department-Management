@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: company
 -- ------------------------------------------------------
--- Server version	5.5.5-10.0.17-MariaDB
+-- Server version	5.5.5-10.0.17-MariaDB-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,6 +16,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `account`
+--
+
+DROP TABLE IF EXISTS `account`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `account` (
+  `acc_id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  PRIMARY KEY (`acc_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `account`
+--
+
+LOCK TABLES `account` WRITE;
+/*!40000 ALTER TABLE `account` DISABLE KEYS */;
+INSERT INTO `account` VALUES (1,'khoa','admin','admin@mail',1);
+/*!40000 ALTER TABLE `account` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `department`
 --
 
@@ -26,11 +53,12 @@ CREATE TABLE `department` (
   `dep_id` int(11) NOT NULL AUTO_INCREMENT,
   `dep_name` varchar(45) CHARACTER SET latin1 NOT NULL,
   `dep_phone` varchar(45) CHARACTER SET latin1 DEFAULT NULL,
+  `dep_address` varchar(90) DEFAULT NULL,
   `mng_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`dep_id`),
   KEY `fk_mng_emp_idx` (`mng_id`),
   CONSTRAINT `fk_mng_emp` FOREIGN KEY (`mng_id`) REFERENCES `employee` (`emp_id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +67,7 @@ CREATE TABLE `department` (
 
 LOCK TABLES `department` WRITE;
 /*!40000 ALTER TABLE `department` DISABLE KEYS */;
-INSERT INTO `department` VALUES (1,'Marketing','23435234',1),(5,'Analysis','678678vnu',2),(7,'Testing','72724268',6),(8,'Resource','123456789',1);
+INSERT INTO `department` VALUES (1,'Marketing','23435234',NULL,6),(5,'Analysis','678678vnu','LA',2),(7,'Planning','72724268','Chicago',6),(8,'Human Resources','123456789','Canada',1),(9,'Finance',NULL,'Hanoi',7),(10,'Accounting',NULL,'Ho Chi Minh City',8);
 /*!40000 ALTER TABLE `department` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -62,7 +90,7 @@ CREATE TABLE `employee` (
   PRIMARY KEY (`emp_id`),
   KEY `fk_emp_dep_idx` (`dep_id`),
   CONSTRAINT `fk_emp_dep` FOREIGN KEY (`dep_id`) REFERENCES `department` (`dep_id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,33 +99,8 @@ CREATE TABLE `employee` (
 
 LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES (1,'Nguyen Vinh Khoa',NULL,'CEO','1995-11-18','01689867135','khoa.uet58@gmail.com',8),(2,'Vu Minh Chinh',NULL,'Guard','1995-08-04','5895','chinhvm@gmail.com',7),(6,'Do Ngoc Hung',NULL,'Singer','1995-05-04','coolforthesummer','hungdn_58@vnu.edu.vn',5);
+INSERT INTO `employee` VALUES (1,'Nguyen Vinh Khoa',NULL,'CEO','1995-11-18','01689867135','khoa.uet58@gmail.com',8),(2,'Vu Minh Chinh',NULL,'Guard','1995-08-05','5895','chinhvm@gmail.com',7),(6,'Do Ngoc Hung',NULL,'Singer','1995-05-04','wreckit','hungdn_58@vnu.edu.vn',5),(7,'Doan Thi Hien',NULL,'Clerk','1970-01-01','013587153','doan.helen@gmail.com',1),(8,'Nguyen Thi Trang',NULL,'Student','1970-01-01','09-33-168315','trangnt95@yahoo.com',7);
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `users`
---
-
-DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
-  `email` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `users`
---
-
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -109,4 +112,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-04-03 19:24:32
+-- Dump completed on 2016-04-08 22:41:21
