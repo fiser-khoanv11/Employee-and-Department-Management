@@ -16,8 +16,8 @@ class EmpCtrl extends Controller
 	 */
 	public function index(Request $request, $dep=0) {
 		$status = $request->session()->get('status', 'n');
-		$username = $request->session()->get('username');
-		return view('emp', ['dep' => $dep, 'status' => $status, 'username' => $username]);
+		$name = $request->session()->get('name');
+		return view('emp', ['dep' => $dep, 'status' => $status, 'name' => $name]);
 	}
 
 	public function delete($id) {

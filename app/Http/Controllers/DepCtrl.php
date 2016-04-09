@@ -16,7 +16,8 @@ class DepCtrl extends Controller
 	 */
 	public function index(Request $request) {
 		$status = $request->session()->get('status', 'n');
-		return view('dep', ['status' => $status]);
+		$name = $request->session()->get('name');
+		return view('dep', ['status' => $status, 'name' => $name]);
 	}
 
 	public function delete($id) {

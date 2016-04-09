@@ -18,8 +18,10 @@
 			@if ($status == 'n')
 				<md-button class="@{{tab.log}}" ng-click="toggleLoginSidenav()">Log in</md-button>
 			@elseif ($status == 'y')
-				<md-button href="{{url('acc-logout')}}">Log out</md-button>
 				<md-button ng-click="toggleAccInsertSidenav()">Add Admin</md-button>
+				<md-button ng-click="toggleAccUpdateSidenav()">Change Password</md-button>
+				<md-button href="{{url('acc-logout')}}">Log out</md-button>
+				<md-button ng-disabled="false">Welcome, {{$name}}</md-button>
 			@endif
 			</div>
 		</md-toolbar>
@@ -28,11 +30,14 @@
 		</md-content>
 	</div>
 
-	@if ($status == 'n')
-		@include('sidenavs.acc-login')
-	@elseif ($status == 'y')
-		@include('sidenavs.acc-insert')
-	@endif
+	<div ng-controller="AccSidenavCtrl">
+		@if ($status == 'n')
+			@include('sidenavs.acc-login')
+		@elseif ($status == 'y')
+			@include('sidenavs.acc-insert')
+			@include('sidenavs.acc-update')
+		@endif
+	</div>
 
 	@include('libs.js')
 	

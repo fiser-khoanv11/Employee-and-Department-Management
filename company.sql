@@ -24,12 +24,12 @@ DROP TABLE IF EXISTS `account`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `account` (
   `acc_id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
-  `email` varchar(45) NOT NULL,
-  `status` tinyint(1) NOT NULL,
+  `acc_name` varchar(45) NOT NULL,
+  `acc_password` varchar(45) NOT NULL,
+  `acc_email` varchar(45) NOT NULL,
+  `acc_status` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`acc_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
-INSERT INTO `account` VALUES (1,'khoa','admin','admin@mail',1);
+INSERT INTO `account` VALUES (1,'khoa','admin','admin@mail',1),(2,'captain','admin','captain@gmail.com',0),(3,'jessie','admin','jess@wut',0);
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -58,7 +58,7 @@ CREATE TABLE `department` (
   PRIMARY KEY (`dep_id`),
   KEY `fk_mng_emp_idx` (`mng_id`),
   CONSTRAINT `fk_mng_emp` FOREIGN KEY (`mng_id`) REFERENCES `employee` (`emp_id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,7 +67,7 @@ CREATE TABLE `department` (
 
 LOCK TABLES `department` WRITE;
 /*!40000 ALTER TABLE `department` DISABLE KEYS */;
-INSERT INTO `department` VALUES (1,'Marketing','23435234',NULL,6),(5,'Analysis','678678vnu','LA',2),(7,'Planning','72724268','Chicago',6),(8,'Human Resources','123456789','Canada',1),(9,'Finance',NULL,'Hanoi',7),(10,'Accounting',NULL,'Ho Chi Minh City',8);
+INSERT INTO `department` VALUES (1,'Marketing','23435234',NULL,6),(5,'Analysis','678678vnu','LA',2),(7,'Planning','72724268','Chicago',6),(8,'Human Resources','123456789','Canada',1),(9,'Finance',NULL,'Hanoi',NULL),(10,'Accounting',NULL,'Ho Chi Minh City',8);
 /*!40000 ALTER TABLE `department` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,7 +90,7 @@ CREATE TABLE `employee` (
   PRIMARY KEY (`emp_id`),
   KEY `fk_emp_dep_idx` (`dep_id`),
   CONSTRAINT `fk_emp_dep` FOREIGN KEY (`dep_id`) REFERENCES `department` (`dep_id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -99,7 +99,7 @@ CREATE TABLE `employee` (
 
 LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES (1,'Nguyen Vinh Khoa',NULL,'CEO','1995-11-18','01689867135','khoa.uet58@gmail.com',8),(2,'Vu Minh Chinh',NULL,'Guard','1995-08-05','5895','chinhvm@gmail.com',7),(6,'Do Ngoc Hung',NULL,'Singer','1995-05-04','wreckit','hungdn_58@vnu.edu.vn',5),(7,'Doan Thi Hien',NULL,'Clerk','1970-01-01','013587153','doan.helen@gmail.com',1),(8,'Nguyen Thi Trang',NULL,'Student','1970-01-01','09-33-168315','trangnt95@yahoo.com',7);
+INSERT INTO `employee` VALUES (1,'Nguyen Vinh Khoa',NULL,'CEO','1995-11-18','01689867135','khoa.uet58@gmail.com',8),(2,'Vu Minh Chinh',NULL,'Guard','1995-08-05','5895','chinhvm@gmail.com',7),(6,'Do Ngoc Hung',NULL,'Singer','1995-05-04','wreckit','hungdn_58@vnu.edu.vn',5),(8,'Nguyen Thi Trang',NULL,'Student','1970-01-01','09-33-168315','trangnt95@yahoo.com',7);
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -112,4 +112,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-04-08 22:41:21
+-- Dump completed on 2016-04-09 15:02:22

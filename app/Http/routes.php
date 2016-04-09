@@ -32,6 +32,9 @@ Route::group(['middleware' => ['web']], function () {
 	// Account Routes
 	Route::post('acc-login','AccCtrl@login');
 	Route::get('acc-logout', 'AccCtrl@logout');
+	Route::post('acc-insert', 'AccCtrl@insert');
+	Route::post('acc-update', 'AccCtrl@update');
+
 	Route::get('test', 'AccCtrl@test');
 
 	// Employee Routes
