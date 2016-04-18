@@ -14,8 +14,9 @@
 			</md-input-container>
 			<md-input-container class="md-block">
 				<label>Email</label>
-				<input type="email" name="email" ng-model="newAcc.email">
+				<input type="email" name="email" ng-model="newAcc.email" required>
 				<div ng-messages="insertForm.email.$error">
+					<div ng-message="required">Email is required.</div>
 					<div ng-message="email">Email is invalid.</div>
 				</div>
 			</md-input-container>

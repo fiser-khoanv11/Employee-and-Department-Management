@@ -20,7 +20,7 @@
 			@elseif ($status == 'y')
 				<md-button ng-click="toggleAccInsertSidenav()">Add Admin</md-button>
 				<md-button ng-click="toggleAccUpdateSidenav()">Change Password</md-button>
-				<md-button href="{{url('acc-logout')}}">Log out</md-button>
+				<md-button ng-click="showLogoutDialog()">Log out</md-button>
 				<md-button ng-disabled="false">Welcome, {{$name}}</md-button>
 			@endif
 			</div>

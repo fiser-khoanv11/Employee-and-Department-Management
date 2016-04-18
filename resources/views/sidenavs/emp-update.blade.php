@@ -9,18 +9,16 @@
 			</md-input-container> -->
 		   	<md-input-container class="md-block">
 		        <label>Name</label>
-		        <input type="text" name="name" ng-model="updateEmp.emp_name" required md-maxlength="45" md-sidenav-focus>
+		        <input type="text" name="name" ng-model="updateEmp.emp_name" required md-maxlength="45" maxlength="45" md-sidenav-focus>
 		        <div ng-messages="updateForm.name.$error">
 					<div ng-message="required">Name is required.</div>
-					<div ng-message="md-maxlength">Name has to be less than 45 characters long.</div>
 				</div>
 		    </md-input-container>
 		    <md-input-container class="md-block">
 		        <label>Job Title</label>
-		        <input type="text" name="job" ng-model="updateEmp.emp_job" required md-maxlength="45">
+		        <input type="text" name="job" ng-model="updateEmp.emp_job" required md-maxlength="45" maxlength="45">
 		        <div ng-messages="updateForm.job.$error">
 					<div ng-message="required">Job title is required.</div>
-					<div ng-message="md-maxlength">Job title has to be less than 45 characters long.</div>
 				</div>
 		    </md-input-container>
 		    <md-input-container class="md-block">

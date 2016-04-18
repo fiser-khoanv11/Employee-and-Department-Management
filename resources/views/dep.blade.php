@@ -5,10 +5,12 @@
 		<div layout="row">
 			<!-- <md-subheader class="md-no-sticky">Departments</md-subheader> -->
 			<span flex></span>
+		@if ($status == 'y')
 			<md-button class="md-raised md-primary md-fab" ng-click="toggleDepInsertSidenav()" style="margin-right:16px">
 				<md-tooltip md-direction="left">Add new department</md-tooltip>
 				<i class="material-icons">add</i>
 			</md-button>
+		@endif
 		</div>
 		<div>
 			<md-list-item style="padding:0px 16px; left:-16px">

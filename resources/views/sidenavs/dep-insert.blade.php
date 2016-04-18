@@ -6,10 +6,9 @@
 		<form name="insertForm" ng-submit="submitNewDep()">
 			<md-input-container class="md-block">
 				<label>Name</label>
-				<input type="text" name="name" ng-model="newDep.name" required md-maxlength="45" md-sidenav-focus>
+				<input type="text" name="name" ng-model="newDep.name" required md-maxlength="45" maxlength="45" md-sidenav-focus>
 				<div ng-messages="insertForm.name.$error">
 					<div ng-message="required">Name is required.</div>
-					<div ng-message="md-maxlength">Name has to be less than 45 characters long.</div>
 				</div>
 			</md-input-container>
 			<md-input-container class="md-block">
@@ -18,10 +17,7 @@
 			</md-input-container>
 			<md-input-container class="md-block">
 				<label>Address</label>
-				<input type="text" name="address" ng-model="newDep.address" md-maxlength="90">
-				<div ng-messages="insertForm.name.$error">
-					<div ng-message="md-maxlength">Address has to be less than 90 characters long.</div>
-				</div>
+				<input type="text" name="address" ng-model="newDep.address" md-maxlength="90" maxlength="90">
 			</md-input-container>
 			<div ng-controller="selectCtrl">
 				<md-input-container class="md-block">

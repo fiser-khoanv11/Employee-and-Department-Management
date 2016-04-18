@@ -22,6 +22,8 @@ class AccCtrl extends Controller
 				echo 'logon';
 				$request->session()->put('status', 'y');
 				$request->session()->put('name', $data->acc_name);
+				$request->session()->put('id', $data->acc_id);
+				$request->session()->put('stt', $data->acc_status);
 			} else {
 				echo 'fail';
 			}
@@ -53,16 +55,32 @@ class AccCtrl extends Controller
 		$acc->save();
 	}
 
-	public function update() {
-		$_POST = json_decode(file_get_contents('php://input'), true);
-		
-		// $acc = new Account;
+	public function update(Request $request) {
+		$acc = Account::find($request->session()->get('id'));
 
-		// $acc->acc_name = $_POST['name'];
-		// $acc->acc_password = 'admin';
-		// $acc->acc_email = $_POST['email'];
-		// // $emp->acc_status = $_POST['phone'];
-		
-		// $acc->save();
+		$_POST = json_decode(file_get_contents('php://input'), true);
+		$old = $_POST['old'];
+		$new = $_POST['new'];
+		$confirm = $_POST['confirm'];
+
+		$ok = true;
+
+		if ($old != $acc->acc_password) {
+			echo 'fail';
+			$ok = false;
+		}
+
+		if ($new != $confirm) {
+			echo 'not match';
+			$ok = false;
+		}
+
+		if ($ok) {
+			$acc->acc_password = $new;
+			$acc->acc_status = 1;
+			$acc->save();	
+
+			echo 'done';
+		}
 	}
 }

@@ -27,31 +27,37 @@ Route::get('/', function () {
 */
 
 Route::group(['middleware' => ['web']], function () {
-	Route::get('/', 'EmpCtrl@redirect');
-
 	// Account Routes
-	Route::post('acc-login','AccCtrl@login');
 	Route::get('acc-logout', 'AccCtrl@logout');
 	Route::post('acc-insert', 'AccCtrl@insert');
 	Route::post('acc-update', 'AccCtrl@update');
 
-	Route::get('test', 'AccCtrl@test');
+	// Employee Routes
+	Route::post('emp-insert', 'EmpCtrl@insert');
+	Route::post('emp-update', 'EmpCtrl@update');
+	Route::get('emp-delete/{id}', 'EmpCtrl@delete');
+
+	// Department Routes
+	Route::post('dep-insert', 'DepCtrl@insert');
+	Route::post('dep-update', 'DepCtrl@update');
+	Route::get('dep-delete/{id}', 'DepCtrl@delete');
+});
+
+Route::group(['middleware' => ['free']], function () {
+	Route::get('/', 'EmpCtrl@redirect');
+
+	// Account Routes
+	Route::post('acc-login','AccCtrl@login');
 
 	// Employee Routes
 	Route::get('emp/{dep?}', 'EmpCtrl@index');
 	Route::get('emp-select/{dep}/{name?}', 'EmpCtrl@select');
-	Route::post('emp-insert', 'EmpCtrl@insert');
-	Route::post('emp-update', 'EmpCtrl@update');
-	Route::get('emp-delete/{id}', 'EmpCtrl@delete');
 	Route::get('emp-select-single/{id}', 'EmpCtrl@selectSingle');
 	Route::get('emp-select-names', 'EmpCtrl@selectNames');
 
 	// Department Routes
 	Route::get('dep', 'DepCtrl@index');
 	Route::get('dep-select', 'DepCtrl@select');
-	Route::post('dep-insert', 'DepCtrl@insert');
-	Route::post('dep-update', 'DepCtrl@update');
-	Route::get('dep-delete/{id}', 'DepCtrl@delete');
 	Route::get('dep-select-single/{id}', 'DepCtrl@selectSingle');
 	Route::get('dep-select-names', 'DepCtrl@selectNames');
 });

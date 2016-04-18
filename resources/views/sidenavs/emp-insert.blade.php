@@ -6,18 +6,16 @@
 		<form name="insertForm" ng-submit="submitNewEmp()">
 			<md-input-container class="md-block">
 				<label>Name</label>
-				<input type="text" name="name" ng-model="newEmp.name" required md-maxlength="45" md-sidenav-focus>
+				<input type="text" name="name" ng-model="newEmp.name" required md-maxlength="45" maxlength="45" md-sidenav-focus>
 				<div ng-messages="insertForm.name.$error">
 					<div ng-message="required">Name is required.</div>
-					<div ng-message="md-maxlength">Name has to be less than 45 characters long.</div>
 				</div>
 			</md-input-container>
 			<md-input-container class="md-block">
 				<label>Job Title</label>
-				<input type="text" name="job" ng-model="newEmp.job" required md-maxlength="45">
+				<input type="text" name="job" ng-model="newEmp.job" required md-maxlength="45" maxlength="45">
 				<div ng-messages="insertForm.job.$error">
 					<div ng-message="required">Job title is required.</div>
-					<div ng-message="md-maxlength">Job title has to be less than 45 characters long.</div>
 				</div>
 			</md-input-container>
 			<md-input-container class="md-block">
@@ -41,7 +39,6 @@
 			</div>
 			<div class="md-block">
 				<md-datepicker name="dob" ng-model="newEmp.dob" md-placeholder="Date of Birth"></md-datepicker>
-				<p>@{{newEmp.dob}}</p>
 			</div>
 			<div layout="row">
 				<span flex></span>

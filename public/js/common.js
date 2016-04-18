@@ -7,6 +7,8 @@ app.config(function ($mdThemingProvider, $mdDateLocaleProvider) {
 });
 
 app.controller('ToolbarCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToast) {
+	var loc = 'http://' + location.host + '/';
+
 	$scope.toggleLoginSidenav = function () {
 		$mdSidenav('login-sidenav').toggle();
 	}
@@ -16,14 +18,26 @@ app.controller('ToolbarCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $m
 	}
 
 	$scope.toggleAccUpdateSidenav = function () {
-		console.log('hum');
 		$mdSidenav('acc-update-sidenav').toggle();
+	}
+
+	$scope.showLogoutDialog = function () {
+		var confirm = $mdDialog.confirm()
+			.title('Confirm')
+			.textContent('Are you sure?')
+			.ariaLabel()
+			.ok('Log out')
+			.cancel('Cancel');
+
+		$mdDialog.show(confirm).then(function () {
+			window.location.replace(loc + 'acc-logout');
+		});
 	}
 });
 
 app.controller('AccSidenavCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToast) {
 	$scope.newAcc = {name:null, email:null};
-	$scope.updateAcc = {old:null, 'new':null, confirm:null};
+	$scope.pass = {old:null, new:null, confirm:null};
 	var loc = 'http://' + location.host + '/';
 
 	$scope.toggleLoginSidenav = function () {
@@ -59,12 +73,12 @@ app.controller('AccSidenavCtrl', function ($scope, $mdSidenav, $mdDialog, $http,
 		$http({
 			method: 'POST',
 			url: loc + 'acc-update',
-			data: $scope.newAcc,
+			data: $scope.pass,
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).success(function (response) {
 			$scope.toggleAccUpdateSidenav();
-			$scope.updateAcc = {old:null, 'new':null, confirm:null};
-			var toast = $mdToast.simple().textContent('Updated!')
+			$scope.pass = {old:null, 'new':null, confirm:null};
+			var toast = $mdToast.simple().textContent("Changed!");
 			$mdToast.show(toast);
 		});
 	}

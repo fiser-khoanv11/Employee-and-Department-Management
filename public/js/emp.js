@@ -20,6 +20,10 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 
 	$scope.submitNewEmp = function () {
 		console.log($scope.newEmp);
+		if ($scope.newEmp.dob != null) {
+			$scope.newEmp.dob = new Date($scope.newEmp.dob);
+			$scope.newEmp.dob.setDate($scope.newEmp.dob.getDate() + 1);
+		}
 		$http({
 			method: 'POST',
 			url: loc + 'emp-insert',
@@ -36,6 +40,8 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 
 	$scope.submitUpdateEmp = function () {
 		console.log($scope.updateEmp);
+		$scope.updateEmp.emp_dob = new Date($scope.updateEmp.emp_dob);
+		$scope.updateEmp.emp_dob.setDate($scope.updateEmp.emp_dob.getDate() + 1);
 		$http({
 			method: 'POST',
 			url: loc + 'emp-update',
@@ -70,7 +76,9 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 	$scope.openEmpUpdateSidenav = function (id) {
 		$http.get(loc + "emp-select-single/" + id).then(function (response) {
 			$scope.updateEmp = response.data.record[0];
-			$scope.updateEmp.emp_dob = new Date($scope.updateEmp.emp_dob);
+			if ($scope.updateEmp.emp_dob != null) {
+				$scope.updateEmp.emp_dob = new Date($scope.updateEmp.emp_dob);
+			}
 			// console.log($scope.updateEmp);
 			$mdSidenav('emp-update-sidenav').open();
 		});
