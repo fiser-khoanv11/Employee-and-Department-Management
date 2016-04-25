@@ -3,7 +3,7 @@
 		<p class="md-toolbar-tools">Login</p>
 	</md-toolbar>
 	<md-content layout-padding>
-		<form name="loginForm" method="post" action="{{url('acc-login')}}">
+		<form name="loginForm" ng-submit="login()">
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			<md-input-container class="md-block">
 				<label>Email</label>
@@ -15,8 +15,8 @@
 			</md-input-container>
 			<md-input-container class="md-block">
 				<label>Password</label>
-				<input type="password" name="password" ng-model="acc.pass" required>
-				<div ng-messages="loginForm.pass.$error">
+				<input type="password" name="password" ng-model="acc.password" required>
+				<div ng-messages="loginForm.password.$error">
 					<div ng-message="required">Password is required.</div>
 				</div>
 			</md-input-container>

@@ -6,7 +6,7 @@ app.config(function ($mdThemingProvider, $mdDateLocaleProvider) {
 		// .dark();
 });
 
-app.controller('ToolbarCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToast) {
+app.controller('ToolbarCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToast, $mdBottomSheet) {
 	var loc = 'http://' + location.host + '/';
 
 	$scope.toggleLoginSidenav = function () {
@@ -33,11 +33,18 @@ app.controller('ToolbarCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $m
 			window.location.replace(loc + 'acc-logout');
 		});
 	}
+
+	$scope.openBottomSheet = function() {
+	    $mdBottomSheet.show({
+	      	templateUrl: 'bottom-sheet.html'
+	    });
+  	};
 });
 
 app.controller('AccSidenavCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToast) {
 	$scope.newAcc = {name:null, email:null};
 	$scope.pass = {old:null, new:null, confirm:null};
+	$scope.acc = {email:null, password:null};
 	var loc = 'http://' + location.host + '/';
 
 	$scope.toggleLoginSidenav = function () {
@@ -76,10 +83,31 @@ app.controller('AccSidenavCtrl', function ($scope, $mdSidenav, $mdDialog, $http,
 			data: $scope.pass,
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).success(function (response) {
-			$scope.toggleAccUpdateSidenav();
-			$scope.pass = {old:null, 'new':null, confirm:null};
-			var toast = $mdToast.simple().textContent("Changed!");
-			$mdToast.show(toast);
+			if (response == 'done') {
+				$scope.toggleAccUpdateSidenav();
+				$scope.pass = {old:null, 'new':null, confirm:null};
+				var toast = $mdToast.simple().textContent("Changed!");
+				$mdToast.show(toast);
+			} else {
+				var toast = $mdToast.simple().textContent("Fail!");
+				$mdToast.show(toast);
+			}
+		});
+	}
+
+	$scope.login = function () {
+		$http({
+			method: 'POST',
+			url: loc + 'acc-login',
+			data: $scope.acc,
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+		}).success(function (response) {
+			if (response == 'logon') {
+				location.reload();
+			} else {
+				var toast = $mdToast.simple().textContent("Fail!");
+				$mdToast.show(toast);
+			}
 		});
 	}
 });

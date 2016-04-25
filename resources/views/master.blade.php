@@ -4,25 +4,26 @@
 	<title>Employee Directory</title>
 	@include('libs.css')
 </head>
-<body ng-app="App" ng-controller="AppCtrl" ng-cloak style="background-color:grey">
+<body ng-app="App" ng-controller="AppCtrl" ng-cloak style="background-color:grey;font-family:'Catamaran'">
 	<!--
 		Your HTML content here
 	-->
-	<div layout="column">
+	<div layout="column" style="background-color:grey;padding-bottom:50px">
 		<md-toolbar ng-controller="ToolbarCtrl">
 			<div class="md-toolbar-tools">
-				<span>Employee Directory</span>
+				<span style="font-family:'Lobster';font-size:x-large">Employee Directory</span>
 				<span flex></span>
 				<md-button class="@{{tab.emp}}" href="{{url('/emp')}}">Employees</md-button>
 				<md-button class="@{{tab.dep}}" href="{{url('/dep')}}">Departments</md-button>
 			@if ($status == 'n')
-				<md-button class="@{{tab.log}}" ng-click="toggleLoginSidenav()">Log in</md-button>
+				<md-button ng-click="toggleLoginSidenav()">Log in</md-button>
 			@elseif ($status == 'y')
 				<md-button ng-click="toggleAccInsertSidenav()">Add Admin</md-button>
 				<md-button ng-click="toggleAccUpdateSidenav()">Change Password</md-button>
 				<md-button ng-click="showLogoutDialog()">Log out</md-button>
-				<md-button ng-disabled="false">Welcome, {{$name}}</md-button>
+				<md-button ng-disabled="false">Welcome, <b>{{$name}}</b></md-button>
 			@endif
+				<!-- <md-button ng-click="openBottomSheet()">About Us</md-button> -->
 			</div>
 		</md-toolbar>
 		<md-content style="padding:30px 50px; margin:0px 50px; border-radius:0px 0px 15px 15px">

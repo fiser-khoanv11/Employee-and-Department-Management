@@ -42,7 +42,7 @@
 			</div>
 			<div class="md-block">
 				<!-- <p>@{{updateEmp.emp_dob}}</p> -->
-				<md-datepicker name="dob" ng-model="updateEmp.emp_dob" md-placeholder="Date of Birth"></md-datepicker>
+				<md-datepicker name="dob" ng-model="updateEmp.emp_dob" md-placeholder="Date of Birth" ng-change="changeDate()"></md-datepicker>
 			</div>
 		    <div layout="row">
 				<span flex></span>

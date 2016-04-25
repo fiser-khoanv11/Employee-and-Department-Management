@@ -10,6 +10,8 @@ use App\Http\Requests;
 class AccCtrl extends Controller
 {
 	public function login(Request $request) {
+		$_POST = json_decode(file_get_contents('php://input'), true);
+
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 
@@ -28,9 +30,8 @@ class AccCtrl extends Controller
 				echo 'fail';
 			}
 		}
-		echo $request->session()->get('username', 'not set');
-
-		return redirect('emp');
+		
+		redirect('emp');
 	}
 
 	public function test(Request $req) {
@@ -68,9 +69,7 @@ class AccCtrl extends Controller
 		if ($old != $acc->acc_password) {
 			echo 'fail';
 			$ok = false;
-		}
-
-		if ($new != $confirm) {
+		} else if ($new != $confirm) {
 			echo 'not match';
 			$ok = false;
 		}
@@ -78,7 +77,8 @@ class AccCtrl extends Controller
 		if ($ok) {
 			$acc->acc_password = $new;
 			$acc->acc_status = 1;
-			$acc->save();	
+			$acc->save();
+			$request->session()->put('stt', 1);
 
 			echo 'done';
 		}

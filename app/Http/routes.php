@@ -28,7 +28,6 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['web']], function () {
 	// Account Routes
-	Route::get('acc-logout', 'AccCtrl@logout');
 	Route::post('acc-insert', 'AccCtrl@insert');
 	Route::post('acc-update', 'AccCtrl@update');
 
@@ -48,6 +47,7 @@ Route::group(['middleware' => ['free']], function () {
 
 	// Account Routes
 	Route::post('acc-login','AccCtrl@login');
+	Route::get('acc-logout', 'AccCtrl@logout');
 
 	// Employee Routes
 	Route::get('emp/{dep?}', 'EmpCtrl@index');

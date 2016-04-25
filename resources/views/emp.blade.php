@@ -44,6 +44,7 @@
 			@endif
 			</md-list-item>
 		</div>
+
 		<div ng-repeat="item in emps">
 			<md-divider></md-divider>
 			<md-list-item ng-click="something()">
@@ -52,10 +53,11 @@
 				<p>@{{item.emp_job}}</p>
 				<!-- <p>@{{item.emp_email}}</p> -->
 				<p>@{{item.dep_name}}</p>
-				<md-button class="md-raised" ng-click="openEmpSelectSidenav(item.emp_id)" style="min-width:0px"><i class="material-icons">info_outline</i></md-button>
+
+				<md-button class="md-primary md-hue-2" ng-click="openEmpSelectSidenav(item.emp_id)" style="min-width:0px"><i class="material-icons">info</i></md-button>
 			@if ($status == 'y')
-				<md-button class="md-raised" ng-click="openEmpUpdateSidenav(item.emp_id)" style="min-width:0px"><i class="material-icons">edit</i></md-button>
-				<md-button class="md-raised" ng-click="showEmpDeleteDialog(item.emp_id)" style="min-width:0px"><i class="material-icons">delete</i></md-button>
+				<md-button class="md-primary md-hue-2" ng-click="openEmpUpdateSidenav(item.emp_id)" style="min-width:0px"><i class="material-icons">edit</i></md-button>
+				<md-button class="md-primary md-hue-2" ng-click="showEmpDeleteDialog(item.emp_id)" style="min-width:0px"><i class="material-icons">delete</i></md-button>
 			@endif
 			</md-list-item>
 		</div>

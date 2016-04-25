@@ -1,8 +1,9 @@
 app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToast) {
-	$scope.tab = {emp:'md-raised', dep:'', log:''};
+	$scope.tab = {emp:'md-raised', dep:''};
 	$scope.newEmp = {name:null, job:null, dob:null, phone:null, email:null, dep:null};
 	$scope.search = {dep:document.getElementById('para').innerHTML, nam:''};
 	var loc = 'http://' + location.host + '/';
+	var change = 0;
 
 	$scope.loadEmps = function () {
 		$str = loc + 'emp-select/' + $scope.search.dep;
@@ -20,10 +21,14 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 
 	$scope.submitNewEmp = function () {
 		console.log($scope.newEmp);
+
+		// If DOB was set, increase it to 1 day before inserting into database
 		if ($scope.newEmp.dob != null) {
 			$scope.newEmp.dob = new Date($scope.newEmp.dob);
 			$scope.newEmp.dob.setDate($scope.newEmp.dob.getDate() + 1);
 		}
+
+		// Insert into database
 		$http({
 			method: 'POST',
 			url: loc + 'emp-insert',
@@ -40,8 +45,14 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 
 	$scope.submitUpdateEmp = function () {
 		console.log($scope.updateEmp);
-		$scope.updateEmp.emp_dob = new Date($scope.updateEmp.emp_dob);
-		$scope.updateEmp.emp_dob.setDate($scope.updateEmp.emp_dob.getDate() + 1);
+
+		// Increase DOB to 1 day if it was changed
+		if (change == 1) {
+			$scope.updateEmp.emp_dob = new Date($scope.updateEmp.emp_dob);
+			$scope.updateEmp.emp_dob.setDate($scope.updateEmp.emp_dob.getDate() + 1);
+		}
+
+		// Update database
 		$http({
 			method: 'POST',
 			url: loc + 'emp-update',
@@ -74,6 +85,7 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 	}
 
 	$scope.openEmpUpdateSidenav = function (id) {
+		change = 0;
 		$http.get(loc + "emp-select-single/" + id).then(function (response) {
 			$scope.updateEmp = response.data.record[0];
 			if ($scope.updateEmp.emp_dob != null) {
@@ -109,6 +121,11 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 	$scope.clearSearch = function () {
 		$scope.search = {dep:0, nam:''};
 		$scope.loadEmps();
+	}
+
+	$scope.changeDate = function () {
+		change = 1;
+		console.log('change');
 	}
 });
 

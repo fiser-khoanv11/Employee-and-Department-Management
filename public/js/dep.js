@@ -1,8 +1,6 @@
 app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToast) {
-	$scope.tab = {emp:'', dep:'md-raised', log:''};
+	$scope.tab = {emp:'', dep:'md-raised'};
 	$scope.newDep = {name:null, phone:null, address:null, manager:null};
-	// $scope.updateEmp = {id:null,name:null, job:null, phone:null, email:null, dep:1};
-	// $scope.search = {dep:0, nam:''};
 	var loc = 'http://' + location.host + '/';
 
 	$scope.loadDeps = function () {
@@ -24,7 +22,7 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 			$scope.loadDeps();
 			$scope.toggleDepInsertSidenav();
 			$scope.newDep = {name:null, phone:null, address:null, manager:null};
-			var toast = $mdToast.simple().textContent('Inserted!')
+			var toast = $mdToast.simple().textContent('Inserted!');
 			$mdToast.show(toast);
 		});
 	}
@@ -39,7 +37,7 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 		}).success(function (response) {
 			$scope.loadDeps();
 			$scope.closeDepUpdateSidenav();
-			var toast = $mdToast.simple().textContent('Updated!')
+			var toast = $mdToast.simple().textContent('Updated!');
 			$mdToast.show(toast);
 
 			// TODO: update info in select-nav
@@ -86,7 +84,7 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 			$http.get(loc + "dep-delete/" + id).then(function () {
 				$scope.loadDeps();
 				$scope.closeDepSelectSidenav();
-				var toast = $mdToast.simple().textContent('Deleted!')
+				var toast = $mdToast.simple().textContent('Deleted!');
 				$mdToast.show(toast);
 			});
 		});
