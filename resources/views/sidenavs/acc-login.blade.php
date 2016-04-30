@@ -4,7 +4,6 @@
 	</md-toolbar>
 	<md-content layout-padding>
 		<form name="loginForm" ng-submit="login()">
-			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			<md-input-container class="md-block">
 				<label>Email</label>
 				<input type="email" name="email" ng-model="acc.email" required md-sidenav-focus>
