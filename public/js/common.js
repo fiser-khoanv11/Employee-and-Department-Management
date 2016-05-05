@@ -2,7 +2,7 @@ var app = angular.module('App', ['ngMaterial', 'ngMessages']);
 
 app.config(function ($mdThemingProvider, $mdDateLocaleProvider) {
 	$mdThemingProvider.theme('default')
-		.primaryPalette('teal');
+		.primaryPalette('blue-grey');
 		// .dark();
 });
 
@@ -35,10 +35,10 @@ app.controller('ToolbarCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $m
 	}
 
 	$scope.openBottomSheet = function() {
-	    $mdBottomSheet.show({
-	      	templateUrl: 'bottom-sheet.html'
-	    });
-  	};
+		$mdBottomSheet.show({
+			templateUrl: 'bottom-sheet.html'
+		});
+	};
 });
 
 app.controller('AccSidenavCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToast) {
@@ -52,11 +52,10 @@ app.controller('AccSidenavCtrl', function ($scope, $mdSidenav, $mdDialog, $http,
 	}
 
 	$scope.toggleAccInsertSidenav = function () {
-		$mdSidenav('acc-insert-sidenav').toggle();	
+		$mdSidenav('acc-insert-sidenav').toggle();
 	}
 
 	$scope.toggleAccUpdateSidenav = function () {
-		console.log('hum');
 		$mdSidenav('acc-update-sidenav').toggle();
 	}
 
@@ -109,5 +108,28 @@ app.controller('AccSidenavCtrl', function ($scope, $mdSidenav, $mdDialog, $http,
 				$mdToast.show(toast);
 			}
 		});
+	}
+});
+
+app.directive("emailUsed", function ($http) {
+	return {
+		restrict: 'A',
+		require: 'ngModel',
+
+		link: function(scope, element, attr, ctrl) {
+			function customValidator(ngModelValue) {
+				$http.get('acc-email/' + ngModelValue).then(function (response) {
+					if (response.data == 'ok') {
+						ctrl.$setValidity('used', true);
+					} else {
+						ctrl.$setValidity('used', false);
+					}
+				});
+
+				return ngModelValue;
+			}
+
+			ctrl.$parsers.push(customValidator);
+		}
 	}
 });

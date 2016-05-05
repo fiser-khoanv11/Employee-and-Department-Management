@@ -3,21 +3,21 @@
 		<p class="md-toolbar-tools">Add New Account</p>
 	</md-toolbar>
 	<md-content layout-padding>
-		<form name="insertForm" ng-submit="submitNewAcc()">
+		<form name="insertAccForm" ng-submit="submitNewAcc()">
 			<md-input-container class="md-block">
 				<label>Name</label>
 				<input type="text" name="name" ng-model="newAcc.name" required md-maxlength="45" md-sidenav-focus>
-				<div ng-messages="insertForm.name.$error">
+				<div ng-messages="insertAccForm.name.$error">
 					<div ng-message="required">Name is required.</div>
-					<div ng-message="md-maxlength">Name has to be less than 45 characters long.</div>
 				</div>
 			</md-input-container>
 			<md-input-container class="md-block">
 				<label>Email</label>
-				<input type="email" name="email" ng-model="newAcc.email" required>
-				<div ng-messages="insertForm.email.$error">
+				<input type="email" name="email" ng-model="newAcc.email" required email-used>
+				<div ng-messages="insertAccForm.email.$error">
 					<div ng-message="required">Email is required.</div>
 					<div ng-message="email">Email is invalid.</div>
+					<div ng-message="used">This email is used.</div>
 				</div>
 			</md-input-container>
 			<div layout="row">

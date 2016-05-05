@@ -83,4 +83,14 @@ class AccCtrl extends Controller
 			echo 'done';
 		}
 	}
+
+	public function checkEmail($email) {
+		$acc = Account::where('acc_email', '=', $email)->count();
+
+		if ($acc == 0) {
+			echo 'ok';
+		} else {
+			echo 'fail';
+		}
+	}
 }
