@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Employee;
 use App\Department;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -55,7 +56,7 @@ class DepCtrl extends Controller
 			if ($item->manager == '') {
 				$item->mng_name = '';
 			} else {
-				$item->mng_name = $item->manager->emp_name;	
+				$item->mng_name = $item->manager->emp_name;
 			}
 		}
 		
@@ -71,6 +72,9 @@ class DepCtrl extends Controller
 		} else {
 			$data->mng_name = $data->manager->emp_name;	
 		}
+
+		$count = Employee::where('dep_id', '=', $data->dep_id)->count();
+		$data->count = $count;
 		
 		$result = '{"record":[' . $data . ']}';
 		echo $result;

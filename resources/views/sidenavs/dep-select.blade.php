@@ -12,13 +12,20 @@
 					<p>Name</p>
 				</div>
 		  	</md-list-item>
-		  	<!-- <md-list-item class="md-2-line">
+		  	<md-list-item class="md-2-line">
+				<i class="material-icons md-avatar-icon">face</i>
+				<div class="md-list-item-text">
+					<h3>@{{selectDep.mng_name}}</h3>
+					<p>Manager</p>
+				</div>
+		  	</md-list-item>
+		  	<md-list-item class="md-2-line">
 				<i class="material-icons md-avatar-icon">phone</i>
 				<div class="md-list-item-text">
 					<h3>@{{selectDep.dep_phone}}</h3>
 					<p>Phone</p>
 				</div>
-		  	</md-list-item> -->
+		  	</md-list-item>
 		  	<md-list-item class="md-2-line">
 				<i class="material-icons md-avatar-icon">place</i>
 				<div class="md-list-item-text">
@@ -27,10 +34,10 @@
 				</div>
 		  	</md-list-item>
 		  	<md-list-item class="md-2-line">
-				<i class="material-icons md-avatar-icon">face</i>
+				<i class="material-icons md-avatar-icon">people</i>
 				<div class="md-list-item-text">
-					<h3>@{{selectDep.mng_name}}</h3>
-					<p>Manager</p>
+					<h3>@{{selectDep.count}}</h3>
+					<p>Count</p>
 				</div>
 		  	</md-list-item>
 		</md-list>
