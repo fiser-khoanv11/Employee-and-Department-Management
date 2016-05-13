@@ -30,8 +30,6 @@ class AccCtrl extends Controller
 				echo 'fail';
 			}
 		}
-		
-		redirect('emp');
 	}
 
 	public function test(Request $req) {

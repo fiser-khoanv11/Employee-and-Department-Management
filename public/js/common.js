@@ -2,7 +2,8 @@ var app = angular.module('App', ['ngMaterial', 'ngMessages']);
 
 app.config(function ($mdThemingProvider, $mdDateLocaleProvider) {
 	$mdThemingProvider.theme('default')
-		.primaryPalette('blue-grey');
+		.primaryPalette('blue-grey')
+		.accentPalette('blue');
 		// .dark();
 });
 

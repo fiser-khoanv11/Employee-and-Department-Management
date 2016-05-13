@@ -18,12 +18,33 @@
 			@if ($status == 'n')
 				<md-button ng-click="toggleLoginSidenav()">Log in</md-button>
 			@elseif ($status == 'y')
-				<md-button ng-click="toggleAccInsertSidenav()">Add Admin</md-button>
+				<!-- <md-button ng-click="toggleAccInsertSidenav()">Add Admin</md-button>
 				<md-button ng-click="toggleAccUpdateSidenav()">Change Password</md-button>
 				<md-button ng-click="showLogoutDialog()">Log out</md-button>
-				<md-button ng-disabled="false">Welcome, <b>{{$name}}</b></md-button>
-			@endif
+				<md-button ng-disabled=""><span style="color:white">Welcome, <b>{{$name}}</b></span></md-button> -->
+			
 				<!-- <md-button ng-click="openBottomSheet()">About Us</md-button> -->
+
+				<md-fab-speed-dial md-direction="down" class="md-scale" style="top:80px">
+				  	<md-fab-trigger>
+				    	<md-button><span style="color:white">Welcome, <b>{{$name}}</b></span></md-button>
+				  	</md-fab-trigger>
+				  	<md-fab-actions>
+				    	<md-button class="md-fab md-mini md-primary" style="margin-top:20px" ng-click="toggleAccInsertSidenav()">
+				    		<md-tooltip md-direction="left">Add new account</md-tooltip>
+				      		<i class="material-icons">person_add</i>
+				    	</md-button>
+				    	<md-button class="md-fab md-mini md-primary" style="margin-top:10px" ng-click="toggleAccUpdateSidenav()">
+				    		<md-tooltip md-direction="left">Change password</md-tooltip>
+				      		<i class="material-icons">security</i>
+				    	</md-button>
+				    	<md-button class="md-fab md-mini md-primary" style="margin-top:10px" ng-click="showLogoutDialog()">
+				      		<md-tooltip md-direction="left">Log out</md-tooltip>
+				      		<i class="material-icons">exit_to_app</i>
+				    	</md-button>
+				  </md-fab-actions>
+				</md-fab-speed-dial>
+			@endif
 			</div>
 		</md-toolbar>
 		<md-content style="padding:30px 50px; margin:0px 50px; border-radius:0px 0px 15px 15px">
@@ -45,7 +66,7 @@
 	<!-- Your application bootstrap  -->
 	<script type="text/javascript" src="{{url('js/common.js')}}"></script>
 	@yield('js')
-	
+
 </body>
 </html>
 
