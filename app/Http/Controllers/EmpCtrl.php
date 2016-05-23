@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App;
 use App\Employee;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -17,7 +18,10 @@ class EmpCtrl extends Controller
 	public function index(Request $request, $dep=0) {
 		$status = $request->session()->get('status', 'n');
 		$name = $request->session()->get('name');
-		return view('emp', ['dep' => $dep, 'status' => $status, 'name' => $name]);
+		$lang = $request->session()->get('lang');
+		App::setLocale('vi');
+
+		return view('emp', ['dep' => $dep, 'status' => $status, 'name' => $name, 'lang' => $lang]);
 	}
 
 	public function delete($id) {

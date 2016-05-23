@@ -26,6 +26,7 @@ class AccCtrl extends Controller
 				$request->session()->put('name', $data->acc_name);
 				$request->session()->put('id', $data->acc_id);
 				$request->session()->put('stt', $data->acc_status);
+				$request->session()->put('lang', $data->acc_lang);
 			} else {
 				echo 'fail';
 			}
@@ -49,7 +50,6 @@ class AccCtrl extends Controller
 		$acc->acc_name = $_POST['name'];
 		$acc->acc_password = 'admin';
 		$acc->acc_email = $_POST['email'];
-		// $emp->acc_status = $_POST['phone'];
 		
 		$acc->save();
 	}
