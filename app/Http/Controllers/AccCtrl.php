@@ -91,4 +91,25 @@ class AccCtrl extends Controller
 			echo 'fail';
 		}
 	}
+
+	public function language(Request $request) {
+		$lang = $request->session()->get('lang', 'en');
+		$acc = Account::find($request->session()->get('id'));
+
+		if ($lang == 'en') {
+			$request->session()->put('lang', 'vi');
+			if (isset($acc)) {
+				$acc->acc_lang = 'vi';	
+			}
+		} else {
+			$request->session()->put('lang', 'en');
+			if (isset($acc)) {
+				$acc->acc_lang = 'en';
+			}
+		}
+
+		if (isset($acc)) {
+			$acc->save();
+		}
+	}
 }

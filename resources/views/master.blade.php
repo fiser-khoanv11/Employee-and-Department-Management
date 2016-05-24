@@ -9,7 +9,7 @@
 		Your HTML content here
 	-->
 	<div layout="column" style="background-color:grey;padding-bottom:50px">
-		<md-toolbar ng-controller="ToolbarCtrl">
+		<md-toolbar class="md-primary" ng-controller="ToolbarCtrl">
 			<div class="md-toolbar-tools">
 				<span style="font-family:'Lobster';font-size:x-large">{{trans('common.employee_directory')}}</span>
 				<span flex></span>
@@ -25,23 +25,27 @@
 			
 				<!-- <md-button ng-click="openBottomSheet()">About Us</md-button> -->
 
-				<md-fab-speed-dial md-direction="down" class="md-scale" style="top:80px">
-				  	<md-fab-trigger>
-				    	<md-button><span style="color:white">{{trans('common.welcome')}}, <b>{{$name}}</b></span></md-button>
-				  	</md-fab-trigger>
-				  	<md-fab-actions>
-				    	<md-button class="md-fab md-mini md-primary" style="margin-top:20px" ng-click="toggleAccInsertSidenav()">
-				    		<md-tooltip md-direction="left">{{trans('common.add_new_account')}}</md-tooltip>
-				      		<i class="material-icons">person_add</i>
-				    	</md-button>
-				    	<md-button class="md-fab md-mini md-primary" style="margin-top:10px" ng-click="toggleAccUpdateSidenav()">
-				    		<md-tooltip md-direction="left">{{trans('common.change_password')}}</md-tooltip>
-				      		<i class="material-icons">security</i>
-				    	</md-button>
-				    	<md-button class="md-fab md-mini md-primary" style="margin-top:10px" ng-click="showLogoutDialog()">
-				      		<md-tooltip md-direction="left">{{trans('common.log_out')}}</md-tooltip>
-				      		<i class="material-icons">exit_to_app</i>
-				    	</md-button>
+				<md-fab-speed-dial md-direction="down" class="md-scale" style="top:105px">
+					<md-fab-trigger>
+						<md-button><span style="color:white"><b>{{$name}}</b></md-button>
+					</md-fab-trigger>
+					<md-fab-actions>
+						<md-button class="md-fab md-mini md-accent" style="margin-top:20px" ng-click="toggleAccInsertSidenav()">
+							<md-tooltip md-direction="left">{{trans('common.add_new_account')}}</md-tooltip>
+							<i class="material-icons">person_add</i>
+						</md-button>
+						<md-button class="md-fab md-mini md-accent" style="margin-top:10px" ng-click="toggleAccUpdateSidenav()">
+							<md-tooltip md-direction="left">{{trans('common.change_password')}}</md-tooltip>
+							<i class="material-icons">security</i>
+						</md-button>
+						<md-button class="md-accent md-fab md-mini" style="margin-top:10px" ng-click="changeLanguage()">
+							<md-tooltip md-direction="left">{{trans('common.language')}}</md-tooltip>
+							<b>{{$lang}}</b>
+						</md-button>
+						<md-button class="md-fab md-mini md-accent" style="margin-top:10px" ng-click="showLogoutDialog()">
+							<md-tooltip md-direction="left">{{trans('common.log_out')}}</md-tooltip>
+							<i class="material-icons">exit_to_app</i>
+						</md-button>
 				  </md-fab-actions>
 				</md-fab-speed-dial>
 			@endif

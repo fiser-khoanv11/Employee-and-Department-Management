@@ -19,7 +19,7 @@ class EmpCtrl extends Controller
 		$status = $request->session()->get('status', 'n');
 		$name = $request->session()->get('name');
 		$lang = $request->session()->get('lang');
-		App::setLocale('vi');
+		App::setLocale($lang);
 
 		return view('emp', ['dep' => $dep, 'status' => $status, 'name' => $name, 'lang' => $lang]);
 	}

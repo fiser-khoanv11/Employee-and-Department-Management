@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App;
 use App\Employee;
 use App\Department;
 use App\Http\Controllers\Controller;
@@ -18,7 +19,10 @@ class DepCtrl extends Controller
 	public function index(Request $request) {
 		$status = $request->session()->get('status', 'n');
 		$name = $request->session()->get('name');
-		return view('dep', ['status' => $status, 'name' => $name]);
+		$lang = $request->session()->get('lang');
+		App::setLocale($lang);
+
+		return view('dep', ['status' => $status, 'name' => $name, 'lang' => $lang]);
 	}
 
 	public function delete($id) {

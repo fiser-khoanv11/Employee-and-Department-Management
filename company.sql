@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: company
 -- ------------------------------------------------------
--- Server version	5.5.5-10.0.17-MariaDB-log
+-- Server version	5.5.5-10.0.17-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -28,8 +28,10 @@ CREATE TABLE `account` (
   `acc_password` varchar(45) NOT NULL,
   `acc_email` varchar(45) NOT NULL,
   `acc_status` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`acc_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `acc_lang` varchar(45) NOT NULL DEFAULT 'en',
+  PRIMARY KEY (`acc_id`),
+  UNIQUE KEY `acc_email_UNIQUE` (`acc_email`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +40,7 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
-INSERT INTO `account` VALUES (1,'khoa','admin','admin@mail',1),(2,'captain','admin','captain@gmail.com',0),(3,'jessie','admin','jess@wut',0);
+INSERT INTO `account` VALUES (1,'khoa','admin','admin@mail',1,'en'),(2,'captain','martian','captain@gmail.com',1,'en'),(3,'jessie','jessie','jess@wut',1,'en'),(4,'Dark Lord','darklord','khoa.uet48@gmail.com',1,'vi'),(6,'Jennifer','admin','jess@wuta',0,'en'),(14,'admin','admin','jess@wutaw',0,'en');
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -67,7 +69,7 @@ CREATE TABLE `department` (
 
 LOCK TABLES `department` WRITE;
 /*!40000 ALTER TABLE `department` DISABLE KEYS */;
-INSERT INTO `department` VALUES (1,'Marketing','23435234',NULL,6),(5,'Analysis','678678vnu','LA',2),(7,'Planning','72724268','Chicago',6),(8,'Human Resources','123456789','Canada',1),(9,'Finance',NULL,'Hanoi',NULL),(10,'Accounting',NULL,'Ho Chi Minh City',8);
+INSERT INTO `department` VALUES (1,'Marketing','23435234','Hanoi',6),(5,'Analysis','678678vnua','LA',2),(8,'Human Resources','123456789','Canada',1),(10,'Bussiness Analysis',NULL,'Ho Chi Minh City',9);
 /*!40000 ALTER TABLE `department` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,7 +92,7 @@ CREATE TABLE `employee` (
   PRIMARY KEY (`emp_id`),
   KEY `fk_emp_dep_idx` (`dep_id`),
   CONSTRAINT `fk_emp_dep` FOREIGN KEY (`dep_id`) REFERENCES `department` (`dep_id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -99,7 +101,7 @@ CREATE TABLE `employee` (
 
 LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES (1,'Nguyen Vinh Khoa',NULL,'CEO','1995-11-18','01689867135','khoa.uet58@gmail.com',8),(2,'Vu Minh Chinh',NULL,'Guard','1995-08-05','5895','chinhvm@gmail.com',7),(6,'Do Ngoc Hung',NULL,'Singer','1995-05-04','wreckit','hungdn_58@vnu.edu.vn',5),(8,'Nguyen Thi Trang',NULL,'Student','1970-01-01','09-33-168315','trangnt95@yahoo.com',7);
+INSERT INTO `employee` VALUES (1,'Nguyen Vinh Khoa',NULL,'CEO','1995-11-20','01689867135','khoa.uet58@gmail.com',8),(2,'Vu Minh Chinh',NULL,'Guard','1995-08-05','5895','chinhvm@gmail.com',1),(6,'Do Ngoc Hung',NULL,'Singer','1995-04-30','wreckit','hungdn_58@vnu.edu.vn',5),(9,'Nguyen Thi Trang',NULL,'Student','2016-04-06','tg-01234',NULL,10),(10,'Doan Thi Hien',NULL,'Engineer','2016-05-25',NULL,NULL,5);
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -112,4 +114,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-04-09 15:02:22
+-- Dump completed on 2016-05-24 10:18:30

@@ -7,7 +7,7 @@
 			<span flex></span>
 		@if ($status == 'y')
 			<md-button class="md-raised md-primary md-fab" ng-click="toggleDepInsertSidenav()" style="margin-right:16px">
-				<md-tooltip md-direction="left">Add new department</md-tooltip>
+				<md-tooltip md-direction="left">{{trans('common.add_new_department')}}</md-tooltip>
 				<i class="material-icons">add</i>
 			</md-button>
 		@endif
@@ -15,9 +15,9 @@
 		<div>
 			<md-list-item style="padding:0px 16px; left:-16px">
 				<img ng-src="" class="md-avatar" style="visibility:hidden">
-				<p><md-subheader>Name</md-subheader></p>
-				<p><md-subheader>Address</md-subheader></p>
-				<p><md-subheader>Manager</md-subheader></p>
+				<p><md-subheader>{{trans('common.name')}}</md-subheader></p>
+				<p><md-subheader>{{trans('common.address')}}</md-subheader></p>
+				<p><md-subheader>{{trans('common.manager')}}</md-subheader></p>
 				<md-button class="md-raised" style="min-width:0px; visibility:hidden"><i class="material-icons">info_outline</i></md-button>
 				<md-button class="md-raised" style="min-width:0px; visibility:hidden"><i class="material-icons">info_outline</i></md-button>
 			@if ($status == 'y')

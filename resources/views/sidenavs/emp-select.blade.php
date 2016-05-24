@@ -9,42 +9,42 @@
 				<i class="material-icons md-avatar-icon">face</i>
 				<div class="md-list-item-text">
 					<h3>@{{selectEmp.emp_name}}</h3>
-					<p>Name</p>
+					<p>{{trans('common.name')}}</p>
 				</div>
 		  	</md-list-item>
 		  	<md-list-item class="md-2-line">
 				<i class="material-icons md-avatar-icon">work</i>
 				<div class="md-list-item-text">
 					<h3>@{{selectEmp.emp_job}}</h3>
-					<p>Job Title</p>
+					<p>{{trans('common.job_title')}}</p>
 				</div>
 		  	</md-list-item>
 		  	<md-list-item class="md-2-line">
 				<i class="material-icons md-avatar-icon">cake</i>
 				<div class="md-list-item-text">
 					<h3>@{{selectEmp.emp_dob}}</h3>
-					<p>Date of Birth</p>
+					<p>{{trans('common.dob')}}</p>
 				</div>
 		  	</md-list-item>
 		  	<md-list-item class="md-2-line">
 				<i class="material-icons md-avatar-icon">phone</i>
 				<div class="md-list-item-text">
 					<h3>@{{selectEmp.emp_phone}}</h3>
-					<p>Phone</p>
+					<p>{{trans('common.phone')}}</p>
 				</div>
 		  	</md-list-item>
 		  	<md-list-item class="md-2-line">
 				<i class="material-icons md-avatar-icon">email</i>
 				<div class="md-list-item-text">
 					<h3>@{{selectEmp.emp_email}}</h3>
-					<p>Email</p>
+					<p>{{trans('common.email')}}</p>
 				</div>
 		  	</md-list-item>
 		  	<md-list-item class="md-2-line">
 				<i class="material-icons md-avatar-icon">home</i>
 				<div class="md-list-item-text">
 					<h3>@{{selectEmp.dep_name}}</h3>
-					<p>Department</p>
+					<p>{{trans('common.department')}}</p>
 				</div>
 		  	</md-list-item>
 		</md-list>
@@ -52,10 +52,10 @@
 			<div layout="row">
 				<span flex></span>
 			@if ($status == 'y')
-				<md-button class="md-raised md-primary" ng-click="openEmpUpdateSidenav(selectEmp.emp_id)">Modify</md-button>
-				<md-button class="md-raised md-primary" ng-click="showEmpDeleteDialog(selectEmp.emp_id)">Delete</md-button>
+				<md-button class="md-raised md-primary" ng-click="openEmpUpdateSidenav(selectEmp.emp_id)">{{trans('common.modify')}}</md-button>
+				<md-button class="md-raised md-primary" ng-click="showEmpDeleteDialog(selectEmp.emp_id)">{{trans('common.delete')}}</md-button>
 			@endif
-				<md-button class="md-raised" ng-click="closeEmpSelectSidenav()">Close</md-button>
+				<md-button class="md-raised" ng-click="closeEmpSelectSidenav()">{{trans('common.close')}}</md-button>
 			</div>
 		</form>
 	</md-content>

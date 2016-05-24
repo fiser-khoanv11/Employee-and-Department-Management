@@ -49,6 +49,7 @@ Route::group(['middleware' => ['free']], function () {
 	Route::post('acc-login','AccCtrl@login');
 	Route::get('acc-logout', 'AccCtrl@logout');
 	Route::get('acc-email/{email}', 'AccCtrl@checkEmail');
+	Route::get('language', 'AccCtrl@language');
 
 	// Employee Routes
 	Route::get('emp/{dep?}', 'EmpCtrl@index');

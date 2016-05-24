@@ -2,8 +2,8 @@ var app = angular.module('App', ['ngMaterial', 'ngMessages']);
 
 app.config(function ($mdThemingProvider, $mdDateLocaleProvider) {
 	$mdThemingProvider.theme('default')
-		.primaryPalette('blue-grey')
-		.accentPalette('blue');
+		.primaryPalette('teal')
+		.accentPalette('orange');
 		// .dark();
 });
 
@@ -40,6 +40,12 @@ app.controller('ToolbarCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $m
 			templateUrl: 'bottom-sheet.html'
 		});
 	};
+
+	$scope.changeLanguage = function() {
+		$http.get(loc + "language").then(function (response) {
+			location.reload();
+		});
+	}
 });
 
 app.controller('AccSidenavCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToast) {
