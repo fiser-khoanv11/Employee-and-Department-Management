@@ -34,11 +34,23 @@
 				<p>@{{item.dep_name}}</p>
 				<p>@{{item.dep_address}}</p>
 				<p>@{{item.mng_name}}</p>
-				<md-button class="md-primary md-hue-2" ng-click="openDepSelectSidenav(item.dep_id)" style="min-width:0px"><i class="material-icons">info</i></md-button>
-				<md-button class="md-primary md-hue-2" href="emp/@{{item.dep_id}}" style="min-width:0px"><i class="material-icons" style="margin-top:6px">people</i></md-button>
+				<md-button class="md-primary md-hue-2" ng-click="openDepSelectSidenav(item.dep_id)" style="min-width:0px">
+					<md-tooltip md-direction="top">{{trans('common.info')}}</md-tooltip>
+					<i class="material-icons">info</i>
+				</md-button>
+				<md-button class="md-primary md-hue-2" href="emp/@{{item.dep_id}}" style="min-width:0px">
+					<md-tooltip md-direction="top">{{trans('common.employee')}}</md-tooltip>
+					<i class="material-icons" style="margin-top:6px">people</i>
+				</md-button>
 			@if ($status == 'y')	
-				<md-button class="md-primary md-hue-2" ng-click="openDepUpdateSidenav(item.dep_id)" style="min-width:0px"><i class="material-icons">edit</i></md-button>
-				<md-button class="md-primary md-hue-2" ng-click="showDepDeleteDialog(item.dep_id)" style="min-width:0px"><i class="material-icons">delete</i></md-button>
+				<md-button class="md-primary md-hue-2" ng-click="openDepUpdateSidenav(item.dep_id)" style="min-width:0px">
+					<md-tooltip md-direction="top">{{trans('common.modify')}}</md-tooltip>
+					<i class="material-icons">edit</i>
+				</md-button>
+				<md-button class="md-primary md-hue-2" ng-click="showDepDeleteDialog(item.dep_id)" style="min-width:0px">
+					<md-tooltip md-direction="top">{{trans('common.delete')}}</md-tooltip>
+					<i class="material-icons">delete</i>
+				</md-button>
 			@endif	
 			</md-list-item>
 		</div>

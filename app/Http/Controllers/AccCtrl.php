@@ -6,6 +6,7 @@ use App\Account;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use Mail;
 
 class AccCtrl extends Controller
 {
@@ -33,10 +34,6 @@ class AccCtrl extends Controller
 		}
 	}
 
-	public function test(Request $req) {
-		echo $req->session()->get('status', 'none');
-	}
-
 	public function logout(Request $request) {
 		$request->session()->flush();
 		return redirect('emp');
@@ -45,13 +42,25 @@ class AccCtrl extends Controller
 	public function insert() {
 		$_POST = json_decode(file_get_contents('php://input'), true);
 		
+		/*
+		@hung: Tao mat khau random roi gan vao $password
+		*/
+		$password = 'random';
+
 		$acc = new Account;
 
 		$acc->acc_name = $_POST['name'];
-		$acc->acc_password = 'admin';
+		$acc->acc_password = $password;
 		$acc->acc_email = $_POST['email'];
 		
 		$acc->save();
+
+		/*
+		@hung: Thiet ke mail trong view resources/views/mail.blade.php
+		*/
+    	Mail::send('mail', ['pass' => $password], function($message) {
+			$message->to($_POST['email'], 'OK')->subject('Password for ED Account');
+		});
 	}
 
 	public function update(Request $request) {

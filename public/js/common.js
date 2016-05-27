@@ -125,7 +125,8 @@ app.directive("emailUsed", function ($http) {
 
 		link: function(scope, element, attr, ctrl) {
 			function customValidator(ngModelValue) {
-				$http.get('acc-email/' + ngModelValue).then(function (response) {
+				var loc = 'http://' + location.host + '/';
+				$http.get(loc + 'acc-email/' + ngModelValue).then(function (response) {
 					if (response.data == 'ok') {
 						ctrl.$setValidity('used', true);
 					} else {

@@ -18,7 +18,7 @@ class EmpCtrl extends Controller
 	public function index(Request $request, $dep=0) {
 		$status = $request->session()->get('status', 'n');
 		$name = $request->session()->get('name');
-		$lang = $request->session()->get('lang');
+		$lang = $request->session()->get('lang', 'en');
 		App::setLocale($lang);
 
 		return view('emp', ['dep' => $dep, 'status' => $status, 'name' => $name, 'lang' => $lang]);
@@ -95,6 +95,7 @@ class EmpCtrl extends Controller
 
 		$result = '{"record":[' . $data . ']}';
 		echo $result;
+		// echo 'test';
 	}
 
 	public function redirect() {
