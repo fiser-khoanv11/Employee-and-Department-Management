@@ -43,7 +43,7 @@ Route::group(['middleware' => ['web']], function () {
 });
 
 Route::group(['middleware' => ['free']], function () {
-	Route::get('/', 'EmpCtrl@redirect');
+	Route::get('/', 'HomeCtrl@index');
 
 	// Account Routes
 	Route::post('acc-login','AccCtrl@login');
@@ -63,9 +63,11 @@ Route::group(['middleware' => ['free']], function () {
 	Route::get('dep-select-single/{id}', 'DepCtrl@selectSingle');
 	Route::get('dep-select-names', 'DepCtrl@selectNames');
 
-	//HOME
+	// Home Routes
 	Route::get('home','HomeCtrl@index');
-	Route::get('countEmp','HomeCtrl@countEmp');
-	Route::get('countDep','HomeCtrl@countDep');
-	Route::get('countUser','HomeCtrl@countUsr');
+	// Route::get('count-emp','HomeCtrl@countEmp');
+	// Route::get('count-dep','HomeCtrl@countDep');
+	// Route::get('count-acc','HomeCtrl@countUsr');
+
+	Route::get('count','HomeCtrl@count');
 });

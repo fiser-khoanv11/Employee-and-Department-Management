@@ -19,14 +19,13 @@
 		
 	</style>
 	<div layout="column" layout-align="center stretch">
-		
 		<div layout="row" style="padding-top:20px;padding-bottom:20px;" layout-align="space-around center">
 			
 			<div class="flex-30">
 				<div layout="row" layout-align="space-around center" style="background-color:#00BCD4;padding:10px;">
 					<img class="round" src="{{url('images/staff.png')}}">
 					<div>
-						<div class="number">@{{emp}}</div>
+						<div class="number">@{{count.emp}}</div>
 						<div class="list">Employees</div>
 					</div>
 				</div>
@@ -36,8 +35,8 @@
 				<div  layout="row" layout-align="space-around center" style="background-color:#81C04E;padding:10px;">
 					<img class="round" src="{{url('images/staff.png')}}">
 					<div>
-						<div class="number">@{{usr}}</div>
-						<div class="list">Users</div>
+						<div class="number">@{{count.dep}}</div>
+						<div class="list">Departments</div>
 					</div>
 				</div>
 			</div>
@@ -46,8 +45,8 @@
 				<div layout="row" layout-align="space-around center" style="background-color:#9258AC;padding:10px;">
 					<img class="round" src="{{url('images/staff.png')}}">
 					<div>
-						<div class="number">@{{dep}}</div>
-						<div class="list">Departments</div>
+						<div class="number">@{{count.acc}}</div>
+						<div class="list">Users</div>
 					</div>
 				</div>
 			</div>

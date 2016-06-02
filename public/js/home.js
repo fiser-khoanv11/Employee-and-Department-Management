@@ -1,51 +1,40 @@
 app.controller('AppCtrl', function ($scope, $timeout,$mdSidenav, $mdDialog, $http, $mdToast) {
 	$scope.tab = {home:'md-raised'};
 	var loc = 'http://' + location.host + '/';
- 	$scope.emp=0;
-    $scope.dep = 0;  
-    $scope.usr = 0;
-
-	$scope.loadEmp = function(){
-		$http.get(loc + 'countEmp/').then(function (response) {
-			$scope.total = response.data;
-
-			if($scope.emp < $scope.total){
-		        $timeout(function(){
-		            $scope.emp++ ;
-		            $scope.loadEmp();
-		        },80);
-	    	}
-		});
-	}
-    
-   $scope.loadDep = function(){
-		$http.get(loc + 'countDep/').then(function (response) {
-			$scope.total = response.data;
-
-			if($scope.dep < $scope.total){
-		        $timeout(function(){
-		            $scope.dep++ ;
-		            $scope.loadDep();
-		        },80);
-	    	}
-		});
-	}
-
-	$scope.loadUser= function(){
-		$http.get(loc + 'countUser/').then(function (response) {
-			$scope.total = response.data;
-			if($scope.usr < $scope.total){
-		        $timeout(function(){
-		            $scope.usr++;
-		            $scope.loadUser();
-		        },80);
-	    	}
-		});
-	}
-
-    $scope.loadEmp();
-	$scope.loadDep();
-	$scope.loadUser();
 	
-	   
+	$scope.count = {emp:0, dep:0, acc:0};
+	$scope.setTotal = function() {
+		$http.get(loc + 'count').then(function (response) {
+			$scope.total = response.data.records[0];
+			$scope.loadCount();
+		});
+	}
+
+	$scope.setTotal();
+
+	$scope.loadCount = function() {
+		while ($scope.count.emp < $scope.total.emp) {
+			$timeout(function(){
+			
+			},80);
+
+			$scope.count.emp ++;
+		}
+
+		while ($scope.count.dep < $scope.total.dep) {
+			$timeout(function(){
+			
+			},80);
+
+			$scope.count.dep ++;
+		}
+
+		while ($scope.count.acc < $scope.total.acc) {
+			$timeout(function(){
+			
+			},80);
+
+			$scope.count.acc ++;
+		}
+	}   
 });

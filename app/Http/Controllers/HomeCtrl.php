@@ -22,18 +22,27 @@ class HomeCtrl extends Controller
 		return view('home', [ 'status' => $status, 'name' => $name, 'lang' => $lang]);
 	}
 
-	public function countEmp(){
-		$data = Employee::count();
-		echo $data;
-	}
+	// public function countEmp(){
+	// 	$data = Employee::count();
+	// 	echo $data;
+	// }
 
-	public function countDep(){
-		$data = Department::count();
-		echo $data;
-	}
+	// public function countDep(){
+	// 	$data = Department::count();
+	// 	echo $data;
+	// }
 
-	public function countUsr(){
-		$data = Account::count();
-		echo $data;
+	// public function countUsr(){
+	// 	$data = Account::count();
+	// 	echo $data;
+	// }
+
+	public function count() {
+		$emp = Employee::count();
+		$dep = Department::count();
+		$acc = Account::count();
+
+		$result = '{"records":[{"emp":' . $emp . ',"dep":' . $dep . ',"acc": ' . $acc . '}]}';
+		echo $result;
 	}
 }
