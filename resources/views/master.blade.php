@@ -13,6 +13,7 @@
 			<div class="md-toolbar-tools">
 				<span style="font-family:'Lobster';font-size:x-large">{{trans('common.employee_directory')}}</span>
 				<span flex></span>
+				<md-button class="@{{tab.home}}" href="{{url('/home')}}">Home</md-button>
 				<md-button class="@{{tab.emp}}" href="{{url('/emp')}}">{{trans('common.employees')}}</md-button>
 				<md-button class="@{{tab.dep}}" href="{{url('/dep')}}">{{trans('common.departments')}}</md-button>
 			@if ($status == 'n')

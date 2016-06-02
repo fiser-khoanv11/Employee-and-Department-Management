@@ -62,4 +62,10 @@ Route::group(['middleware' => ['free']], function () {
 	Route::get('dep-select', 'DepCtrl@select');
 	Route::get('dep-select-single/{id}', 'DepCtrl@selectSingle');
 	Route::get('dep-select-names', 'DepCtrl@selectNames');
+
+	//HOME
+	Route::get('home','HomeCtrl@index');
+	Route::get('countEmp','HomeCtrl@countEmp');
+	Route::get('countDep','HomeCtrl@countDep');
+	Route::get('countUser','HomeCtrl@countUsr');
 });
