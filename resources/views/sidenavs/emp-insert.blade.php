@@ -5,15 +5,11 @@
 	<md-content layout-padding>
 		<form name="insertForm" ng-submit="submitNewEmp()">
 
-
-
 			<div flow-init>
 		  		<img id="here" flow-img="$flow.files[0]" style="width:50%"/>
 	      		<md-button flow-btn flow-attrs="{accept:'image/*'}">Change</md-button>
 			</div>
-
-
-
+			
 			<md-input-container class="md-block">
 				<label>{{trans('common.name')}}</label>
 				<input type="text" name="name" ng-model="newEmp.name" required md-maxlength="45" maxlength="45" md-sidenav-focus>

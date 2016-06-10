@@ -11,13 +11,4 @@ app.controller('AppCtrl', function ($scope, $timeout,$mdSidenav, $mdDialog, $htt
 	}
 
 	$scope.setTotal();
-
-	// $scope.loadCount = function() {
-	// 	setTimeout(function() {
-	// 		$scope.count.emp ++;
-	// 		if ($scope.count.emp < $scope.total.emp) { 
-	// 			$scope.loadCount();
-	// 		} 
-	// 	}, 100);
-	// }
 });
