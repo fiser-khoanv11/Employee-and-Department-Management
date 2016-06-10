@@ -1,4 +1,4 @@
-var app = angular.module('App', ['ngMaterial', 'ngMessages']);
+var app = angular.module('App', ['ngMaterial', 'ngMessages', 'flow']);
 
 app.config(function ($mdThemingProvider, $mdDateLocaleProvider) {
 	$mdThemingProvider.theme('default')
@@ -6,6 +6,23 @@ app.config(function ($mdThemingProvider, $mdDateLocaleProvider) {
 		.accentPalette('orange');
 		// .dark();
 });
+
+app.config(['flowFactoryProvider', function (flowFactoryProvider) {
+	flowFactoryProvider.defaults = {
+		target: 'upload.php',
+		permanentErrors: [404, 500, 501],
+		maxChunkRetries: 1,
+		chunkRetryInterval: 5000,
+		simultaneousUploads: 4,
+		singleFile: true
+	};
+  
+  	flowFactoryProvider.on('catchAll', function (event) {
+		console.log('catchAll', arguments);
+  	});
+	// Can be used with different implementations of Flow.js
+	// flowFactoryProvider.factory = fustyFlowFactory;
+}]);
 
 app.controller('ToolbarCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToast, $mdBottomSheet) {
 	var loc = 'http://' + location.host + '/';

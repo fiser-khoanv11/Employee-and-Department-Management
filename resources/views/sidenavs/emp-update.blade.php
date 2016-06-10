@@ -7,6 +7,12 @@
 			<!-- <md-input-container layout="row">
 				<input type="file" name="fileToUpload" id="fileToUpload">
 			</md-input-container> -->
+
+			<div flow-init>
+		  		<img id="there" ng-src="@{{updateEmp.emp_photo}}" flow-img="$flow.files[0]" style="width:50%"/>
+	      		<md-button flow-btn flow-attrs="{accept:'image/*'}">Change</md-button>
+			</div>
+
 		   	<md-input-container class="md-block">
 		        <label>{{trans('common.name')}}</label>
 		        <input type="text" name="name" ng-model="updateEmp.emp_name" required md-maxlength="45" maxlength="45" md-sidenav-focus>
@@ -40,7 +46,7 @@
 		  			</md-select>
 				</md-input-container>
 			</div>
-			<div class="md-block">
+			<div class="md-block" style="padding:24px 0px">
 				<!-- <p>@{{updateEmp.emp_dob}}</p> -->
 				<md-datepicker name="dob" ng-model="updateEmp.emp_dob" md-placeholder="{{trans('common.dob')}}" ng-change="changeDate()"></md-datepicker>
 			</div>

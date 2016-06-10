@@ -36,7 +36,7 @@ class AccCtrl extends Controller
 
 	public function logout(Request $request) {
 		$request->session()->flush();
-		return redirect('emp');
+		return redirect('/');
 	}
 
 	public function insert() {
@@ -108,7 +108,7 @@ class AccCtrl extends Controller
 		if ($lang == 'en') {
 			$request->session()->put('lang', 'vi');
 			if (isset($acc)) {
-				$acc->acc_lang = 'vi';	
+				$acc->acc_lang = 'vi';
 			}
 		} else {
 			$request->session()->put('lang', 'en');

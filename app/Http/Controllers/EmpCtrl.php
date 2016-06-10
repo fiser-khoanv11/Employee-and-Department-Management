@@ -39,6 +39,7 @@ class EmpCtrl extends Controller
 		$emp->emp_phone = $_POST['phone'];
 		$emp->emp_email = $_POST['email'];
 		$emp->dep_id = $_POST['dep'];
+		$emp->emp_photo = $_POST['photo'];
 		
 		$emp->save();
 	}
@@ -54,6 +55,7 @@ class EmpCtrl extends Controller
 		$emp->emp_phone = $_POST['emp_phone'];
 		$emp->emp_email = $_POST['emp_email'];
 		$emp->dep_id = $_POST['dep_id'];
+		$emp->emp_photo = $_POST['emp_photo'];
 
 		$emp->save();
 	}
@@ -76,7 +78,6 @@ class EmpCtrl extends Controller
 			} else {
 				$item->dep_name = $item->department->dep_name;
 			}
-			
 		}
 
 		$result = '{"records":' . $data . '}';

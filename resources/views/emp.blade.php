@@ -48,7 +48,7 @@
 		<div ng-repeat="item in emps">
 			<md-divider></md-divider>
 			<md-list-item ng-click="something()">
-				<img ng-src="{{url('images/avatar.jpg')}}" class="md-avatar">
+				<img ng-src="@{{item.emp_photo}}" class="md-avatar">
 				<p>@{{item.emp_name}}</p>
 				<p>@{{item.emp_job}}</p>
 				<!-- <p>@{{item.emp_email}}</p> -->

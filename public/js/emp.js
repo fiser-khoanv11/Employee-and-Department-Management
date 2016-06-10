@@ -1,7 +1,11 @@
 app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToast) {
 	$scope.tab = {emp:'md-raised', dep:''};
-	$scope.newEmp = {name:null, job:null, dob:null, phone:null, email:null, dep:null};
+	$scope.newEmp = {name:null, job:null, dob:null, phone:null, email:null, dep:null, photo:null};
 	$scope.search = {dep:document.getElementById('para').innerHTML, nam:''};
+	var image = document.getElementById('here');
+	if (image != null) {
+		image.src = 'images/default_photo.jpg';
+	}
 	var loc = 'http://' + location.host + '/';
 	var change = 0;
 
@@ -20,13 +24,14 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 	$scope.loadEmps();
 
 	$scope.submitNewEmp = function () {
-		console.log($scope.newEmp);
-
 		// If DOB was set, increase it to 1 day before inserting into database
 		if ($scope.newEmp.dob != null) {
 			$scope.newEmp.dob = new Date($scope.newEmp.dob);
 			$scope.newEmp.dob.setDate($scope.newEmp.dob.getDate() + 1);
 		}
+
+		// Insert photo
+		$scope.newEmp.photo = image.src;
 
 		// Insert into database
 		$http({
@@ -35,9 +40,17 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 			data: $scope.newEmp,
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).success(function (response) {
+			// Reload employees
 			$scope.loadEmps();
+
+			// Close sidenav
 			$scope.toggleEmpInsertSidenav();
-			$scope.newEmp = {name:null, job:null, dob:null, phone:null, email:null, dep:null};
+
+			// Reset form
+			$scope.newEmp = {name:null, job:null, dob:null, phone:null, email:null, dep:null, photo:null};
+			document.getElementById('here').src = 'images/default_photo.jpg';
+
+			// Show toast
 			var toast = $mdToast.simple().textContent('Inserted!')
 			$mdToast.show(toast);
 		});
@@ -51,6 +64,8 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 			$scope.updateEmp.emp_dob = new Date($scope.updateEmp.emp_dob);
 			$scope.updateEmp.emp_dob.setDate($scope.updateEmp.emp_dob.getDate() + 1);
 		}
+
+		$scope.updateEmp.emp_photo = document.getElementById('there').src;
 
 		// Update database
 		$http({
