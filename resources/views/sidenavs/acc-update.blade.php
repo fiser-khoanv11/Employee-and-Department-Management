@@ -6,7 +6,7 @@
 		<form name="updateForm" ng-submit="submitUpdateAcc()">
 			<md-input-container class="md-block">
 				<label>{{trans('common.old_password')}}</label>
-				<input type="password" name="old" ng-model="pass.old" required md-maxlength="45" minlength="5" maxlength="45" md-sidenav-focus>
+				<input type="password" name="old" ng-model="pass.old" required md-maxlength="45" minlength="5" maxlength="45">
 				<div ng-messages="updateForm.old.$error">
 					<div ng-message="required">Required.</div>
 					<div ng-message="minlength">Password must have 5 - 45 characters.</div>

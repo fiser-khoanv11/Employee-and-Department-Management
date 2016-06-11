@@ -1,6 +1,9 @@
 @extends('master')
 
 @section('content')
+	<b class='title'>EMPLOYEES</b>
+	<div style="height:30px"></div>
+
 	<div ng-controller="selectCtrl" layout="row">
 		<md-input-container flex="25">
 			<label>{{trans('common.employee_name')}}</label>

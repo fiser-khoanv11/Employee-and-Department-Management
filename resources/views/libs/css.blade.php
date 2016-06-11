@@ -7,4 +7,11 @@
 .md-datepicker-button {
 	display: none;
 }
+
+.title {
+	font-size: 150%;
+	margin-bottom: 25px;
+	border-bottom: 3px solid rgb(96,125,139);
+	color: rgb(147,170,181)
+}
 </style>

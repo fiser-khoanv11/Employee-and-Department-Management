@@ -17,7 +17,7 @@
 			
 			<md-input-container class="md-block">
 				<label>{{trans('common.name')}}</label>
-				<input type="text" name="name" ng-model="newEmp.name" required md-maxlength="45" maxlength="45" md-sidenav-focus>
+				<input type="text" name="name" ng-model="newEmp.name" required md-maxlength="45" maxlength="45">
 				<div ng-messages="insertForm.name.$error">
 					<div ng-message="required">Name is required.</div>
 				</div>

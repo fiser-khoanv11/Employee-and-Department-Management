@@ -2,7 +2,7 @@
 
 return [
 	
-    'home' => 'Home',
+    'home' => 'Dashboard',
 	'employee' => 'Employee',
     'employees' => 'Employees',
     'department' => 'Department',
@@ -13,6 +13,7 @@ return [
     'change_password' => 'Change password',
     'welcome' => 'Welcome',
     'language' => 'Change language',
+    'about_us' => 'About us',
 
     'add_new_account' => 'Add new account',
     'add_new_employee' => 'Add new employee',

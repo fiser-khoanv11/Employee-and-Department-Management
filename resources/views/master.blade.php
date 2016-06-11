@@ -4,11 +4,11 @@
 	<title>Employee Directory</title>
 	@include('libs.css')
 </head>
-<body ng-app="App" ng-controller="AppCtrl" ng-cloak style="background-color:grey;font-family:'Catamaran'">
+<body ng-app="App" ng-controller="AppCtrl" ng-cloak style="background-color:rgb(210,240,219);font-family:'Catamaran'">
 	<!--
 		Your HTML content here
 	-->
-	<div layout="column" style="background-color:grey;padding-bottom:50px">
+	<div layout="column" style="background-color:rgb(210,240,219);padding-bottom:50px">
 		<md-toolbar class="md-primary" ng-controller="ToolbarCtrl">
 			<div class="md-toolbar-tools">
 				<span style="font-family:'Lobster';font-size:x-large">{{trans('common.employee_directory')}}</span>
@@ -23,18 +23,14 @@
 				<md-button ng-click="toggleAccUpdateSidenav()">Change Password</md-button>
 				<md-button ng-click="showLogoutDialog()">Log out</md-button>
 				<md-button ng-disabled=""><span style="color:white">Welcome, <b>{{$name}}</b></span></md-button> -->
-			
-				<md-button ng-click="openBottomSheet()">About Us</md-button>
+				<md-button ng-click="toggleAccInsertSidenav()">{{trans('common.add_new_account')}}</md-button>
+				<!-- <md-button ng-click="openBottomSheet()">About Us</md-button> -->
 
-				<md-fab-speed-dial md-direction="down" class="md-scale" style="top:105px">
+				<md-fab-speed-dial md-direction="down" class="md-scale" style="top:100px">
 					<md-fab-trigger>
 						<md-button><span style="color:white"><b>{{$name}}</b></md-button>
 					</md-fab-trigger>
 					<md-fab-actions>
-						<md-button class="md-fab md-mini md-accent" style="margin-top:20px" ng-click="toggleAccInsertSidenav()">
-							<md-tooltip md-direction="left">{{trans('common.add_new_account')}}</md-tooltip>
-							<i class="material-icons">person_add</i>
-						</md-button>
 						<md-button class="md-fab md-mini md-accent" style="margin-top:10px" ng-click="toggleAccUpdateSidenav()">
 							<md-tooltip md-direction="left">{{trans('common.change_password')}}</md-tooltip>
 							<i class="material-icons">security</i>
@@ -42,6 +38,10 @@
 						<md-button class="md-accent md-fab md-mini" style="margin-top:10px" ng-click="changeLanguage()">
 							<md-tooltip md-direction="left">{{trans('common.language')}}</md-tooltip>
 							<b>{{$lang}}</b>
+						</md-button>
+						<md-button class="md-fab md-mini md-accent" style="margin-top:10px" ng-click="openBottomSheet()">
+							<md-tooltip md-direction="left">{{trans('common.about_us')}}</md-tooltip>
+							<i class="material-icons">info_outline</i>
 						</md-button>
 						<md-button class="md-fab md-mini md-accent" style="margin-top:10px" ng-click="showLogoutDialog()">
 							<md-tooltip md-direction="left">{{trans('common.log_out')}}</md-tooltip>
@@ -52,8 +52,10 @@
 			@endif
 			</div>
 		</md-toolbar>
-		<md-content style="padding:30px 50px; margin:0px 50px; border-radius:0px 0px 15px 15px">
-			@yield('content')
+		<md-content style="padding:30px 50px; margin:0px 50px; background-color:white">
+			<!-- <md-whiteframe class="md-whiteframe-5dp" > -->
+				@yield('content')
+			<!-- </md-whiteframe> -->
 		</md-content>
 	</div>
 

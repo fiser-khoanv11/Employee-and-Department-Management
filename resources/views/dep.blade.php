@@ -1,6 +1,9 @@
 @extends('master')
 
 @section('content')
+	<b class='title'>DEPARTMENTS</b>
+	<div style="height:30px"></div>
+
 	<md-list>
 		<div layout="row">
 			<!-- <md-subheader class="md-no-sticky">Departments</md-subheader> -->
