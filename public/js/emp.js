@@ -8,9 +8,10 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 	}
 	var loc = 'http://' + location.host + '/';
 	var change = 0;
+	$scope.page = 1;
 
 	$scope.loadEmps = function () {
-		$str = loc + 'emp-select/' + $scope.search.dep;
+		$str = loc + 'emp-select/' + $scope.page + '/' + $scope.search.dep;
 
 		if ($scope.search.nam != '') {
 			$str += '/' + $scope.search.nam;
@@ -19,6 +20,16 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 		$http.get($str).then(function (response) {
 			$scope.emps = response.data.records;
 		});
+	}
+
+	$scope.previous = function () {
+		$scope.page --;
+		$scope.loadEmps();
+	}
+
+	$scope.next = function () {
+		$scope.page ++;
+		$scope.loadEmps();
 	}
 
 	$scope.loadEmps();
@@ -135,6 +146,7 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 	}
 
 	$scope.clearSearch = function () {
+		// $scope.page = 1;
 		$scope.search = {dep:0, nam:''};
 		$scope.loadEmps();
 	}

@@ -52,7 +52,7 @@ Route::group(['middleware' => ['free']], function () {
 
 	// Employee Routes
 	Route::get('emp/{dep?}', 'EmpCtrl@index');
-	Route::get('emp-select/{dep}/{name?}', 'EmpCtrl@select');
+	Route::get('emp-select/{skip}/{dep}/{name?}', 'EmpCtrl@select');
 	Route::get('emp-select-single/{id}', 'EmpCtrl@selectSingle');
 	Route::get('emp-select-names', 'EmpCtrl@selectNames');
 

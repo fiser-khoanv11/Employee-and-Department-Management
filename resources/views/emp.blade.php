@@ -30,6 +30,12 @@
 
 	<p id="para" hidden>{{$dep}}</p>
 
+	<!-- <span>Result:</span> -->
+	<md-button ng-click="previous()" ng-if="page!=1">previous</md-button>
+	<md-button disabled="true" ng-if="page==1">previous</md-button>
+	<span>Page @{{page}}</span>
+	<md-button ng-click="next()">next</md-button>
+
 	<md-list>
 		<div>
 			<md-list-item style="padding:0px 16px; left:-16px">
