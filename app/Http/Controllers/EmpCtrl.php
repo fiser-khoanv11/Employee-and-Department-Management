@@ -19,10 +19,9 @@ class EmpCtrl extends Controller
 		$status = $request->session()->get('status', 'n');
 		$name = $request->session()->get('name');
 		$lang = $request->session()->get('lang', 'en');
-		$stt = $request->session()->get('stt','1');
 		App::setLocale($lang);
 
-		return view('emp', ['dep' => $dep, 'status' => $status, 'name' => $name, 'lang' => $lang, 'stt' => $stt]);
+		return view('emp', ['dep' => $dep, 'status' => $status, 'name' => $name, 'lang' => $lang]);
 	}
 
 	public function delete($id) {

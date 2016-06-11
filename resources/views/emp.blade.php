@@ -17,13 +17,11 @@
 		<md-button class="md-raised" ng-click="clearSearch()" style="height:10px;top:6px">{{trans('common.clear')}}</md-button>
 
 	@if ($status == 'y')
-		@if ($stt == '1')
-			<span flex></span>
-			<md-button class="md-raised md-primary md-fab" ng-click="toggleEmpInsertSidenav()" style="margin-right:16px">
-				<md-tooltip md-direction="left">{{trans('common.add_new_employee')}}</md-tooltip>
-				<i class="material-icons">add</i>
-			</md-button>
-		@endif
+		<span flex></span>
+		<md-button class="md-raised md-primary md-fab" ng-click="toggleEmpInsertSidenav()" style="margin-right:16px">
+			<md-tooltip md-direction="left">{{trans('common.add_new_employee')}}</md-tooltip>
+			<i class="material-icons">add</i>
+		</md-button>
 	@endif
 	</div>
 
@@ -59,15 +57,6 @@
 					<i class="material-icons">info</i>
 				</md-button>
 			@if ($status == 'y')
-				@if($stt == '0')
-				<md-button class="md-primary md-hue-2" ng-disabled="true" style="min-width:0px">			
-					<i class="material-icons">edit</i>
-				</md-button>
-				<md-button class="md-primary md-hue-2"  ng-disabled="true" style="min-width:0px">
-					<md-tooltip md-direction="top">{{trans('common.delete')}}</md-tooltip>
-					<i class="material-icons">delete</i>
-				</md-button>
-				@elseif($stt == '1')
 				<md-button class="md-primary md-hue-2" ng-click="openEmpUpdateSidenav(item.emp_id)" style="min-width:0px">
 					<md-tooltip md-direction="top">{{trans('common.modify')}}</md-tooltip>
 					<i class="material-icons">edit</i>
@@ -76,7 +65,6 @@
 					<md-tooltip md-direction="top">{{trans('common.delete')}}</md-tooltip>
 					<i class="material-icons">delete</i>
 				</md-button>
-				@endif
 			@endif
 			</md-list-item>
 		</div>

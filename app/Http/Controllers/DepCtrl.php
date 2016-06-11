@@ -20,10 +20,9 @@ class DepCtrl extends Controller
 		$status = $request->session()->get('status', 'n');
 		$name = $request->session()->get('name');
 		$lang = $request->session()->get('lang');
-		$stt = $request->session()->get('stt','1');
 		App::setLocale($lang);
 
-		return view('dep', ['status' => $status, 'name' => $name, 'lang' => $lang, 'stt' => $stt]);
+		return view('dep', ['status' => $status, 'name' => $name, 'lang' => $lang]);
 	}
 
 	public function delete($id) {
