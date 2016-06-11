@@ -45,7 +45,14 @@ class AccCtrl extends Controller
 		/*
 		@hung: Tao mat khau random roi gan vao $password
 		*/
-		$password = 'random';
+		$password = "";
+ 		
+ 		$charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  			//RANDOM PASSWORD
+ 		for($i = 0; $i < 8; $i++){
+		    $random_int = mt_rand();
+		    $password .= $charset[$random_int % strlen($charset)];
+	    }
 
 		$acc = new Account;
 
@@ -58,7 +65,7 @@ class AccCtrl extends Controller
 		/*
 		@hung: Thiet ke mail trong view resources/views/mail.blade.php
 		*/
-    	Mail::send('mail', ['pass' => $password], function($message) {
+    	Mail::send('mail', ['username' => $acc->acc_name,'pass' => $password], function($message) {
 			$message->to($_POST['email'], 'OK')->subject('Password for ED Account');
 		});
 	}

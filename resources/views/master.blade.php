@@ -56,7 +56,7 @@
 			@yield('content')
 		</md-content>
 	</div>
-
+	
 	<div ng-controller="AccSidenavCtrl">
 		@if ($status == 'n')
 			@include('sidenavs.acc-login')
