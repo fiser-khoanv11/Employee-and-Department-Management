@@ -2,11 +2,12 @@
 
 return [
 
+    'home' => 'Trang chủ',
 	'employee' => 'Nhân viên',
 	'employees' => 'Nhân viên',
 	'department' => 'Phòng ban',
 	'departments' => 'Phòng ban',
-	'employee_directory' => 'Quản lý nhân viên',
+	'employee_directory' => 'Quản lý Nhân viên',
 	'log_in' => 'Đăng nhập',
 	'log_out' => 'Đăng xuất',
     'change_password' => 'Đổi mật khẩu',

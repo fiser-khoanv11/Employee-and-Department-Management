@@ -13,7 +13,7 @@
 			<div class="md-toolbar-tools">
 				<span style="font-family:'Lobster';font-size:x-large">{{trans('common.employee_directory')}}</span>
 				<span flex></span>
-				<md-button class="@{{tab.home}}" href="{{url('/home')}}">Home</md-button>
+				<md-button class="@{{tab.home}}" href="{{url('/home')}}">{{trans('common.home')}}</md-button>
 				<md-button class="@{{tab.emp}}" href="{{url('/emp')}}">{{trans('common.employees')}}</md-button>
 				<md-button class="@{{tab.dep}}" href="{{url('/dep')}}">{{trans('common.departments')}}</md-button>
 			@if ($status == 'n')
@@ -24,7 +24,7 @@
 				<md-button ng-click="showLogoutDialog()">Log out</md-button>
 				<md-button ng-disabled=""><span style="color:white">Welcome, <b>{{$name}}</b></span></md-button> -->
 			
-				<!-- <md-button ng-click="openBottomSheet()">About Us</md-button> -->
+				<md-button ng-click="openBottomSheet()">About Us</md-button>
 
 				<md-fab-speed-dial md-direction="down" class="md-scale" style="top:105px">
 					<md-fab-trigger>

@@ -3,7 +3,7 @@ var app = angular.module('App', ['ngMaterial', 'ngMessages', 'flow']);
 app.config(function ($mdThemingProvider, $mdDateLocaleProvider) {
 	$mdThemingProvider.theme('default')
 		.primaryPalette('teal')
-		.accentPalette('orange');
+		.accentPalette('light-blue');
 		// .dark();
 });
 
