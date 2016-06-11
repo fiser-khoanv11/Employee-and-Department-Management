@@ -32,7 +32,7 @@
 			</div>
 
 			<div class="flex-30" >
-				<div  layout="row" layout-align="space-around center" style="background-color:#81C04E;padding:10px;">
+				<div  layout="row" layout-align="space-around center" style="background-color:#00BCD4;padding:10px;">
 					<img class="round" src="{{url('images/staff.png')}}">
 					<div>
 						<div class="number">@{{count.dep}}</div>
@@ -42,7 +42,7 @@
 			</div>
 
 			<div class="flex-30">
-				<div layout="row" layout-align="space-around center" style="background-color:#9258AC;padding:10px;">
+				<div layout="row" layout-align="space-around center" style="background-color:#00BCD4;padding:10px;">
 					<img class="round" src="{{url('images/staff.png')}}">
 					<div>
 						<div class="number">@{{count.acc}}</div>
@@ -53,7 +53,7 @@
 
 		</div>
 
-		<div style="margin-left:17px;margin-right:17px;"><img style="width:100%;" src="{{url('images/background.jpg')}}"></div>
+		<!-- <div style="margin-left:17px;margin-right:17px;"><img style="width:100%;" src="{{url('images/background.jpg')}}"></div> -->
 	</div>
 @endsection
 

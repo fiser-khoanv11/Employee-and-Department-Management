@@ -1,4 +1,4 @@
-app.controller('AppCtrl', function ($scope, $timeout,$mdSidenav, $mdDialog, $http, $mdToast) {
+app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http) {
 	$scope.tab = {home:'md-raised'};
 	var loc = 'http://' + location.host + '/';
 	

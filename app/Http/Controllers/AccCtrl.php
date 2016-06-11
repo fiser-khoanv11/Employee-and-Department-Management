@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App;
 use App\Account;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -127,5 +128,14 @@ class AccCtrl extends Controller
 		if (isset($acc)) {
 			$acc->save();
 		}
+	}
+
+	public function change(Request $request) {
+		$status = $request->session()->get('status', 'n');
+		$name = $request->session()->get('name');
+		$lang = $request->session()->get('lang');
+		App::setLocale($lang);
+
+		return view('change', ['status' => $status, 'name' => $name, 'lang' => $lang]);
 	}
 }

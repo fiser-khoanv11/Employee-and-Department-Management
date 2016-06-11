@@ -47,7 +47,6 @@ Route::group(['middleware' => ['free']], function () {
 
 	// Account Routes
 	Route::post('acc-login','AccCtrl@login');
-	Route::get('acc-logout', 'AccCtrl@logout');
 	Route::get('acc-email/{email}', 'AccCtrl@checkEmail');
 	Route::get('language', 'AccCtrl@language');
 
@@ -65,9 +64,13 @@ Route::group(['middleware' => ['free']], function () {
 
 	// Home Routes
 	Route::get('home','HomeCtrl@index');
-	// Route::get('count-emp','HomeCtrl@countEmp');
-	// Route::get('count-dep','HomeCtrl@countDep');
-	// Route::get('count-acc','HomeCtrl@countUsr');
-
 	Route::get('count','HomeCtrl@count');
+});
+
+Route::group(['middleware' => ['change']], function () {
+	Route::get('change', 'AccCtrl@change');
+});
+
+Route::group(['middleware' => ['logout']], function () {
+	Route::get('acc-logout', 'AccCtrl@logout');
 });

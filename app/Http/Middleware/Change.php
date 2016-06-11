@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 
-class Login
+class Change
 {
     /**
      * Handle an incoming request.
@@ -17,8 +17,8 @@ class Login
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->session()->get('status', 'n') != 'y') {
-            return redirect('404');
+        if ($request->session()->get('stt') != '1' && $request->session()->get('status') == 'y') {
+            return redirect('change');
         }
 
         return $next($request);
