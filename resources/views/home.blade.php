@@ -55,9 +55,6 @@
 
 		<div style="margin-left:17px;margin-right:17px;"><img style="width:100%;" src="{{url('images/background.jpg')}}"></div>
 	</div>
-
-	@elseif ($stt == '0')
-		<a href="" ng-click="toggleAccUpdateSidenav()"><p style="text-align:center">This is your first time login, Click heare to change password</p></a>
 	@endif
 @endsection
 
