@@ -49,14 +49,18 @@
 						</md-button>
 				  </md-fab-actions>
 				</md-fab-speed-dial>
+
 			@endif
 			</div>
 		</md-toolbar>
 		<md-content style="padding:30px 50px; margin:0px 50px; border-radius:0px 0px 15px 15px">
+			@if ($stt == '0')
+				<div ng-controller="ToolbarCtrl"><a href="" ng-click="toggleAccUpdateSidenav()"><p style="text-align:center">This is your first time login, You must change password</p></a></div>
+			@endif
 			@yield('content')
 		</md-content>
 	</div>
-
+	
 	<div ng-controller="AccSidenavCtrl">
 		@if ($status == 'n')
 			@include('sidenavs.acc-login')

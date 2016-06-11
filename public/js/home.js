@@ -11,4 +11,5 @@ app.controller('AppCtrl', function ($scope, $timeout,$mdSidenav, $mdDialog, $htt
 	}
 
 	$scope.setTotal();
+
 });
