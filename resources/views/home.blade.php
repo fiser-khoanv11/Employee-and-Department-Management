@@ -18,6 +18,7 @@
 		}
 		
 	</style>
+	@if ($stt == '1')
 	<div layout="column" layout-align="center stretch">
 		<div layout="row" style="padding-top:20px;padding-bottom:20px;" layout-align="space-around center">
 			
@@ -50,11 +51,14 @@
 					</div>
 				</div>
 			</div>
-
 		</div>
 
 		<div style="margin-left:17px;margin-right:17px;"><img style="width:100%;" src="{{url('images/background.jpg')}}"></div>
 	</div>
+
+	@elseif ($stt == '0')
+		<a href="" ng-click="toggleAccUpdateSidenav()"><p style="text-align:center">This is your first time login, Click heare to change password</p></a>
+	@endif
 @endsection
 
 @section('js')

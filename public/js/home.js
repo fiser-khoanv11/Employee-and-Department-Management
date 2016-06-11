@@ -11,4 +11,28 @@ app.controller('AppCtrl', function ($scope, $timeout,$mdSidenav, $mdDialog, $htt
 	}
 
 	$scope.setTotal();
+
+	$scope.submitChangePass = function () {
+		console.log($scope.newAcc);
+		$http({
+			method: 'POST',
+			url: loc + 'acc-update',
+			data: $scope.pass,
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+		}).success(function (response) {
+			if (response == 'done') {
+				$scope.toggleAccUpdateSidenav();
+				$scope.pass = {old:null, 'new':null, confirm:null};
+				var toast = $mdToast.simple().textContent("Changed!");
+				$mdToast.show(toast);
+			} else {
+				var toast = $mdToast.simple().textContent("Fail!");
+				$mdToast.show(toast);
+			}
+		});
+	}
+
+	$scope.toggleAccUpdateSidenav = function () {
+		$mdSidenav('acc-update-sidenav').toggle();
+	}
 });
