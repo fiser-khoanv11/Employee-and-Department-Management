@@ -7,9 +7,14 @@
 			<!-- <md-input-container layout="row">
 				<input type="file" name="fileToUpload" id="fileToUpload">
 			</md-input-container> -->
-			<div flow-init>
-		  		<img id="there" ng-src="@{{updateEmp.emp_photo}}" flow-img="$flow.files[0]" style="width:50%"/>
-	      		<md-button flow-btn flow-attrs="{accept:'image/*'}">Change</md-button>
+			<div flow-init layout="row" style="padding-bottom:15px">
+				<div flex="50">
+		  			<img id="there" ng-src="@{{updateEmp.emp_photo}}" flow-img="$flow.files[0]" style="width:100%"/>
+		  		</div>
+		  		<div flex="50">
+		      		<md-button flow-btn flow-attrs="{accept:'image/*'}" class="md-raised md-primary">Change</md-button>
+		      		<md-button ng-click="removePhoto('there')" class="md-raised">Remove</md-button>
+		      	</div>
 			</div>
 			
 		   	<md-input-container class="md-block">

@@ -48,7 +48,8 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 
 			// Reset form
 			$scope.newEmp = {name:null, job:null, dob:null, phone:null, email:null, dep:null, photo:null};
-			document.getElementById('here').src = 'images/default_photo.jpg';
+			// document.getElementById('here').src = 'images/default_photo.jpg';
+			$scope.removePhoto('here');
 
 			// Show toast
 			var toast = $mdToast.simple().textContent('Inserted!')
@@ -141,6 +142,18 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 	$scope.changeDate = function () {
 		change = 1;
 		console.log('change');
+	}
+
+	$scope.removePhoto = function (id) {
+		document.getElementById(id).src = 'images/default_photo.jpg';
+	}
+
+	$scope.checkPhoto = function (id) {
+		if (document.getElementById(id).src == 'images/default_photo.jpg') {
+			return true;
+		}
+
+		return false;
 	}
 });
 

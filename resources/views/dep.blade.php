@@ -14,7 +14,7 @@
 		</div>
 		<div>
 			<md-list-item style="padding:0px 16px; left:-16px">
-				<img ng-src="" class="md-avatar" style="visibility:hidden">
+				<!-- <img ng-src="" class="md-avatar" style="visibility:hidden"> -->
 				<p><md-subheader>{{trans('common.name')}}</md-subheader></p>
 				<p><md-subheader>{{trans('common.address')}}</md-subheader></p>
 				<p><md-subheader>{{trans('common.manager')}}</md-subheader></p>
@@ -30,7 +30,7 @@
 			<md-divider></md-divider>
 			<md-list-item ng-click="dosomething()">
 				<!-- <md-checkbox class="secondary"></md-checkbox> -->
-				<img ng-src="images/avatar.jpg" class="md-avatar">
+				<!-- <img ng-src="images/avatar.jpg" class="md-avatar"> -->
 				<p>@{{item.dep_name}}</p>
 				<p>@{{item.dep_address}}</p>
 				<p>@{{item.mng_name}}</p>

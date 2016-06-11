@@ -15,21 +15,19 @@
 			</md-select>
 		</md-input-container>
 		<md-button class="md-raised" ng-click="clearSearch()" style="height:10px;top:6px">{{trans('common.clear')}}</md-button>
+
+	@if ($status == 'y')
+		<span flex></span>
+		<md-button class="md-raised md-primary md-fab" ng-click="toggleEmpInsertSidenav()" style="margin-right:16px">
+			<md-tooltip md-direction="left">{{trans('common.add_new_employee')}}</md-tooltip>
+			<i class="material-icons">add</i>
+		</md-button>
+	@endif
 	</div>
 
 	<p id="para" hidden>{{$dep}}</p>
 
 	<md-list>
-		<div layout="row">
-			<!-- <md-subheader class="md-no-sticky">Employees</md-subheader> -->
-			<span flex></span>
-		@if ($status == 'y')
-			<md-button class="md-raised md-primary md-fab" ng-click="toggleEmpInsertSidenav()" style="margin-right:16px">
-				<md-tooltip md-direction="left">{{trans('common.add_new_employee')}}</md-tooltip>
-				<i class="material-icons">add</i>
-			</md-button>
-		@endif
-		</div>
 		<div>
 			<md-list-item style="padding:0px 16px; left:-16px">
 				<img ng-src="" class="md-avatar" style="visibility:hidden">

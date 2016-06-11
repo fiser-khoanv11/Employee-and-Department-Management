@@ -2,7 +2,7 @@
 	<md-toolbar>
 		<p class="md-toolbar-tools">@{{selectEmp.emp_name}}</p>
 	</md-toolbar>
-	<img ng-src="@{{selectEmp.emp_photo}}" style="width:100%">
+	<img ng-src="@{{selectEmp.emp_photo}}" style="width:100%;max-height:350px">
 	<md-content layout-padding>
 		<md-list>
 			<md-list-item class="md-2-line">
