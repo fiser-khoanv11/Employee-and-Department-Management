@@ -34,14 +34,19 @@ class Kernel extends HttpKernel
 			\App\Http\Middleware\Change::class,
 		],
 
-		'change' => [
+		'rechange' => [
 			\Illuminate\Session\Middleware\StartSession::class,
 			\App\Http\Middleware\ReChange::class,
 		],
 
 		'logout' => [
 			\Illuminate\Session\Middleware\StartSession::class,
-		],		
+		],
+
+		'change' => [
+			\Illuminate\Session\Middleware\StartSession::class,
+			\App\Http\Middleware\Login::class,
+		],
 
 		'api' => [
 			'throttle:60,1',

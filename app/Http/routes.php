@@ -29,7 +29,7 @@ Route::get('/', function () {
 Route::group(['middleware' => ['web']], function () {
 	// Account Routes
 	Route::post('acc-insert', 'AccCtrl@insert');
-	Route::post('acc-update', 'AccCtrl@update');
+	// Route::post('acc-update', 'AccCtrl@update');
 
 	// Employee Routes
 	Route::post('emp-insert', 'EmpCtrl@insert');
@@ -67,10 +67,14 @@ Route::group(['middleware' => ['free']], function () {
 	Route::get('count','HomeCtrl@count');
 });
 
-Route::group(['middleware' => ['change']], function () {
+Route::group(['middleware' => ['rechange']], function () {
 	Route::get('change', 'AccCtrl@change');
 });
 
 Route::group(['middleware' => ['logout']], function () {
 	Route::get('acc-logout', 'AccCtrl@logout');
+});
+
+Route::group(['middleware' => ['change']], function () {
+	Route::post('acc-update', 'AccCtrl@update');
 });
