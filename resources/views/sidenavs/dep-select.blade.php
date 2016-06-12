@@ -6,35 +6,35 @@
 	<md-content layout-padding>
 		<md-list>
 			<md-list-item class="md-2-line">
-				<i class="material-icons md-avatar-icon">home</i>
+				<md-icon class="md-avatar-icon" md-svg-src="{{url('icons/ic_location_city_white_24px.svg')}}"></md-icon>
 				<div class="md-list-item-text">
 					<h3>@{{selectDep.dep_name}}</h3>
 					<p>{{trans('common.name')}}</p>
 				</div>
 		  	</md-list-item>
 		  	<md-list-item class="md-2-line">
-				<i class="material-icons md-avatar-icon">face</i>
+				<md-icon class="md-avatar-icon" md-svg-src="{{url('icons/ic_face_white_24px.svg')}}"></md-icon>
 				<div class="md-list-item-text">
 					<h3>@{{selectDep.mng_name}}</h3>
 					<p>{{trans('common.manager')}}</p>
 				</div>
 		  	</md-list-item>
 		  	<md-list-item class="md-2-line">
-				<i class="material-icons md-avatar-icon">phone</i>
+				<md-icon class="md-avatar-icon" md-svg-src="{{url('icons/ic_phone_white_24px.svg')}}"></md-icon>
 				<div class="md-list-item-text">
 					<h3>@{{selectDep.dep_phone}}</h3>
 					<p>{{trans('common.phone')}}</p>
 				</div>
 		  	</md-list-item>
 		  	<md-list-item class="md-2-line">
-				<i class="material-icons md-avatar-icon">place</i>
+				<md-icon class="md-avatar-icon" md-svg-src="{{url('icons/ic_location_on_white_24px.svg')}}"></md-icon>
 				<div class="md-list-item-text">
 					<h3>@{{selectDep.dep_address}}</h3>
 					<p>{{trans('common.address')}}</p>
 				</div>
 		  	</md-list-item>
 		  	<md-list-item class="md-2-line">
-				<i class="material-icons md-avatar-icon">people</i>
+				<md-icon class="md-avatar-icon" md-svg-src="{{url('icons/ic_people_white_24px.svg')}}"></md-icon>
 				<div class="md-list-item-text">
 					<h3>@{{selectDep.count}}</h3>
 					<p>Count</p>

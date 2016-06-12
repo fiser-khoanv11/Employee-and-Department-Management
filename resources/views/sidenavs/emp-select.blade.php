@@ -11,14 +11,14 @@
 			<div flex="50">
 				<md-list>
 					<md-list-item class="md-2-line">
-						<i class="material-icons md-avatar-icon">face</i>
+						<md-icon class="md-avatar-icon" md-svg-src="{{url('icons/ic_face_white_24px.svg')}}"></md-icon>
 						<div class="md-list-item-text">
 							<h3>@{{selectEmp.emp_name}}</h3>
 							<p>{{trans('common.name')}}</p>
 						</div>
 				  	</md-list-item>
 				  	<md-list-item class="md-2-line">
-						<i class="material-icons md-avatar-icon">work</i>
+						<md-icon class="md-avatar-icon" md-svg-src="{{url('icons/ic_work_white_24px.svg')}}"></md-icon>
 						<div class="md-list-item-text">
 							<h3>@{{selectEmp.emp_job}}</h3>
 							<p>{{trans('common.job_title')}}</p>
@@ -30,28 +30,28 @@
 
 		<md-list>
 		  	<md-list-item class="md-2-line">
-				<i class="material-icons md-avatar-icon">cake</i>
+				<md-icon class="md-avatar-icon" md-svg-src="{{url('icons/ic_cake_white_24px.svg')}}"></md-icon>
 				<div class="md-list-item-text">
 					<h3>@{{selectEmp.emp_dob}}</h3>
 					<p>{{trans('common.dob')}}</p>
 				</div>
 		  	</md-list-item>
 		  	<md-list-item class="md-2-line">
-				<i class="material-icons md-avatar-icon">phone</i>
+				<md-icon class="md-avatar-icon" md-svg-src="{{url('icons/ic_phone_white_24px.svg')}}"></md-icon>
 				<div class="md-list-item-text">
 					<h3>@{{selectEmp.emp_phone}}</h3>
 					<p>{{trans('common.phone')}}</p>
 				</div>
 		  	</md-list-item>
 		  	<md-list-item class="md-2-line">
-				<i class="material-icons md-avatar-icon">email</i>
+				<md-icon class="md-avatar-icon" md-svg-src="{{url('icons/ic_email_white_24px.svg')}}"></md-icon>
 				<div class="md-list-item-text">
 					<h3>@{{selectEmp.emp_email}}</h3>
 					<p>{{trans('common.email')}}</p>
 				</div>
 		  	</md-list-item>
 		  	<md-list-item class="md-2-line">
-				<i class="material-icons md-avatar-icon">home</i>
+				<md-icon class="md-avatar-icon" md-svg-src="{{url('icons/ic_location_city_white_24px.svg')}}"></md-icon>
 				<div class="md-list-item-text">
 					<h3>@{{selectEmp.dep_name}}</h3>
 					<p>{{trans('common.department')}}</p>

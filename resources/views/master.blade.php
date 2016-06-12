@@ -26,7 +26,7 @@
 					<md-fab-actions>
 						<md-button class="md-fab md-mini md-accent" style="margin-top:10px" ng-click="toggleAccUpdateSidenav()">
 							<md-tooltip md-direction="left">{{trans('common.change_password')}}</md-tooltip>
-							<i class="material-icons">security</i>
+							<md-icon class="md-avatar-icon" style="color:white" md-svg-src="{{url('icons/ic_security_white_24px.svg')}}"></md-icon>
 						</md-button>
 						<md-button class="md-accent md-fab md-mini" style="margin-top:10px" ng-click="changeLanguage()">
 							<md-tooltip md-direction="left">{{trans('common.language')}}</md-tooltip>
@@ -34,11 +34,11 @@
 						</md-button>
 						<md-button class="md-fab md-mini md-accent" style="margin-top:10px" ng-click="openBottomSheet()">
 							<md-tooltip md-direction="left">{{trans('common.about_us')}}</md-tooltip>
-							<i class="material-icons">info_outline</i>
+							<md-icon class="md-avatar-icon" style="color:white" md-svg-src="{{url('icons/ic_info_outline_white_24px.svg')}}"></md-icon>
 						</md-button>
 						<md-button class="md-fab md-mini md-accent" style="margin-top:10px" ng-click="showLogoutDialog()">
 							<md-tooltip md-direction="left">{{trans('common.log_out')}}</md-tooltip>
-							<i class="material-icons">exit_to_app</i>
+							<md-icon class="md-avatar-icon" style="color:white" md-svg-src="{{url('icons/ic_exit_to_app_white_24px.svg')}}"></md-icon>
 						</md-button>
 				  </md-fab-actions>
 				</md-fab-speed-dial>

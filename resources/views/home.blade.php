@@ -89,8 +89,8 @@
 			<p style="margin:10px 0px 0px 30px;font-size: 120%;color: rgb(96,125,139);">Latest Members</p>
 			<div layout="row" layout-align="space-around start">
 				<div ng-repeat="item in emps" style="margin:20px;padding:5px" layout="column" layout-align="space-around center">
-					<img src="@{{item.emp_photo}}" style="width:130px;height:130px;border-radius:50%;">
-					<p style="margin:0px"><b>@{{item.emp_name}}</b></p>
+					<img ng-src="@{{item.emp_photo}}" style="width:130px;height:130px;border-radius:50%;">
+					<p style="margin:20px 0px 5px 0px"><b>@{{item.emp_name}}</b></p>
 					<p style="margin:0px">@{{item.emp_job}}</p>
 				</div>
 			</div>

@@ -45,7 +45,7 @@
 		<!-- <span flex></span> -->
 		<md-button class="md-raised md-primary md-fab" ng-click="toggleEmpInsertSidenav()" style="margin-right:16px">
 			<md-tooltip md-direction="left">{{trans('common.add_new_employee')}}</md-tooltip>
-			<i class="material-icons">add</i>
+			<md-icon md-svg-src="{{url('icons/ic_add_white_24px.svg')}}"></md-icon>
 		</md-button>
 	@endif
 	</div>
@@ -77,16 +77,16 @@
 
 				<md-button class="md-primary md-hue-2" ng-click="openEmpSelectSidenav(item.emp_id)" style="min-width:0px">
 					<md-tooltip md-direction="top">{{trans('common.info')}}</md-tooltip>
-					<i class="material-icons">info</i>
+					<md-icon md-svg-src="{{url('icons/ic_info_white_24px.svg')}}"></md-icon>
 				</md-button>
 			@if ($status == 'y')
 				<md-button class="md-primary md-hue-2" ng-click="openEmpUpdateSidenav(item.emp_id)" style="min-width:0px">
 					<md-tooltip md-direction="top">{{trans('common.modify')}}</md-tooltip>
-					<i class="material-icons">edit</i>
+					<md-icon md-svg-src="{{url('icons/ic_edit_white_24px.svg')}}"></md-icon>
 				</md-button>
 				<md-button class="md-primary md-hue-2" ng-click="showEmpDeleteDialog(item.emp_id)" style="min-width:0px">
 					<md-tooltip md-direction="top">{{trans('common.delete')}}</md-tooltip>
-					<i class="material-icons">delete</i>
+					<md-icon md-svg-src="{{url('icons/ic_delete_white_24px.svg')}}"></md-icon>
 				</md-button>
 			@endif
 			</md-list-item>

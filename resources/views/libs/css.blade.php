@@ -1,10 +1,17 @@
 <!-- Angular Material style sheet -->
 <link rel="stylesheet" href="{{url('angular/angular-material.min.css')}}">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Roboto&subset=latin,vietnamese' rel='stylesheet' type='text/css'>
 
 <style type="text/css">
+@font-face {
+	font-family: 'Roboto'; 
+	src: url('fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+	font-family: 'Lobster'; 
+	src: url('fonts/VNF-Lobster.ttf');
+} 
+
 .md-datepicker-button {
 	display: none;
 }
@@ -14,5 +21,9 @@
 	margin-bottom: 25px;
 	border-bottom: 3px solid rgb(96,125,139);
 	color: rgb(147,170,181);
+}
+
+md-icon svg {
+  fill: inherit;
 }
 </style>
