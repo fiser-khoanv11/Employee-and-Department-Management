@@ -13,18 +13,14 @@
 			<div class="md-toolbar-tools">
 				<span style="font-family:'Lobster';font-size:x-large">{{trans('common.employee_directory')}}</span>
 				<span flex></span>
+		@if ($stt != 0)		
 				<md-button class="@{{tab.home}}" href="{{url('/home')}}">{{trans('common.home')}}</md-button>
 				<md-button class="@{{tab.emp}}" href="{{url('/emp')}}">{{trans('common.employees')}}</md-button>
 				<md-button class="@{{tab.dep}}" href="{{url('/dep')}}">{{trans('common.departments')}}</md-button>
 			@if ($status == 'n')
 				<md-button ng-click="toggleLoginSidenav()">{{trans('common.log_in')}}</md-button>
 			@elseif ($status == 'y')
-				<!-- <md-button ng-click="toggleAccInsertSidenav()">Add Admin</md-button>
-				<md-button ng-click="toggleAccUpdateSidenav()">Change Password</md-button>
-				<md-button ng-click="showLogoutDialog()">Log out</md-button>
-				<md-button ng-disabled=""><span style="color:white">Welcome, <b>{{$name}}</b></span></md-button> -->
 				<md-button ng-click="toggleAccInsertSidenav()">{{trans('common.add_new_account')}}</md-button>
-				<!-- <md-button ng-click="openBottomSheet()">About Us</md-button> -->
 
 				<md-fab-speed-dial md-direction="down" class="md-scale" style="top:100px">
 					<md-fab-trigger>
@@ -50,6 +46,7 @@
 				  </md-fab-actions>
 				</md-fab-speed-dial>
 			@endif
+		@endif
 			</div>
 		</md-toolbar>
 		<md-content style="padding:30px 50px; margin:0px 50px; background-color:white">

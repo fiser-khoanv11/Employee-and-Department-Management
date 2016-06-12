@@ -36,7 +36,6 @@
 
 	<p id="para" hidden>{{$dep}}</p>
 
-	<!-- <span>Result:</span> -->
 	<div layout="row"  layout-align="space-between none">
 		<div>
 			<md-button ng-click="previous()" ng-if="page!=1">previous</md-button>
