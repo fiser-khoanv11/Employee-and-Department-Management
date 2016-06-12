@@ -9,9 +9,10 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 	var loc = 'http://' + location.host + '/';
 	var change = 0;
 	$scope.page = 1;
+	$scope.perPage = 5;
 
 	$scope.loadEmps = function () {
-		$str = loc + 'emp-select/' + $scope.page + '/' + $scope.search.dep;
+		$str = loc + 'emp-select/' + $scope.page + '/' + $scope.perPage + "/" + $scope.search.dep;
 
 		if ($scope.search.nam != '') {
 			$str += '/' + $scope.search.nam;

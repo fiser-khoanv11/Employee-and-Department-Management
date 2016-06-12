@@ -53,9 +53,9 @@ class DepCtrl extends Controller
 		$dep->save();
 	}
 
-	public function select($skip) {
-		$skip = ($skip - 1) * 5;
-		$data = Department::orderBy('dep_id', 'desc')->skip($skip)->take(5)->get();
+	public function select($skip, $take) {
+		$skip = ($skip - 1) * $take;
+		$data = Department::orderBy('dep_id', 'desc')->skip($skip)->take($take)->get();
 
 		foreach ($data as $item) {
 			if ($item->manager == '') {

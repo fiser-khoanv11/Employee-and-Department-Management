@@ -52,13 +52,13 @@ Route::group(['middleware' => ['free']], function () {
 
 	// Employee Routes
 	Route::get('emp/{dep?}', 'EmpCtrl@index');
-	Route::get('emp-select/{skip}/{dep}/{name?}', 'EmpCtrl@select');
+	Route::get('emp-select/{skip}/{take}/{dep}/{name?}', 'EmpCtrl@select');
 	Route::get('emp-select-single/{id}', 'EmpCtrl@selectSingle');
 	Route::get('emp-select-names', 'EmpCtrl@selectNames');
 
 	// Department Routes
 	Route::get('dep', 'DepCtrl@index');
-	Route::get('dep-select/{skip}', 'DepCtrl@select');
+	Route::get('dep-select/{skip}/{take}', 'DepCtrl@select');
 	Route::get('dep-select-single/{id}', 'DepCtrl@selectSingle');
 	Route::get('dep-select-names', 'DepCtrl@selectNames');
 

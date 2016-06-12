@@ -4,23 +4,31 @@
 	<b class='title'>DEPARTMENTS</b>
 	<div style="height:30px"></div>
 
-	<md-list>
-		<div layout="row">
-			<!-- <md-subheader class="md-no-sticky">Departments</md-subheader> -->
-			<span flex></span>
-		@if ($status == 'y')
-			<md-button class="md-raised md-primary md-fab" ng-click="toggleDepInsertSidenav()" style="margin-right:16px">
-				<md-tooltip md-direction="left">{{trans('common.add_new_department')}}</md-tooltip>
-				<i class="material-icons">add</i>
-			</md-button>
-		@endif
+	<div layout="row" layout-align="space-between none">
+		<div>
+			<md-button ng-click="previous()" ng-if="page!=1">previous</md-button>
+			<md-button disabled="true" ng-if="page==1">previous</md-button>
+			<span>Page @{{page}}</span>
+			<md-button ng-click="next()">next</md-button>
+			<md-input-container flex="20">
+				<label>Per page</label>
+				<md-select ng-model="perPage" ng-change="loadDeps()">
+					<md-option ng-value="5">5</md-option>
+					<md-option ng-value="10">10</md-option>
+					<md-option ng-value="15">15</md-option>
+					<md-option ng-value="20">20</md-option>
+				</md-select>
+			</md-input-container>
 		</div>
-
-		<md-button ng-click="previous()" ng-if="page!=1">previous</md-button>
-		<md-button disabled="true" ng-if="page==1">previous</md-button>
-		<span>Page @{{page}}</span>
-		<md-button ng-click="next()">next</md-button>
+	@if ($status == 'y')
+		<md-button class="md-raised md-primary md-fab" ng-click="toggleDepInsertSidenav()" style="margin-right:16px">
+			<md-tooltip md-direction="left">{{trans('common.add_new_department')}}</md-tooltip>
+			<i class="material-icons">add</i>
+		</md-button>
+	@endif
+	</div>
 	
+	<md-list>
 		<div>
 			<md-list-item style="padding:0px 16px; left:-16px">
 				<!-- <img ng-src="" class="md-avatar" style="visibility:hidden"> -->

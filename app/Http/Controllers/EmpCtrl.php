@@ -60,9 +60,9 @@ class EmpCtrl extends Controller
 		$emp->save();
 	}
 
-	public function select($skip, $dep, $name=null) {
-		$skip = ($skip - 1) * 5;
-		$data = Employee::orderBy('emp_id', 'desc')->skip($skip)->take(5);
+	public function select($skip, $take, $dep, $name=null) {
+		$skip = ($skip - 1) * $take;
+		$data = Employee::orderBy('emp_id', 'desc')->skip($skip)->take($take);
 		
 		if ($dep != 0) {
 			$data = $data->where('dep_id', '=', $dep);

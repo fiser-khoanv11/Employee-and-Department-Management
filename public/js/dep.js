@@ -3,9 +3,10 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 	$scope.newDep = {name:null, phone:null, address:null, manager:null};
 	var loc = 'http://' + location.host + '/';
 	$scope.page = 1;
+	$scope.perPage = 5;
 
 	$scope.loadDeps = function () {
-		$http.get(loc + 'dep-select/' + $scope.page).then(function (response) {
+		$http.get(loc + 'dep-select/' + $scope.page + "/" + $scope.perPage).then(function (response) {
 			$scope.deps = response.data.records;
 		});
 	}
