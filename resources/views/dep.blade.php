@@ -15,6 +15,12 @@
 			</md-button>
 		@endif
 		</div>
+
+		<md-button ng-click="previous()" ng-if="page!=1">previous</md-button>
+		<md-button disabled="true" ng-if="page==1">previous</md-button>
+		<span>Page @{{page}}</span>
+		<md-button ng-click="next()">next</md-button>
+	
 		<div>
 			<md-list-item style="padding:0px 16px; left:-16px">
 				<!-- <img ng-src="" class="md-avatar" style="visibility:hidden"> -->

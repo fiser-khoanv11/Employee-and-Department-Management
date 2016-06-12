@@ -11,4 +11,12 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http) {
 	}
 
 	$scope.setTotal();
+
+	$scope.loadEmps = function () {
+		$http.get('emp-select/1/0').then(function (response) {
+			$scope.emps = response.data.records;
+		});
+	}
+
+	$scope.loadEmps();
 });

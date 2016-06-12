@@ -13,6 +13,7 @@ return [
     'change_password' => 'Đổi mật khẩu',
     'welcome' => 'Xin chào',
     'language' => 'Đổi ngôn ngữ',
+    'about_us' => 'Về chúng tôi',
 
     'add_new_account' => 'Thêm tài khoản mới',
     'add_new_employee' => 'Thêm nhân viên mới',

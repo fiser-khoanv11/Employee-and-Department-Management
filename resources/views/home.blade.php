@@ -3,7 +3,7 @@
 @section('content')
 	<style type="text/css">
 		.round{
-			width:120px;
+			width:40%;
 			border-radius:50%;
 			/*padding-right:10px;*/
 		}
@@ -11,20 +11,21 @@
 		.number{
 			margin: 0px;
 			font-size: 50px;
-			color: white;
+			color: rgb(96,125,139);
 			float: right;
 		}
 
 		.list{
 			font-size: 20px;
-			color: white;
+			color: rgb(96,125,139);
 			text-align: right;
 		}
 
 		.block {
-			background-color: rgb(147,170,181);
-			/*border-top: 10px solid rgb(1,172,216);*/
-			padding:10px;
+			background-color: rgb(247,248,249);
+			border: 1px solid rgb(147,170,181);
+			border-bottom: none;
+			padding: 10px;
 		}
 
 		.bottom-link {
@@ -59,7 +60,7 @@
 
 			<md-whiteframe class="flex-30 md-whiteframe-5dp">
 				<div layout="row" layout-align="space-around center" class="block">
-					<img class="round" src="{{url('images/photo/Icon_20-512.png')}}">
+					<img class="round" src="{{url('images/dep.png')}}">
 					<div>
 						<div class="number">@{{count.dep}}</div>
 						<div class="list">Departments</div>
@@ -83,38 +84,17 @@
 				</div>
 			</md-whiteframe>
 		</div>
-<!-- 
-		<div layout="row" style="padding:40px 0px" layout-align="space-between start">
-			<md-whiteframe class="flex-30 md-whiteframe-5dp block" style="padding-left:25px">
-				<p style="color:white;margin:2px 0px">Alex</p>
-				<p style="color:white;margin:2px 0px">Benson</p>
-				<p style="color:white;margin:2px 0px">Caleb</p>
-				<p style="color:white;margin:2px 0px">Daniel</p>
-				<p style="color:white;margin:2px 0px">Edward</p>
-				<p style="color:white;margin:2px 0px">Finn</p>
-				<p style="color:white;margin:2px 0px">Gale</p>
-			</md-whiteframe>
 
-			<md-whiteframe class="flex-30 md-whiteframe-5dp block" style="padding-left:25px">
-				<p style="color:white;margin:2px 0px">Alex</p>
-				<p style="color:white;margin:2px 0px">Benson</p>
-				<p style="color:white;margin:2px 0px">Caleb</p>
-				<p style="color:white;margin:2px 0px">Daniel</p>
-				<p style="color:white;margin:2px 0px">Edward</p>
-				<p style="color:white;margin:2px 0px">Finn</p>
-				<p style="color:white;margin:2px 0px">Gale</p>
-			</md-whiteframe>
-
-			<md-whiteframe class="flex-30 md-whiteframe-5dp block" style="padding-left:25px">
-				<p style="color:white;margin:2px 0px">Alex</p>
-				<p style="color:white;margin:2px 0px">Benson</p>
-				<p style="color:white;margin:2px 0px">Caleb</p>
-				<p style="color:white;margin:2px 0px">Daniel</p>
-				<p style="color:white;margin:2px 0px">Edward</p>
-				<p style="color:white;margin:2px 0px">Finn</p>
-				<p style="color:white;margin:2px 0px">Gale</p>
-			</md-whiteframe>
-		</div> -->
+		<div style="margin:40px 0px;border-top:3px solid rgb(96,125,139);background-color: rgb(247,248,249);">
+			<p style="margin:10px 0px 0px 30px;font-size: 120%;color: rgb(96,125,139);">Latest Members</p>
+			<div layout="row" layout-align="space-around start">
+				<div ng-repeat="item in emps" style="margin:20px;padding:5px" layout="column" layout-align="space-around center">
+					<img src="@{{item.emp_photo}}" style="width:130px;height:130px;border-radius:50%;">
+					<p style="margin:0px"><b>@{{item.emp_name}}</b></p>
+					<p style="margin:0px">@{{item.emp_job}}</p>
+				</div>
+			</div>
+		</div>
 	<!-- </div> -->
 @endsection
 

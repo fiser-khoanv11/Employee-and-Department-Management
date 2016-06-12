@@ -1,11 +1,12 @@
 @extends('master')
 
 @section('content')
-	<md-toolbar>
-		<p class="md-toolbar-tools">You must change password</p>
+<div layout="column" layout-align="center center">
+	<md-toolbar style="width:45%">
+		<p class="md-toolbar-tools">Hi {{$name}}!<br>You must change your password before using this app.</p>
 	</md-toolbar>
-	<md-content layout-padding>
-		<form name="updateForm" ng-submit="submitUpdateAcc()">
+	<md-content style="width:45%;border:1px solid rgb(96,125,139)" layout-padding>
+		<form name="updateForm" ng-submit="submitUpdateAcc()" style="margin:0px">
 			<md-input-container class="md-block">
 				<label>{{trans('common.old_password')}}</label>
 				<input type="password" name="old" ng-model="pass.old" required md-maxlength="45" minlength="5" maxlength="45">
@@ -33,10 +34,11 @@
 			<div layout="row">
 				<span flex></span>
 				<md-button type="submit" class="md-raised md-primary">{{trans('common.save')}}</md-button>
-				<md-button class="md-raised" ng-click="toggleAccUpdateSidenav()">Dismiss</md-button>
+				<md-button class="md-raised" href="acc-logout">Dismiss</md-button>
 			</div>
 		</form>
 	</md-content>
+</div>
 @endsection
 
 @section('js')

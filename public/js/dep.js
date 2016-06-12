@@ -2,14 +2,25 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 	$scope.tab = {emp:'', dep:'md-raised'};
 	$scope.newDep = {name:null, phone:null, address:null, manager:null};
 	var loc = 'http://' + location.host + '/';
+	$scope.page = 1;
 
 	$scope.loadDeps = function () {
-		$http.get(loc + 'dep-select').then(function (response) {
+		$http.get(loc + 'dep-select/' + $scope.page).then(function (response) {
 			$scope.deps = response.data.records;
 		});
 	}
 
 	$scope.loadDeps();
+
+	$scope.previous = function () {
+		$scope.page --;
+		$scope.loadDeps();
+	}
+
+	$scope.next = function () {
+		$scope.page ++;
+		$scope.loadDeps();
+	}
 
 	$scope.submitNewDep = function () {
 		console.log($scope.newDep);
