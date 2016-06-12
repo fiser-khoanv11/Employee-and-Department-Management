@@ -4,10 +4,7 @@
 	<title>Employee Directory</title>
 	@include('libs.css')
 </head>
-<body ng-app="App" ng-controller="AppCtrl" ng-cloak style="background-color:rgb(210,240,219);font-family:'Catamaran'">
-	<!--
-		Your HTML content here
-	-->
+<body ng-app="App" ng-controller="AppCtrl" ng-cloak style="background-color:rgb(210,240,219);font-family:'Roboto'">
 	<div layout="column" style="background-color:rgb(210,240,219);padding-bottom:50px">
 		<md-toolbar class="md-primary" ng-controller="ToolbarCtrl">
 			<div class="md-toolbar-tools">
@@ -50,9 +47,7 @@
 			</div>
 		</md-toolbar>
 		<md-content style="padding:30px 50px; margin:0px 50px; background-color:white">
-			<!-- <md-whiteframe class="md-whiteframe-5dp" > -->
-				@yield('content')
-			<!-- </md-whiteframe> -->
+			@yield('content')
 		</md-content>
 	</div>
 
@@ -65,10 +60,17 @@
 		@endif
 	</div>
 
-	@include('libs.js')
 	
+	<!-- Angular Material requires Angular.js Libraries -->
+	<script src="{{url('angular/angular.min.js')}}"></script>
+	<script src="{{url('angular/angular-animate.min.js')}}"></script>
+	<script src="{{url('angular/angular-aria.min.js')}}"></script>
+	<script src="{{url('angular/angular-messages.min.js')}}"></script>
+	<!-- Angular Material Library -->
+	<script src="{{url('angular/angular-material.min.js')}}"></script>
 	<!-- Your application bootstrap  -->
-	<script type="text/javascript" src="{{url('js/common.js')}}"></script>
+	<script src="{{url('js/common.js')}}"></script>
+	<script src="{{url('js/ng-flow-standalone.min.js')}}"></script>
 	@yield('js')
 
 </body>

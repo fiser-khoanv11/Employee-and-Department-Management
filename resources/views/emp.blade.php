@@ -5,7 +5,7 @@
 	<div style="height:30px"></div>
 
 	<div ng-controller="selectCtrl" style="padding:20px 30px 0px 30px;border-left:3px solid rgb(96,125,139);background-color: rgb(247,248,249);margin-bottom:25px">
-		<p style="margin:0px;font-size: 120%;color: rgb(96,125,139);">Search</p>
+		<p style="margin:0px;margin-bottom: 5px;font-size: 120%;color: rgb(96,125,139);">Search</p>
 		<div layout="row">
 			<md-input-container flex="25" style="margin-bottom:0px">
 				<label>{{trans('common.employee_name')}}</label>
@@ -22,17 +22,6 @@
 			<md-button class="md-raised" ng-click="clearSearch()" style="height:10px;top:6px">{{trans('common.clear')}}</md-button>
 		</div>
 	</div>
-
-	<!-- <div style="margin:40px 0px;border-top:3px solid rgb(96,125,139);background-color: rgb(247,248,249);">
-			<p style="margin:10px 0px 0px 30px;font-size: 120%;color: rgb(96,125,139);">Latest Members</p>
-			<div layout="row" layout-align="space-around start">
-				<div ng-repeat="item in emps" style="margin:20px;padding:5px" layout="column" layout-align="space-around center">
-					<img src="@{{item.emp_photo}}" style="width:130px;height:130px;border-radius:50%;">
-					<p style="margin:0px"><b>@{{item.emp_name}}</b></p>
-					<p style="margin:0px">@{{item.emp_job}}</p>
-				</div>
-			</div>
-		</div> -->
 
 	<p id="para" hidden>{{$dep}}</p>
 
