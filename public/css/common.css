@@ -1,15 +1,11 @@
-<!-- Angular Material style sheet -->
-<link rel="stylesheet" href="{{url('angular/angular-material.min.css')}}">
-
-<style type="text/css">
 @font-face {
 	font-family: 'Roboto'; 
-	src: url('fonts/Roboto-Regular.ttf');
+	src: url('../fonts/Roboto-Regular.ttf');
 }
 
 @font-face {
-	font-family: 'Lobster'; 
-	src: url('fonts/VNF-Lobster.ttf');
+	font-family: 'Lobster';
+	src: url('../fonts/VNF-Lobster.ttf');
 } 
 
 .md-datepicker-button {
@@ -26,4 +22,3 @@
 md-icon svg {
   fill: inherit;
 }
-</style>

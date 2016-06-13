@@ -1,19 +1,19 @@
 @extends('master')
 
 @section('content')
-	<b class='title'>EMPLOYEES</b>
+	<b class='title'>{{trans('common.employees_cap')}}</b>
 	<div style="height:30px"></div>
 
 	<div ng-controller="selectCtrl" style="padding:20px 30px 0px 30px;border-left:3px solid rgb(96,125,139);background-color: rgb(247,248,249);margin-bottom:25px">
-		<p style="margin:0px;margin-bottom: 5px;font-size: 120%;color: rgb(96,125,139);">Search</p>
+		<p style="margin:0px;margin-bottom: 5px;font-size: 120%;color: rgb(96,125,139);">{{trans('common.search')}}</p>
 		<div layout="row">
 			<md-input-container flex="25" style="margin-bottom:0px">
 				<label>{{trans('common.employee_name')}}</label>
-				<input type="text" ng-model="search.nam" ng-change="loadEmps()">
+				<input type="text" ng-model="search.nam" ng-change="catchSearch()">
 			</md-input-container>
 			<md-input-container flex="20" style="margin-bottom:0px">
 				<label>{{trans('common.department')}}</label>
-				<md-select ng-model="search.dep" ng-change="loadEmps()">
+				<md-select ng-model="search.dep" ng-change="catchSearch()">
 					<md-option ng-value="0">{{trans('common.all_departments')}}</md-option>
 					<md-divider></md-divider>
 					<md-option ng-value="item.dep_id" ng-repeat="item in deps">@{{item.dep_name}}</md-option>
@@ -27,12 +27,12 @@
 
 	<div layout="row"  layout-align="space-between none">
 		<div>
-			<md-button ng-click="previous()" ng-if="page!=1">previous</md-button>
-			<md-button disabled="true" ng-if="page==1">previous</md-button>
-			<span>Page @{{page}}</span>
-			<md-button ng-click="next()">next</md-button>
-			<md-input-container flex="20">
-				<label>Per page</label>
+			<md-button ng-click="previous()" ng-if="page!=1">{{trans('common.previous')}}</md-button>
+			<md-button disabled="true" ng-if="page==1">{{trans('common.previous')}}</md-button>
+			<span>{{trans('common.page')}} @{{page}}</span>
+			<md-button ng-click="next()">{{trans('common.next')}}</md-button>
+			<md-input-container flex="30">
+				<label>{{trans('common.per_page')}}</label>
 				<md-select ng-model="perPage" ng-change="loadEmps()">
 					<md-option ng-value="5">5</md-option>
 					<md-option ng-value="10">10</md-option>
@@ -51,20 +51,21 @@
 	</div>
 
 	<md-list>
+		<!-- Header -->
 		<div>
 			<md-list-item style="padding:0px 16px; left:-16px">
 				<img ng-src="" class="md-avatar" style="visibility:hidden">
 				<p><md-subheader>{{trans('common.name')}}</md-subheader></p>
 				<p><md-subheader>{{trans('common.job_title')}}</md-subheader></p>
-				<!-- <p><md-subheader>Email</md-subheader></p> -->
 				<p><md-subheader>{{trans('common.department')}}</md-subheader></p>
-				<md-button class="md-raised" style="min-width:0px; visibility:hidden"><i class="material-icons">info_outline</i></md-button>
+				<md-button class="md-raised" style="min-width:0px; visibility:hidden"><md-icon md-svg-src="{{url('icons/ic_info_white_24px.svg')}}"></md-icon></md-button>
 			@if ($status == 'y')	
-				<md-button class="md-raised" style="min-width:0px; visibility:hidden"><i class="material-icons">info_outline</i></md-button>
-				<md-button class="md-raised" style="min-width:0px; visibility:hidden"><i class="material-icons">info_outline</i></md-button>
+				<md-button class="md-raised" style="min-width:0px; visibility:hidden"><md-icon md-svg-src="{{url('icons/ic_info_white_24px.svg')}}"></md-icon></md-button>
+				<md-button class="md-raised" style="min-width:0px; visibility:hidden"><md-icon md-svg-src="{{url('icons/ic_info_white_24px.svg')}}"></md-icon></md-button>
 			@endif
 			</md-list-item>
 		</div>
+		<!-- /Header -->
 
 		<div ng-repeat="item in emps">
 			<md-divider></md-divider>
@@ -72,7 +73,6 @@
 				<img ng-src="@{{item.emp_photo}}" class="md-avatar">
 				<p>@{{item.emp_name}}</p>
 				<p>@{{item.emp_job}}</p>
-				<!-- <p>@{{item.emp_email}}</p> -->
 				<p>@{{item.dep_name}}</p>
 
 				<md-button class="md-primary md-hue-2" ng-click="openEmpSelectSidenav(item.emp_id)" style="min-width:0px">

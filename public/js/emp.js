@@ -2,11 +2,11 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 	$scope.tab = {emp:'md-raised', dep:''};
 	$scope.newEmp = {name:null, job:null, dob:null, phone:null, email:null, dep:null, photo:null};
 	$scope.search = {dep:document.getElementById('para').innerHTML, nam:''};
-	var image = document.getElementById('here');
-	if (image != null) {
-		image.src = 'images/default_photo.jpg';
-	}
 	var loc = 'http://' + location.host + '/';
+	var image = document.getElementById('here');
+	// if (image != null) {
+		image.src = loc + 'images/default_photo.jpg';
+	// }
 	var change = 0;
 	$scope.page = 1;
 	$scope.perPage = 5;
@@ -30,6 +30,11 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 
 	$scope.next = function () {
 		$scope.page ++;
+		$scope.loadEmps();
+	}
+
+	$scope.catchSearch = function () {
+		$scope.page = 1;
 		$scope.loadEmps();
 	}
 
@@ -147,7 +152,7 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 	}
 
 	$scope.clearSearch = function () {
-		// $scope.page = 1;
+		$scope.page = 1;
 		$scope.search = {dep:0, nam:''};
 		$scope.loadEmps();
 	}
@@ -158,16 +163,16 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 	}
 
 	$scope.removePhoto = function (id) {
-		document.getElementById(id).src = 'images/default_photo.jpg';
+		document.getElementById(id).src = loc + 'images/default_photo.jpg';
 	}
 
-	$scope.checkPhoto = function (id) {
-		if (document.getElementById(id).src == 'images/default_photo.jpg') {
-			return true;
-		}
+	// $scope.checkPhoto = function (id) {
+	// 	if (document.getElementById(id).src == 'images/default_photo.jpg') {
+	// 		return true;
+	// 	}
 
-		return false;
-	}
+	// 	return false;
+	// }
 });
 
 app.controller('selectCtrl', function ($scope, $http) {

@@ -12,8 +12,8 @@
 		  			<img id="there" ng-src="@{{updateEmp.emp_photo}}" flow-img="$flow.files[0]" style="width:100%;border-radius:50%"/>
 		  		</div>
 		  		<div flex="50" style="margin-left:20px">
-		      		<md-button flow-btn flow-attrs="{accept:'image/*'}" class="md-raised md-primary">Change</md-button>
-		      		<md-button ng-click="removePhoto('there')" class="md-raised">Remove</md-button>
+		      		<md-button flow-btn flow-attrs="{accept:'image/*'}" class="md-raised md-primary">{{trans('common.change')}}</md-button>
+		      		<md-button ng-click="removePhoto('there')" class="md-raised">{{trans('common.remove')}}</md-button>
 		      	</div>
 			</div>
 			

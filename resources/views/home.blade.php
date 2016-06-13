@@ -12,13 +12,14 @@
 			margin: 0px;
 			font-size: 50px;
 			color: rgb(96,125,139);
-			float: right;
+			/*float: right;*/
 		}
 
 		.list{
 			font-size: 20px;
 			color: rgb(96,125,139);
 			text-align: right;
+			margin: 0px;
 		}
 
 		.block {
@@ -29,6 +30,7 @@
 		}
 
 		.bottom-link {
+			height: 28px;
 			background-color: rgb(96,125,139);
 		}
 
@@ -40,7 +42,7 @@
 		
 	</style>
 	
-	<b class='title'>DASHBOARD</b>
+	<b class='title'>{{trans('common.dashboard_cap')}}</b>
 	<div style="height:30px"></div>
 
 	<!-- <div layout="column" layout-align="center stretch"> -->
@@ -49,8 +51,8 @@
 				<div layout="row" layout-align="space-around center" class="block">
 					<img class="round" src="{{url('images/photo/04-512.png')}}">
 					<div>
-						<div><p class="number">@{{count.emp}}</p></div>
-						<div class="list">Employees</div>
+						<p class="number">@{{count.emp}}</p>
+						<p class="list">{{trans('common.employees')}}</p>
 					</div>
 				</div>
 				<div class="bottom-link" layout="row" layout-align="space-around center">
@@ -63,7 +65,7 @@
 					<img class="round" src="{{url('images/dep.png')}}">
 					<div>
 						<div class="number">@{{count.dep}}</div>
-						<div class="list">Departments</div>
+						<div class="list">{{trans('common.departments')}}</div>
 					</div>
 				</div>
 				<div class="bottom-link" layout="row" layout-align="space-around center">
@@ -76,7 +78,7 @@
 					<img class="round" src="{{url('images/photo/Icon_23-512.png')}}">
 					<div>
 						<div class="number">@{{count.acc}}</div>
-						<div class="list">Accounts</div>
+						<div class="list">{{trans('common.accounts')}}</div>
 					</div>
 				</div>
 				<div class="bottom-link" layout="row" layout-align="space-around center">
@@ -86,7 +88,7 @@
 		</div>
 
 		<div style="margin:40px 0px;border-top:3px solid rgb(96,125,139);background-color: rgb(247,248,249);">
-			<p style="margin:10px 0px 0px 30px;font-size: 120%;color: rgb(96,125,139);">Latest Members</p>
+			<p style="margin:18px 0px 0px 30px;font-size: 120%;color: rgb(96,125,139);">{{trans('common.latest_member')}}</p>
 			<div layout="row" layout-align="space-around start">
 				<div ng-repeat="item in emps" style="margin:20px;padding:5px" layout="column" layout-align="space-around center">
 					<img ng-src="@{{item.emp_photo}}" style="width:130px;height:130px;border-radius:50%;">

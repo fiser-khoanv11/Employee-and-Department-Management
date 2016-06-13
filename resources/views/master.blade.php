@@ -2,16 +2,17 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Employee Directory</title>
-	@include('libs.css')
+	<link rel="stylesheet" href="{{url('angular/angular-material.min.css')}}">
+	<link rel="stylesheet" href="{{url('css/common.css')}}">
 </head>
-<body ng-app="App" ng-controller="AppCtrl" ng-cloak style="background-color:rgb(210,240,219);font-family:'Roboto'">
+<body ng-app="App" ng-controller="AppCtrl" ng-cloak style="background-color:rgb(210,240,219);font-family:'Roboto';">
 	<div layout="column" style="background-color:rgb(210,240,219);padding-bottom:50px">
 		<md-toolbar class="md-primary" ng-controller="ToolbarCtrl">
 			<div class="md-toolbar-tools">
 				<span style="font-family:'Lobster';font-size:x-large">{{trans('common.employee_directory')}}</span>
 				<span flex></span>
 		@if ($stt != 0)		
-				<md-button class="@{{tab.home}}" href="{{url('/home')}}">{{trans('common.home')}}</md-button>
+				<md-button class="@{{tab.home}}" href="{{url('/home')}}">{{trans('common.dashboard_cap')}}</md-button>
 				<md-button class="@{{tab.emp}}" href="{{url('/emp')}}">{{trans('common.employees')}}</md-button>
 				<md-button class="@{{tab.dep}}" href="{{url('/dep')}}">{{trans('common.departments')}}</md-button>
 			@if ($status == 'n')

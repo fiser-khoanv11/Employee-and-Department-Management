@@ -1,83 +1,47 @@
-<html lang="en" >
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Employee Directory</title>
-	<!-- Angular Material style sheet -->
-	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Catamaran' rel='stylesheet' type='text/css'>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Be right back.</title>
 
-	<style>
-		html, body {
-			height: 100%;
-		}
+        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
-		body {
-			margin: 0;
-			padding: 0;
-			width: 100%;
-			display: table;
-			font-weight: 100;
-		}
+        <style>
+            html, body {
+                height: 100%;
+            }
 
-		.container {
-			font-family: 'Lobster';
-			text-align: center;
-			display: table-cell;
-			vertical-align: middle;
-			margin-top: 200px;
-		}
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                color: #B0BEC5;
+                display: table;
+                font-weight: 100;
+                font-family: 'Lato';
+            }
 
-		.content {
-			text-align: center;
-			display: inline-block;
-		}
+            .container {
+                text-align: center;
+                display: table-cell;
+                vertical-align: middle;
+            }
 
-		.title {
-			font-size: 50px;
-		}
-	</style>
-</head>
-<body ng-app="App" ng-controller="AppCtrl" ng-cloak style="font-family:'Catamaran'">
+            .content {
+                text-align: center;
+                display: inline-block;
+            }
 
-	<div layout="column">
-		<md-toolbar>
-			<div class="md-toolbar-tools">
-				<span style="font-family:'Lobster';font-size:x-large">Employee Directory</span>
-				<span flex></span>
-<!-- 				<md-button href="{{url('/emp')}}">Employees</md-button>
-				<md-button href="{{url('/dep')}}">Departments</md-button> -->
-			</div>
-		</md-toolbar>
-		<md-content class="container">
-			<div class="content">
-                <div class="title">404 - Oops! You did it again.</div>
+            .title {
+                font-size: 72px;
+                margin-bottom: 40px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="content">
+                <div class="title">Oops! You did it again. -_-</div>
             </div>
-		</md-content>
-	</div>
-
-	<!-- Angular Material requires Angular.js Libraries -->
-	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
-	<!-- Angular Material Library -->
-	<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
-
-	<script type="text/javascript">
-		var app = angular.module('App', ['ngMaterial', 'ngMessages']);
-
-		app.config(function ($mdThemingProvider, $mdDateLocaleProvider) {
-			$mdThemingProvider.theme('default')
-				.primaryPalette('teal');
-				// .dark();
-		});
-
-		app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToast) {
-			
-		});
-	</script>
-	
-</body>
+        </div>
+    </body>
 </html>

@@ -12,9 +12,9 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 		}).success(function (response) {
 			console.log(response);
 			if (response == 'done') {
-				$scope.pass = {old:null, 'new':null, confirm:null};
-				var toast = $mdToast.simple().textContent("Changed!");
-				$mdToast.show(toast);
+				// $scope.pass = {old:null, 'new':null, confirm:null};
+				// var toast = $mdToast.simple().textContent("Changed!");
+				// $mdToast.show(toast);
 				window.location.replace(loc);
 			} else {
 				var toast = $mdToast.simple().textContent("Fail!");
