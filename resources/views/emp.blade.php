@@ -27,11 +27,20 @@
 
 	<div layout="row"  layout-align="space-between none">
 		<div>
-			<md-button ng-click="previous()" ng-if="page!=1">{{trans('common.previous')}}</md-button>
-			<md-button disabled="true" ng-if="page==1">{{trans('common.previous')}}</md-button>
+			<span>Found @{{count}} results</span>
+			<md-button ng-click="previous()" ng-if="page!=1" style="min-width:0px">
+				<md-icon md-svg-src="{{url('icons/ic_navigate_before_white_24px.svg')}}"></md-icon>
+			</md-button>
+			<md-button disabled="true" ng-if="page==1" style="min-width:0px">
+				<md-icon md-svg-src="{{url('icons/ic_navigate_before_white_24px.svg')}}"></md-icon>
+			</md-button>
 			<span>{{trans('common.page')}} @{{page}}</span>
-			<md-button ng-click="next()" ng-if="!isMax()">{{trans('common.next')}}</md-button>
-			<md-button disabled="true" ng-if="isMax()">{{trans('common.next')}}</md-button>
+			<md-button ng-click="next()" ng-if="!isMax()" style="min-width:0px">
+				<md-icon md-svg-src="{{url('icons/ic_navigate_next_white_24px.svg')}}"></md-icon>
+			</md-button>
+			<md-button disabled="true" ng-if="isMax()" style="min-width:0px">
+				<md-icon md-svg-src="{{url('icons/ic_navigate_next_white_24px.svg')}}"></md-icon>
+			</md-button>
 			<md-input-container flex="30">
 				<label>{{trans('common.per_page')}}</label>
 				<md-select ng-model="perPage" ng-change="setPageToOne()">
@@ -41,7 +50,6 @@
 					<md-option ng-value="20">20</md-option>
 				</md-select>
 			</md-input-container>
-			<p>Found @{{count}} results</p>
 		</div>
 	@if ($status == 'y')
 		<!-- <span flex></span> -->

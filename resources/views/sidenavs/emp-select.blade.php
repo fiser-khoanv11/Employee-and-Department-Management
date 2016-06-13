@@ -2,33 +2,27 @@
 	<md-toolbar>
 		<p class="md-toolbar-tools">@{{selectEmp.emp_name}}</p>
 	</md-toolbar>
-
-	<md-content layout-padding>
-		<div layout="row">
-			<div flex="50">
-				<img ng-src="@{{selectEmp.emp_photo}}" style="width:100%;border-radius:50%">
-			</div>
-			<div flex="50">
-				<md-list>
-					<md-list-item class="md-2-line">
-						<md-icon class="md-avatar-icon" md-svg-src="{{url('icons/ic_face_white_24px.svg')}}"></md-icon>
-						<div class="md-list-item-text">
-							<h3>@{{selectEmp.emp_name}}</h3>
-							<p>{{trans('common.name')}}</p>
-						</div>
-				  	</md-list-item>
-				  	<md-list-item class="md-2-line">
-						<md-icon class="md-avatar-icon" md-svg-src="{{url('icons/ic_work_white_24px.svg')}}"></md-icon>
-						<div class="md-list-item-text">
-							<h3>@{{selectEmp.emp_job}}</h3>
-							<p>{{trans('common.job_title')}}</p>
-						</div>
-				  	</md-list-item>
-				</md-list>
-			</div>
+	<div layout="row" layout-align="center" style="background-color:rgb(96,125,139);padding-bottom:10px">
+		<div>
+			<img ng-src="@{{selectEmp.emp_photo}}" style="width:160px;height:160px;border-radius:50%">
 		</div>
-
+	</div>
+	<md-content layout-padding>
 		<md-list>
+			<md-list-item class="md-2-line">
+				<md-icon class="md-avatar-icon" md-svg-src="{{url('icons/ic_face_white_24px.svg')}}"></md-icon>
+				<div class="md-list-item-text">
+					<h3>@{{selectEmp.emp_name}}</h3>
+					<p>{{trans('common.name')}}</p>
+				</div>
+			</md-list-item>
+			  <md-list-item class="md-2-line">
+				<md-icon class="md-avatar-icon" md-svg-src="{{url('icons/ic_work_white_24px.svg')}}"></md-icon>
+				<div class="md-list-item-text">
+					<h3>@{{selectEmp.emp_job}}</h3>
+					<p>{{trans('common.job_title')}}</p>
+				</div>
+			</md-list-item>
 		  	<md-list-item class="md-2-line">
 				<md-icon class="md-avatar-icon" md-svg-src="{{url('icons/ic_cake_white_24px.svg')}}"></md-icon>
 				<div class="md-list-item-text">

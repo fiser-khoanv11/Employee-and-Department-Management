@@ -70,6 +70,11 @@ class DepCtrl extends Controller
 		echo $result;
 	}
 
+	public function count() {
+		$data = Department::orderBy('dep_id', 'desc')->count();
+		echo $data;
+	}
+
 	public function selectSingle($id=null) {
 		$data = Department::find($id);
 		

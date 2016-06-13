@@ -9,9 +9,18 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 		$http.get(loc + 'dep-select/' + $scope.page + "/" + $scope.perPage).then(function (response) {
 			$scope.deps = response.data.records;
 		});
+
+		$http.get(loc + 'dep-count').then(function (response) {
+			$scope.count = response.data;
+		});
 	}
 
 	$scope.loadDeps();
+
+	$scope.setPageToOne = function () {
+		$scope.page = 1;
+		$scope.loadDeps();
+	}
 
 	$scope.previous = function () {
 		$scope.page --;
@@ -21,6 +30,14 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 	$scope.next = function () {
 		$scope.page ++;
 		$scope.loadDeps();
+	}
+
+	$scope.isMax = function () {
+		if ($scope.page < ($scope.count / $scope.perPage)) {
+			return false;
+		}
+
+		return true;
 	}
 
 	$scope.submitNewDep = function () {

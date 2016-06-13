@@ -7,7 +7,7 @@
 
 			<div flow-init layout="row" style="padding-bottom:15px">
 				<div flex="50">
-					<img id="here" flow-img="$flow.files[0]" style="width:100%;border-radius:50%"/>
+					<img id="here" flow-img="$flow.files[0]" style="width:100%;border-radius:50%;height:140px"/>
 				</div>
 				<div flex="50" style="margin-left:20px">
 					<md-button flow-btn flow-attrs="{accept:'image/*'}" class="md-raised md-primary">{{trans('common.change')}}</md-button>
