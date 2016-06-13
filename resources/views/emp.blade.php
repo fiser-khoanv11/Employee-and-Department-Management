@@ -9,7 +9,7 @@
 		<div layout="row">
 			<md-input-container flex="25" style="margin-bottom:0px">
 				<label>{{trans('common.employee_name')}}</label>
-				<input type="text" ng-model="search.nam" ng-change="loadEmps()">
+				<input type="text" ng-model="search.nam" ng-change="changePerPage();loadEmps()">
 			</md-input-container>
 			<md-input-container flex="20" style="margin-bottom:0px">
 				<label>{{trans('common.department')}}</label>
