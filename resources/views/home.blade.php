@@ -56,7 +56,7 @@
 					</div>
 				</div>
 				<div class="bottom-link" layout="row" layout-align="space-around center">
-					<a href="emp" class="link">More info</a>
+					<a href="emp" class="link">{{trans('common.more_info')}}</a>
 				</div>
 			</md-whiteframe>
 
@@ -69,7 +69,7 @@
 					</div>
 				</div>
 				<div class="bottom-link" layout="row" layout-align="space-around center">
-					<a href="dep" class="link">More info</a>
+					<a href="dep" class="link">{{trans('common.more_info')}}</a>
 				</div>
 			</md-whiteframe>
 

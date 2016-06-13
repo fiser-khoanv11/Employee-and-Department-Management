@@ -17,6 +17,7 @@ return [
 	'welcome' => 'Welcome',
 	'language' => 'Change language',
 	'about_us' => 'About us',
+	'more_info' => 'More info',
 
 	'add_new_account' => 'Add new account',
 	'add_new_employee' => 'Add new employee',

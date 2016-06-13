@@ -17,6 +17,7 @@ return [
 	'welcome' => 'Xin chào',
 	'language' => 'Đổi ngôn ngữ',
 	'about_us' => 'Về chúng tôi',
+	'more_info' => 'Xem thêm',
 
 	'add_new_account' => 'Thêm tài khoản mới',
 	'add_new_employee' => 'Thêm nhân viên mới',

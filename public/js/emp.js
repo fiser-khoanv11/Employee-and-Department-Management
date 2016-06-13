@@ -12,15 +12,26 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 	$scope.perPage = 5;
 
 	$scope.loadEmps = function () {
-		$str = loc + 'emp-select/' + $scope.page + '/' + $scope.perPage + "/" + $scope.search.dep;
+		$str1 = loc + 'emp-select/' + $scope.page + '/' + $scope.perPage + "/" + $scope.search.dep;
+		$str2 = loc + 'emp-count/' + $scope.search.dep;
 
 		if ($scope.search.nam != '') {
-			$str += '/' + $scope.search.nam;
+			$str1 += '/' + $scope.search.nam;
+			$str2 += '/' + $scope.search.nam;
 		}
 
-		$http.get($str).then(function (response) {
+		$http.get($str1).then(function (response) {
 			$scope.emps = response.data.records;
 		});
+
+		$http.get($str2).then(function (response) {
+			$scope.count = response.data;
+		});
+	}
+
+	$scope.setPageToOne = function () {
+		$scope.page = 1;
+		$scope.loadEmps();
 	}
 
 	$scope.previous = function () {
@@ -33,9 +44,12 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 		$scope.loadEmps();
 	}
 
-	$scope.catchSearch = function () {
-		$scope.page = 1;
-		$scope.loadEmps();
+	$scope.isMax = function () {
+		if ($scope.page < ($scope.count / $scope.perPage)) {
+			return false;
+		}
+
+		return true;
 	}
 
 	$scope.loadEmps();
@@ -152,9 +166,8 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 	}
 
 	$scope.clearSearch = function () {
-		$scope.page = 1;
 		$scope.search = {dep:0, nam:''};
-		$scope.loadEmps();
+		$scope.setPageToOne()
 	}
 
 	$scope.changeDate = function () {

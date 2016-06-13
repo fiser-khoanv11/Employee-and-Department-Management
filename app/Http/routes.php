@@ -55,6 +55,7 @@ Route::group(['middleware' => ['free']], function () {
 	Route::get('emp-select/{skip}/{take}/{dep}/{name?}', 'EmpCtrl@select');
 	Route::get('emp-select-single/{id}', 'EmpCtrl@selectSingle');
 	Route::get('emp-select-names', 'EmpCtrl@selectNames');
+	Route::get('emp-count/{dep}/{name?}', 'EmpCtrl@count');
 
 	// Department Routes
 	Route::get('dep', 'DepCtrl@index');

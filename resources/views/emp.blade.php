@@ -9,11 +9,11 @@
 		<div layout="row">
 			<md-input-container flex="25" style="margin-bottom:0px">
 				<label>{{trans('common.employee_name')}}</label>
-				<input type="text" ng-model="search.nam" ng-change="catchSearch()">
+				<input type="text" ng-model="search.nam" ng-change="setPageToOne()">
 			</md-input-container>
 			<md-input-container flex="20" style="margin-bottom:0px">
 				<label>{{trans('common.department')}}</label>
-				<md-select ng-model="search.dep" ng-change="catchSearch()">
+				<md-select ng-model="search.dep" ng-change="setPageToOne()">
 					<md-option ng-value="0">{{trans('common.all_departments')}}</md-option>
 					<md-divider></md-divider>
 					<md-option ng-value="item.dep_id" ng-repeat="item in deps">@{{item.dep_name}}</md-option>
@@ -30,16 +30,18 @@
 			<md-button ng-click="previous()" ng-if="page!=1">{{trans('common.previous')}}</md-button>
 			<md-button disabled="true" ng-if="page==1">{{trans('common.previous')}}</md-button>
 			<span>{{trans('common.page')}} @{{page}}</span>
-			<md-button ng-click="next()">{{trans('common.next')}}</md-button>
+			<md-button ng-click="next()" ng-if="!isMax()">{{trans('common.next')}}</md-button>
+			<md-button disabled="true" ng-if="isMax()">{{trans('common.next')}}</md-button>
 			<md-input-container flex="30">
 				<label>{{trans('common.per_page')}}</label>
-				<md-select ng-model="perPage" ng-change="loadEmps()">
+				<md-select ng-model="perPage" ng-change="setPageToOne()">
 					<md-option ng-value="5">5</md-option>
 					<md-option ng-value="10">10</md-option>
 					<md-option ng-value="15">15</md-option>
 					<md-option ng-value="20">20</md-option>
 				</md-select>
 			</md-input-container>
+			<p>Found @{{count}} results</p>
 		</div>
 	@if ($status == 'y')
 		<!-- <span flex></span> -->
