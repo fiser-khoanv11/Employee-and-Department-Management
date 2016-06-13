@@ -10,27 +10,50 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 	var change = 0;
 	$scope.page = 1;
 	$scope.perPage = 5;
+	$scope.checkMaxPage = true;
 
 	$scope.loadEmps = function () {
-		$str = loc + 'emp-select/' + $scope.page + '/' + $scope.perPage + "/" + $scope.search.dep;
+		$str1 = loc + 'emp-select/' + $scope.page + '/' + $scope.perPage + "/" + $scope.search.dep;
+		$str2 = loc + 'emp-count/' + $scope.search.dep;
 
 		if ($scope.search.nam != '') {
-			$str += '/' + $scope.search.nam;
+			$str1 += '/' + $scope.search.nam;
+			$str2 += '/' + $scope.search.nam;
 		}
 
-		$http.get($str).then(function (response) {
+		$http.get($str1).then(function (response) {
 			$scope.emps = response.data.records;
 		});
+
+		$http.get($str2).then(function (response) {
+			$scope.numOfResults = response.data;
+			$scope.checkMax();
+		});
+
 	}
 
+	$scope.changePerPage = function(){
+		$scope.page = 1;
+	}
+
+	$scope.checkMax = function(){
+		if ($scope.page < ($scope.numOfResults / $scope.perPage)){
+			$scope.checkMaxPage = true;
+		} else{
+			console.log("da chui vao ham nay"+$scope.numOfResults);
+			$scope.checkMaxPage = false;
+		}	
+	}
 	$scope.previous = function () {
-		$scope.page --;
+		$scope.page --;//a aa
+		$scope.checkMaxPage = true;
 		$scope.loadEmps();
 	}
 
 	$scope.next = function () {
-		$scope.page ++;
+		$scope.page ++;//m quen a, $scope chi co hieu qua trong get@@, la  qA?
 		$scope.loadEmps();
+		$scope.checkMax();
 	}
 
 	$scope.loadEmps();

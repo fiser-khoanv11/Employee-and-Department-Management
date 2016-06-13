@@ -30,10 +30,11 @@
 			<md-button ng-click="previous()" ng-if="page!=1">previous</md-button>
 			<md-button disabled="true" ng-if="page==1">previous</md-button>
 			<span>Page @{{page}}</span>
-			<md-button ng-click="next()">next</md-button>
+			<md-button ng-click="next()" ng-if="checkMaxPage">next</md-button>
+			<md-button disabled="true" ng-click="next()" ng-if="!checkMaxPage">next</md-button>
 			<md-input-container flex="20">
 				<label>Per page</label>
-				<md-select ng-model="perPage" ng-change="loadEmps()">
+				<md-select ng-model="perPage" ng-change=" changePerPage();loadEmps();">
 					<md-option ng-value="5">5</md-option>
 					<md-option ng-value="10">10</md-option>
 					<md-option ng-value="15">15</md-option>

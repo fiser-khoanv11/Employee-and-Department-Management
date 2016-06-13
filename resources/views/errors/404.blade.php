@@ -22,11 +22,11 @@
 		}
 
 		.container {
-			font-family: 'Lobster';
+			color: gray;
 			text-align: center;
 			display: table-cell;
 			vertical-align: middle;
-			margin-top: 200px;
+			margin-top: 150px;
 		}
 
 		.content {
@@ -35,7 +35,7 @@
 		}
 
 		.title {
-			font-size: 50px;
+			font-size: 150px;
 		}
 	</style>
 </head>
@@ -52,7 +52,13 @@
 		</md-toolbar>
 		<md-content class="container">
 			<div class="content">
-                <div class="title">404 - Oops! You did it again.</div>
+				<div layout="row"  layout-align="center center">
+                <div class="title">404</div>
+                <div style="margin-right:50px;"></div>
+                <div layout="column" layout-align="center center">
+                	<div style="font-size:50px;">ERROR!</div>
+                	<div style="font-size:35px;">PAGE NOT FOUND</div>
+                </div>
             </div>
 		</md-content>
 	</div>

@@ -86,6 +86,22 @@ class EmpCtrl extends Controller
 		echo $result;
 	}
 
+	public function count($dep, $name=null) {
+		
+		$data = Employee::orderBy('emp_id', 'desc');
+		
+		if ($dep != 0) {
+			$data = $data->where('dep_id', '=', $dep);
+		}
+
+		if (isset($name)) {
+			$data = $data->where('emp_name', 'like', '%'.$name.'%');
+		}
+
+		$result = $data->count();
+		echo $result;
+	}
+
 	public function selectSingle($id=null) {
 		$data = Employee::find($id);
 

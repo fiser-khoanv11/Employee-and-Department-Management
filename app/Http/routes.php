@@ -55,6 +55,7 @@ Route::group(['middleware' => ['free']], function () {
 	Route::get('emp-select/{skip}/{take}/{dep}/{name?}', 'EmpCtrl@select');
 	Route::get('emp-select-single/{id}', 'EmpCtrl@selectSingle');
 	Route::get('emp-select-names', 'EmpCtrl@selectNames');
+	Route::get('emp-count/{dep}/{name?}', 'EmpCtrl@count'); // de nguye nday, neu ko co thi la 0 roif
 
 	// Department Routes
 	Route::get('dep', 'DepCtrl@index');
@@ -62,8 +63,8 @@ Route::group(['middleware' => ['free']], function () {
 	Route::get('dep-select-single/{id}', 'DepCtrl@selectSingle');
 	Route::get('dep-select-names', 'DepCtrl@selectNames');
 
-	// Home Routes
-	Route::get('home','HomeCtrl@index');
+	// Home Routes// la truyen tham so day, cai kia ko co ? cais ? la co the co hoac khong, a ok
+	Route::get('home','HomeCtrl@index'); //sai sai, bik r
 	Route::get('count','HomeCtrl@count');
 });
 
