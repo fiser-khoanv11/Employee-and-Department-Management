@@ -128,6 +128,7 @@ app.controller('AccSidenavCtrl', function ($scope, $mdSidenav, $mdDialog, $http,
 			data: $scope.acc,
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).success(function (response) {
+			// If response is 'logon', reload the page, or else show 'fail' toast
 			if (response == 'logon') {
 				location.reload();
 			} else {

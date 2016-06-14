@@ -36,6 +36,7 @@ return [
 	'old_password' => 'Mật khẩu cũ',
 	'new_password' => 'Mật khẩu mới',
 	'confirm_password' => 'Nhập lại mật khẩu',
+	'count' => 'Số nhân viên',
 
 	'search' => 'Tìm kiếm',
 	'employee_name' => 'Tên nhân viên',

@@ -12,6 +12,7 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http) {
 
 	$scope.setTotal();
 
+	// Get 5 recent members
 	$scope.loadEmps = function () {
 		$http.get('emp-select/1/5/0').then(function (response) {
 			$scope.emps = response.data.records;

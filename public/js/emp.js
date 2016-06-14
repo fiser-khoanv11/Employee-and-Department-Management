@@ -11,6 +11,7 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 	$scope.page = 1;
 	$scope.perPage = 5;
 
+	// Load data
 	$scope.loadEmps = function () {
 		$str1 = loc + 'emp-select/' + $scope.page + '/' + $scope.perPage + "/" + $scope.search.dep;
 		$str2 = loc + 'emp-count/' + $scope.search.dep;
@@ -20,30 +21,36 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 			$str2 += '/' + $scope.search.nam;
 		}
 
+		// Get data for $scope.emps
 		$http.get($str1).then(function (response) {
 			$scope.emps = response.data.records;
 		});
 
+		// Set number of results
 		$http.get($str2).then(function (response) {
 			$scope.count = response.data;
 		});
 	}
 
+	// Set current page to 1
 	$scope.setPageToOne = function () {
 		$scope.page = 1;
 		$scope.loadEmps();
 	}
 
+	// Next page, reload data
 	$scope.previous = function () {
 		$scope.page --;
 		$scope.loadEmps();
 	}
 
+	// Previous page, reload data
 	$scope.next = function () {
 		$scope.page ++;
 		$scope.loadEmps();
 	}
 
+	// Check if the current page is the last page
 	$scope.isMax = function () {
 		if ($scope.page < ($scope.count / $scope.perPage)) {
 			return false;
@@ -52,8 +59,10 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 		return true;
 	}
 
+	// Load data
 	$scope.loadEmps();
 
+	// Submit new employee
 	$scope.submitNewEmp = function () {
 		// If DOB was set, increase it to 1 day before inserting into database
 		if ($scope.newEmp.dob != null) {
@@ -88,6 +97,7 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 		});
 	}
 
+	// Submit update employee
 	$scope.submitUpdateEmp = function () {
 		console.log($scope.updateEmp);
 
@@ -97,6 +107,7 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 			$scope.updateEmp.emp_dob.setDate($scope.updateEmp.emp_dob.getDate() + 1);
 		}
 
+		// Update photo
 		$scope.updateEmp.emp_photo = document.getElementById('there').src;
 
 		// Update database
@@ -106,19 +117,24 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 			data: $scope.updateEmp,
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).success(function (response) {
+			// Reload data
 			$scope.loadEmps();
+
+			// Close sidenav
 			$scope.closeEmpUpdateSidenav();
+
+			// Show toast
 			var toast = $mdToast.simple().textContent('Updated!')
 			$mdToast.show(toast);
-
-			// TODO: update info in select-nav
 		});
 	}
 
 	$scope.openEmpSelectSidenav = function (id) {
 		$http.get(loc + "emp-select-single/" + id).then(function (response) {
+			// Get data for $scope.selectEmp
 			$scope.selectEmp = response.data.record[0];
-			console.log($scope.selectEmp);
+			
+			// Open sidenav
 			$mdSidenav('emp-select-sidenav').open();
 		});
 	}
@@ -178,14 +194,6 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 	$scope.removePhoto = function (id) {
 		document.getElementById(id).src = loc + 'images/default_photo.jpg';
 	}
-
-	// $scope.checkPhoto = function (id) {
-	// 	if (document.getElementById(id).src == 'images/default_photo.jpg') {
-	// 		return true;
-	// 	}
-
-	// 	return false;
-	// }
 });
 
 app.controller('selectCtrl', function ($scope, $http) {

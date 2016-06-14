@@ -37,7 +37,7 @@
 				<md-icon class="md-avatar-icon" md-svg-src="{{url('icons/ic_people_white_24px.svg')}}"></md-icon>
 				<div class="md-list-item-text">
 					<h3>@{{selectDep.count}}</h3>
-					<p>Count</p>
+					<p>{{trans('common.count')}}</p>
 				</div>
 		  	</md-list-item>
 		</md-list>

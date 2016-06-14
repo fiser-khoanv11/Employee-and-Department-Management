@@ -36,6 +36,7 @@ return [
 	'old_password' => 'Old password',
 	'new_password' => 'New password',
 	'confirm_password' => 'Confirm password',
+	'count' => 'Number of employees',
 
 	'search' => 'Search',
 	'employee_name' => 'Employee Name',

@@ -26,10 +26,12 @@ class DepCtrl extends Controller
 		return view('dep', ['status' => $status, 'name' => $name, 'lang' => $lang, 'stt' => $stt]);
 	}
 
+	// Delete the department with given id
 	public function delete($id) {
 		Department::destroy($id);
 	}
 
+	// Insert a new department into database
 	public function insert() {
 		$_POST = json_decode(file_get_contents('php://input'), true);
 
@@ -42,6 +44,7 @@ class DepCtrl extends Controller
 		$dep->save();
 	}
 
+	// Update a department
 	public function update() {
 		$_POST = json_decode(file_get_contents('php://input'), true);
 
@@ -54,6 +57,7 @@ class DepCtrl extends Controller
 		$dep->save();
 	}
 
+	// Select all the departments with given conditions
 	public function select($skip, $take) {
 		$skip = ($skip - 1) * $take;
 		$data = Department::orderBy('dep_id', 'desc')->skip($skip)->take($take)->get();
@@ -70,11 +74,13 @@ class DepCtrl extends Controller
 		echo $result;
 	}
 
+	// Get the number of departments with given conditions
 	public function count() {
 		$data = Department::orderBy('dep_id', 'desc')->count();
 		echo $data;
 	}
 
+	// Select a single department with given id (for select sidenav)
 	public function selectSingle($id=null) {
 		$data = Department::find($id);
 		
@@ -91,6 +97,7 @@ class DepCtrl extends Controller
 		echo $result;
 	}
 
+	// Select the names (and id) of all departments, for <select>
 	public function selectNames() {
 		$data = Department::select('dep_id','dep_name')->orderBy('dep_name')->get();
 

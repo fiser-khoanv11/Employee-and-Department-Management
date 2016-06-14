@@ -25,10 +25,12 @@ class EmpCtrl extends Controller
 		return view('emp', ['dep' => $dep, 'status' => $status, 'name' => $name, 'lang' => $lang, 'stt' => $stt]);
 	}
 
+	// Delete the employee with given id
 	public function delete($id) {
 		Employee::destroy($id);
 	}
 
+	// Insert a new employee into database
 	public function insert() {
 		$_POST = json_decode(file_get_contents('php://input'), true);
 		
@@ -45,6 +47,7 @@ class EmpCtrl extends Controller
 		$emp->save();
 	}
 
+	// Update an employee
 	public function update() {
 		$_POST = json_decode(file_get_contents('php://input'), true);
 
@@ -61,6 +64,7 @@ class EmpCtrl extends Controller
 		$emp->save();
 	}
 
+	// Select all the employees with given conditions
 	public function select($skip, $take, $dep, $name=null) {
 		$skip = ($skip - 1) * $take;
 		$data = Employee::orderBy('emp_id', 'desc')->skip($skip)->take($take);
@@ -86,6 +90,7 @@ class EmpCtrl extends Controller
 		echo $result;
 	}
 
+	// Get the number of employees with given conditions
 	public function count($dep, $name=null) {
 		$data = Employee::orderBy('emp_id', 'desc');
 		
@@ -101,6 +106,7 @@ class EmpCtrl extends Controller
 		echo $data;
 	}
 
+	// Select a single employee with given id (for select sidenav)
 	public function selectSingle($id=null) {
 		$data = Employee::find($id);
 
@@ -114,12 +120,9 @@ class EmpCtrl extends Controller
 		$result = '{"record":[' . $data . ']}';
 		echo $result;
 		// echo 'test';
-	}
+	}	
 
-	public function redirect() {
-		return redirect('emp');
-	}
-
+	// Select the names (and id) of all employees, for <select>
 	public function selectNames() {
 		$data = Employee::select('emp_id','emp_name')->orderBy('emp_name')->get();
 

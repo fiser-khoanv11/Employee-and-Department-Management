@@ -23,21 +23,6 @@ class HomeCtrl extends Controller
 		return view('home', [ 'status' => $status, 'name' => $name, 'lang' => $lang, 'stt' => $stt]);
 	}
 
-	// public function countEmp(){
-	// 	$data = Employee::count();
-	// 	echo $data;
-	// }
-
-	// public function countDep(){
-	// 	$data = Department::count();
-	// 	echo $data;
-	// }
-
-	// public function countUsr(){
-	// 	$data = Account::count();
-	// 	echo $data;
-	// }
-
 	public function count() {
 		$emp = Employee::count();
 		$dep = Department::count();

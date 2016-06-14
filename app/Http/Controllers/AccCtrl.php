@@ -14,15 +14,19 @@ class AccCtrl extends Controller
 	public function login(Request $request) {
 		$_POST = json_decode(file_get_contents('php://input'), true);
 
+		// Get POST data
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 
+		// Get the record with given email
 		$data = Account::where('acc_email', '=', $email)->get()->first();
 
 		if ($data == '') {
+			// If the record not existed
 			echo 'not exists';
 		} else {
 			if ($data->acc_password == $password) {
+				// If passwords are matched
 				echo 'logon';
 				$request->session()->put('status', 'y');
 				$request->session()->put('name', $data->acc_name);
@@ -36,6 +40,7 @@ class AccCtrl extends Controller
 	}
 
 	public function logout(Request $request) {
+		// Delete all session variables
 		$request->session()->flush();
 		return redirect('/');
 	}
@@ -43,10 +48,7 @@ class AccCtrl extends Controller
 	public function insert() {
 		$_POST = json_decode(file_get_contents('php://input'), true);
 		
-		/*
-		@hung: Tao mat khau random roi gan vao $password
-		*/
-
+		// Create a random password
 		$password = "";
  		$charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
  		for($i = 0; $i < 8; $i++){
@@ -54,7 +56,7 @@ class AccCtrl extends Controller
 		    $password .= $charset[$random_int % strlen($charset)];
 	    }
 
-
+	    // Insert into database
 		$acc = new Account;
 
 		$acc->acc_name = $_POST['name'];
@@ -63,14 +65,13 @@ class AccCtrl extends Controller
 		
 		$acc->save();
 
-		/*
-		@hung: Thiet ke mail trong view resources/views/mail.blade.php
-		*/
+		// Send mail to the given email
     	Mail::send('mail', ['pass' => $password, 'name' => $acc->acc_name], function($message) {
 			$message->to($_POST['email'], 'OK')->subject('Password for ED Account');
 		});
 	}
 
+	// Change password
 	public function update(Request $request) {
 		$acc = Account::find($request->session()->get('id'));
 
@@ -89,6 +90,7 @@ class AccCtrl extends Controller
 			$ok = false;
 		}
 
+		// If passwords are correct, update
 		if ($ok) {
 			$acc->acc_password = $new;
 			$acc->acc_status = 1;
@@ -99,6 +101,7 @@ class AccCtrl extends Controller
 		}
 	}
 
+	// Check if the give email is existed in the database
 	public function checkEmail($email) {
 		$acc = Account::where('acc_email', '=', $email)->count();
 
@@ -109,10 +112,15 @@ class AccCtrl extends Controller
 		}
 	}
 
+	// Change language
 	public function language(Request $request) {
+		// Get current language
 		$lang = $request->session()->get('lang', 'en');
+
+		// Get the account with given id
 		$acc = Account::find($request->session()->get('id'));
 
+		// Change session value of 'lang', and change that in database too
 		if ($lang == 'en') {
 			$request->session()->put('lang', 'vi');
 			if (isset($acc)) {
@@ -130,6 +138,7 @@ class AccCtrl extends Controller
 		}
 	}
 
+	// Redirect into the 'change' page, when user log in the 1st time
 	public function change(Request $request) {
 		$status = $request->session()->get('status', 'n');
 		$name = $request->session()->get('name');
