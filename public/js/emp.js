@@ -4,9 +4,9 @@ app.controller('AppCtrl', function ($scope, $mdSidenav, $mdDialog, $http, $mdToa
 	$scope.search = {dep:document.getElementById('para').innerHTML, nam:''};
 	var loc = 'http://' + location.host + '/';
 	var image = document.getElementById('here');
-	// if (image != null) {
+	if (image != null) {
 		image.src = loc + 'images/default_photo.jpg';
-	// }
+	}
 	var change = 0;
 	$scope.page = 1;
 	$scope.perPage = 5;
