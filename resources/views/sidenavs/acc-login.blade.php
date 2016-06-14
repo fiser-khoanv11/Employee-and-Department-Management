@@ -8,15 +8,15 @@
 				<label>{{trans('common.email')}}</label>
 				<input type="email" name="email" ng-model="acc.email" required md-sidenav-focus>
 				<div ng-messages="loginForm.email.$error">
-					<div ng-message="required">Email is required.</div>
-					<div ng-message="email">Email is invalid.</div>
+					<div ng-message="required">{{trans('common.required')}}</div>
+					<div ng-message="email">{{trans('common.email_invalid')}}</div>
 				</div>
 			</md-input-container>
 			<md-input-container class="md-block">
 				<label>{{trans('common.password')}}</label>
 				<input type="password" name="password" ng-model="acc.password" required>
 				<div ng-messages="loginForm.password.$error">
-					<div ng-message="required">Password is required.</div>
+					<div ng-message="required">{{trans('common.required')}}</div>
 				</div>
 			</md-input-container>
 			<div layout="row">

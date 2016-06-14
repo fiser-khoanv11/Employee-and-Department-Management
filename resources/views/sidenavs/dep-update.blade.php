@@ -9,9 +9,9 @@
 			</md-input-container> -->
 		   	<md-input-container class="md-block">
 		        <label>{{trans('common.name')}}</label>
-		        <input type="text" name="name" ng-model="updateDep.dep_name" required md-maxlength="45" maxlength="45" md-sidenav-focus>
+		        <input type="text" name="name" ng-model="updateDep.dep_name" required md-maxlength="45" maxlength="45">
 		        <div ng-messages="updateForm.name.$error">
-					<div ng-message="required">Name is required.</div>
+					<div ng-message="required">{{trans('common.required')}}</div>
 				</div>
 		    </md-input-container>
 		    <md-input-container class="md-block">

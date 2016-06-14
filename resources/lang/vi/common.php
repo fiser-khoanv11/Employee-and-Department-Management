@@ -41,6 +41,8 @@ return [
 	'employee_name' => 'Tên nhân viên',
 	'all_departments' => 'Tất cả phòng ban',
 	'latest_member' => 'Nhân viên mới nhất',
+	'found' => 'Tìm thấy',
+	'results' => 'kết quả',
 
 	'clear' => 'Xóa',
 	'save' => 'Lưu',
@@ -56,6 +58,11 @@ return [
 	'previous' => 'Trước',
     'next' => 'Sau',
     'per_page' => 'Mỗi trang',
-    'page' => 'Trang'
+    'page' => 'Trang',
+
+    'required' => 'Bắt buộc',
+    'email_invalid' => 'Email không hợp lệ',
+    'email_used' => 'Email đã tồn tại',
+    'password_min' => 'Mật khẩu phải chứa 5 - 45 kí tự',
 
 ];

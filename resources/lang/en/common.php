@@ -41,6 +41,8 @@ return [
 	'employee_name' => 'Employee Name',
 	'all_departments' => 'All Departments',
 	'latest_member' => 'Latest Member',
+	'found' => 'Found',
+	'results' => 'results',
 
 	'clear' => 'Clear',
 	'save' => 'Save',
@@ -56,5 +58,10 @@ return [
 	'previous' => 'Previous',
 	'next' => 'Next',
 	'per_page' => 'Per page',
-	'page' => 'Page'
+	'page' => 'Page',
+
+	'required' => 'Required',
+	'email_invalid' => 'Email is invalid',
+	'email_used' => 'Email is used',
+	'password_min' => 'Password must have 5 - 45 characters',
 ];

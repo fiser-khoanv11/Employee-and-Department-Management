@@ -27,7 +27,7 @@
 
 	<div layout="row"  layout-align="space-between none">
 		<div>
-			<span>Found @{{count}} results</span>
+			<span>{{trans('common.found')}} @{{count}} {{trans('common.results')}}</span>
 			<md-button ng-click="previous()" ng-if="page!=1" style="min-width:0px">
 				<md-icon md-svg-src="{{url('icons/ic_navigate_before_white_24px.svg')}}"></md-icon>
 			</md-button>

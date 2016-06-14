@@ -85,6 +85,9 @@ app.controller('AccSidenavCtrl', function ($scope, $mdSidenav, $mdDialog, $http,
 
 	$scope.submitNewAcc = function () {
 		console.log($scope.newAcc);
+		var toast = $mdToast.simple().textContent('Please stand by! We\'re sending email.');
+		$mdToast.show(toast);
+
 		$http({
 			method: 'POST',
 			url: loc + 'acc-insert',
@@ -93,7 +96,7 @@ app.controller('AccSidenavCtrl', function ($scope, $mdSidenav, $mdDialog, $http,
 		}).success(function (response) {
 			$scope.toggleAccInsertSidenav();
 			$scope.newAcc = {name:null, email:null};
-			var toast = $mdToast.simple().textContent('Inserted!')
+			var toast = $mdToast.simple().textContent('Inserted!');
 			$mdToast.show(toast);
 		});
 	}

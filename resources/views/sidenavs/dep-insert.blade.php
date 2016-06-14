@@ -8,7 +8,7 @@
 				<label>{{trans('common.name')}}</label>
 				<input type="text" name="name" ng-model="newDep.name" required md-maxlength="45" maxlength="45">
 				<div ng-messages="insertForm.name.$error">
-					<div ng-message="required">Name is required.</div>
+					<div ng-message="required">{{trans('common.required')}}</div>
 				</div>
 			</md-input-container>
 			<md-input-container class="md-block">

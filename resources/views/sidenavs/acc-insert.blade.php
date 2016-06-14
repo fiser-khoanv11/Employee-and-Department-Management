@@ -8,16 +8,16 @@
 				<label>{{trans('common.name')}}</label>
 				<input type="text" name="name" ng-model="newAcc.name" required md-maxlength="45">
 				<div ng-messages="insertAccForm.name.$error">
-					<div ng-message="required">Name is required.</div>
+					<div ng-message="required">{{trans('common.required')}}</div>
 				</div>
 			</md-input-container>
 			<md-input-container class="md-block">
 				<label>{{trans('common.email')}}</label>
 				<input type="email" name="email" ng-model="newAcc.email" required email-used>
 				<div ng-messages="insertAccForm.email.$error">
-					<div ng-message="required">Email is required.</div>
-					<div ng-message="email">Email is invalid.</div>
-					<div ng-message="used">This email is used.</div>
+					<div ng-message="required">{{trans('common.required')}}</div>
+					<div ng-message="email">{{trans('common.email_invalid')}}</div>
+					<div ng-message="used">{{trans('common.email_used')}}</div>
 				</div>
 			</md-input-container>
 			<div layout="row">

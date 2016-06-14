@@ -8,24 +8,24 @@
 				<label>{{trans('common.old_password')}}</label>
 				<input type="password" name="old" ng-model="pass.old" required md-maxlength="45" minlength="5" maxlength="45">
 				<div ng-messages="updateForm.old.$error">
-					<div ng-message="required">Required.</div>
-					<div ng-message="minlength">Password must have 5 - 45 characters.</div>
+					<div ng-message="required">{{trans('common.required')}}</div>
+					<div ng-message="minlength">{{trans('common.password_min')}}</div>
 				</div>
 			</md-input-container>
 			<md-input-container class="md-block">
 				<label>{{trans('common.new_password')}}</label>
 				<input type="password" name="new" ng-model="pass.new" required md-maxlength="45" minlength="5" maxlength="45">
 				<div ng-messages="updateForm.new.$error">
-					<div ng-message="required">Required.</div>
-					<div ng-message="minlength">Password must have 5 - 45 characters.</div>
+					<div ng-message="required">{{trans('common.required')}}</div>
+					<div ng-message="minlength">{{trans('common.password_min')}}</div>
 				</div>
 			</md-input-container>
 			<md-input-container class="md-block">
 				<label>{{trans('common.confirm_password')}}</label>
 				<input type="password" name="confirm" ng-model="pass.confirm" required md-maxlength="45" minlength="5" maxlength="45">
 				<div ng-messages="updateForm.confirm.$error">
-					<div ng-message="required">Required.</div>
-					<div ng-message="minlength">Password must have 5 - 45 characters.</div>
+					<div ng-message="required">{{trans('common.required')}}</div>
+					<div ng-message="minlength">{{trans('common.password_min')}}</div>
 				</div>
 			</md-input-container>
 			<div layout="row">

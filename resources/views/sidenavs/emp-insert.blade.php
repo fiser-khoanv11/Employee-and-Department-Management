@@ -19,14 +19,14 @@
 				<label>{{trans('common.name')}}</label>
 				<input type="text" name="name" ng-model="newEmp.name" required md-maxlength="45" maxlength="45">
 				<div ng-messages="insertForm.name.$error">
-					<div ng-message="required">Name is required.</div>
+					<div ng-message="required">{{trans('common.required')}}</div>
 				</div>
 			</md-input-container>
 			<md-input-container class="md-block">
 				<label>{{trans('common.job_title')}}</label>
 				<input type="text" name="job" ng-model="newEmp.job" required md-maxlength="45" maxlength="45">
 				<div ng-messages="insertForm.job.$error">
-					<div ng-message="required">Job title is required.</div>
+					<div ng-message="required">{{trans('common.required')}}</div>
 				</div>
 			</md-input-container>
 			<md-input-container class="md-block">
@@ -37,7 +37,7 @@
 				<label>{{trans('common.email')}}</label>
 				<input type="email" name="email" ng-model="newEmp.email">
 				<div ng-messages="insertForm.email.$error">
-					<div ng-message="email">Email is invalid.</div>
+					<div ng-message="email">{{trans('common.email_invalid')}}</div>
 				</div>
 			</md-input-container>
 			<div ng-controller="selectCtrl">

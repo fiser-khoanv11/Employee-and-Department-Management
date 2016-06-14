@@ -66,7 +66,7 @@ class AccCtrl extends Controller
 		/*
 		@hung: Thiet ke mail trong view resources/views/mail.blade.php
 		*/
-    	Mail::send('mail', ['pass' => $password], function($message) {
+    	Mail::send('mail', ['pass' => $password, 'name' => $acc->acc_name], function($message) {
 			$message->to($_POST['email'], 'OK')->subject('Password for ED Account');
 		});
 	}
